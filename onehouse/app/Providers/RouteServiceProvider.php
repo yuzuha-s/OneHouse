@@ -7,9 +7,8 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 
 class RouteServiceProvider extends ServiceProvider
 {
-    /**
-     * Register services.
-     */
+    public const HOME = '/phase1';
+
     public function register(): void
     {
         //

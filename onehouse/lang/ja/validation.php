@@ -89,7 +89,7 @@ return [
     'min' => [
         'numeric' => ':attributeは:min㎡以上で登録できます',
         'file' => ':attributeは:maxキロバイトより小さくてはいけません。',
-        'string' => ':attributeは:max文字より小さくてはいけません。',
+        'string' => ':attributeは:max文字以上が必要です',
         'array' => ':attributeには少なくとも:min個のアイテムが必要です。',
     ],
     'multiple_of' => ':attributeは:valueの倍数である必要があります。',
@@ -171,6 +171,7 @@ return [
         'pricePerTsubo' => '坪単価',
         'builable_area' => '建築可能面積',
         'list' => 'タスク',
+        'password' => "パスワード",
 
     ],
 ];

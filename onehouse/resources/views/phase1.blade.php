@@ -18,7 +18,17 @@
             </div>
 
             <div class="list-nav">
-                <div class="validate-wrapper"></div>
+                <div class="validate-wrapper">
+                    @if (session('status'))
+                        <div class="validate"><svg xmlns="http://www.w3.org/2000/svg" height="40px"
+                                viewBox="0 -960 960 960" width="40px" fill="#576bf5">
+                                <path
+                                    d="M422-297.33 704.67-580l-49.34-48.67L422-395.33l-118-118-48.67 48.66L422-297.33ZM480-80q-82.33 0-155.33-31.5-73-31.5-127.34-85.83Q143-251.67 111.5-324.67T80-480q0-83 31.5-156t85.83-127q54.34-54 127.34-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82.33-31.5 155.33-31.5 73-85.5 127.34Q709-143 636-111.5T480-80Zm0-66.67q139.33 0 236.33-97.33t97-236q0-139.33-97-236.33t-236.33-97q-138.67 0-236 97-97.33 97-97.33 236.33 0 138.67 97.33 236 97.33 97.33 236 97.33ZM480-480Z" />
+                            </svg>
+                            <p>{{ session('status') }}</p>
+                        </div>
+                    @endif
+                </div>
             </div>
 
             <div class="add_button">
@@ -70,12 +80,11 @@
                                         <span class="slider"></span>
                                     </label></td>
                                 <td>{{ $checkList->phase->list }}</td>
-                                <td><svg
-                                    xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
-                                    width="40px" fill="#61C6DF">
-                                    <path
-                                        d="M710.97-192.56h32v-104.88h104.88v-32H742.97v-104.87h-32v104.87H606.1v32h104.87v104.88ZM726.15-140q-72.16 0-123-51.05t-50.84-122.59q0-72.73 50.83-123.72 50.84-51 123.34-51 71.83 0 122.88 51 51.05 50.99 51.05 123.72 0 71.54-51.05 122.59T726.15-140ZM180-220v-450l300-225.77L780-670v102.95q-11.82-3.67-24.47-5.1-12.65-1.44-25.79-1.85v-70.87L480-833.08 230.26-644.96v374.7h240.23q1.87 13.08 5.86 25.83 3.99 12.74 9.32 24.43H180Zm300-331.87Z" />
-                                </svg></td>
+                                <td><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
+                                        width="40px" fill="#61C6DF">
+                                        <path
+                                            d="M710.97-192.56h32v-104.88h104.88v-32H742.97v-104.87h-32v104.87H606.1v32h104.87v104.88ZM726.15-140q-72.16 0-123-51.05t-50.84-122.59q0-72.73 50.83-123.72 50.84-51 123.34-51 71.83 0 122.88 51 51.05 50.99 51.05 123.72 0 71.54-51.05 122.59T726.15-140ZM180-220v-450l300-225.77L780-670v102.95q-11.82-3.67-24.47-5.1-12.65-1.44-25.79-1.85v-70.87L480-833.08 230.26-644.96v374.7h240.23q1.87 13.08 5.86 25.83 3.99 12.74 9.32 24.43H180Zm300-331.87Z" />
+                                    </svg></td>
                                 <td></td>
                                 <td>
                                 </td>
@@ -91,7 +100,8 @@
                                             @if ($checkList->checked) checked @endif>
                                         <span class="slider"></span>
                                     </label></td>
-                                <td><input type="text" placeholder="リストを入力" class="checklist_input" name="list" value="{{ $checkList->phase->list }}" disabled></td>
+                                <td><input type="text" placeholder="リストを入力" class="checklist_input" name="list"
+                                        value="{{ $checkList->phase->list }}" disabled></td>
                                 <td></td>
                                 <td><button type="button" class="edit-list"><svg xmlns="http://www.w3.org/2000/svg"
                                             height="40px" viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">

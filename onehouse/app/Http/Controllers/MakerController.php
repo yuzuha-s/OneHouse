@@ -70,7 +70,6 @@ class MakerController extends Controller
     //  変更ページを更新する
     public function update(Request $request, string $id)
     {
-        // dd($request->all());
         $validated = $request->validate([
 
             'name' => 'required|string|max:255',
