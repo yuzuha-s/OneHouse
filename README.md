@@ -8,7 +8,7 @@ docs/
 | |[アプリテーマ](docs/focus.md) |focus.md |※のちのち要件定義に一本化する |
 | |[要件定義](docs/requirements.md)　　　|requirements.md |
 | 〇 |[業務フロー](docs/business_flow.md)　|business_flow.md |
-| 〇|[システム構成図](docs/infra.svg)　|architecture.md |
+| 〇|[システム構成図](docs/images/infra.svg)　|infra.svg |
 |〇 |[テーブル定義書](docs/database_schema.md)　|database_schema.md |
 |〇|[画面遷移図・ワイヤーフレーム](docs/screen_transition.md)　|screen_transition.md |
 
