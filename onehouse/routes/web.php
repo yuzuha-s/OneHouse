@@ -1,20 +1,43 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckListController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\LandLogController;
 use App\Http\Controllers\LoanSimulationController;
 use App\Http\Controllers\MakerController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Models\Maker;
 use App\Models\MakerFeature;
-use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('phase1');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::middleware('auth')->group(function () {
+    Route::get('/phase1', function () {
+        return view('phase1'); 
+    })->name('phase1');
+});
+require __DIR__.'/auth.php';
 
+// Route::get('/', function () {
+//     return view('auth/register');
+// });
+
+Route::middleware('auth')->get('/phase1', function () {
+    return view('phase1');
+})->name('phase1');
 // auth------------------------------------------
 Route::get('/password_reset', function () {
     return view('auth/password_reset');
@@ -83,4 +106,3 @@ Route::get('/phase5', function () {
 
 // Route::get('/phase5',[CheckListController::class, 'indexPhase1']);
 // Route::get('/phase5',[CheckListController::class, 'indexPhase5']);
-

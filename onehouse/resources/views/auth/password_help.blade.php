@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-          <div class="setup-form wrapper">
+            <div class="setup-form wrapper">
                 <div class="resetform-contant">
                     <label for="">email</label>
                     <input type="text" class="forminput">
@@ -42,27 +42,27 @@
             </div>
 
 
-        <div class="setup-form wrapper">
-            <div class="resetform-contant">
-                <label for="">Password</label>
-                <input type="text" class="forminput">
+            <div class="setup-form wrapper">
+                <div class="resetform-contant">
+                    <label for="">Password</label>
+                    <input type="text" class="forminput">
+                </div>
             </div>
-        </div>
 
-        <div class="setup-form wrapper">
-            <div class="register">
-                <button type="submit">変更する</button>
+            <div class="setup-form wrapper">
+                <div class="register">
+                    <button type="submit">変更する</button>
+                </div>
             </div>
-        </div>
 
 
-        <div class="setup-form wrapper">
-            <div class="button-form wrapper">
-                <a href="/login" class="setup-button">ログイン</a>
-                <a class="btn-hidden setup-button">ログイン</a>
+            <div class="setup-form wrapper">
+                <div class="button-form wrapper">
+                    <a href="/login" class="setup-button">ログイン</a>
+                    <a class="btn-hidden setup-button">ログイン</a>
 
+                </div>
             </div>
-        </div>
         </div>
 
 
