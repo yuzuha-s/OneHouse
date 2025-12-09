@@ -14,6 +14,7 @@
 
     <div class="section">
         <div class="nav">
+            <div class="auth-nav">{{ Auth::user()->name }}</div>
             <div class="main-nav">
                 <ul>
                     <li class="phase svg-phase1"><a href="/">
@@ -87,7 +88,7 @@
                                     viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
                                     <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
                                 </svg><span class="title">Checklist</span></a></li> --}}
-                        <li><a href="/password_reset">
+                        <li><a href="/user_setting">
                                 <div class="icon2"><svg xmlns="http://www.w3.org/2000/svg" height="40px"
                                         viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
                                         <path
