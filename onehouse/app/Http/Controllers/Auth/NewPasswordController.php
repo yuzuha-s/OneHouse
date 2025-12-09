@@ -31,7 +31,7 @@ class NewPasswordController extends Controller
         $request->validate([
             // 'token' => ['required'],
             'email' => ['required', 'email'],
-            'password' => ['required', 'max:8'],
+            'password' => ['required', 'min:8'],
         ], [
             'password.max' => 'パスワードは8文字以下で入力してください。',
         ]);

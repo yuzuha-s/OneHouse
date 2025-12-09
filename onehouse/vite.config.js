@@ -14,7 +14,6 @@ export default defineConfig({
                 "resources/js/checkList.js",
                 "resources/js/fadein.js",
                 "resources/js/makerlist.js",
-
                 "resources/js/landSimulation.js",
             ],
             refresh: true,

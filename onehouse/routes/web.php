@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\UserSettingController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckListController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\LandLogController;
 use App\Http\Controllers\LoanSimulationController;
 use App\Http\Controllers\MakerController;
 use App\Http\Controllers\UserController;
+
 use App\Models\Maker;
 use App\Models\MakerFeature;
 
@@ -15,34 +17,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// auth------------------------------------------
+
+require __DIR__ . '/auth.php';
+
 Route::middleware('auth')->group(function () {
     Route::get('/phase1', function () {
         return view('phase1');
     })->name('phase1');
 });
-require __DIR__ . '/auth.php';
 
-// Route::get('/', function () {
-//     return view('auth/register');
-// });
-
-// Route::middleware('auth')->get('/phase1', function () {
-//     return view('phase1');
-// })->name('phase1');
-
-// auth------------------------------------------
 Route::get('/user_setting', function () {
     return view('auth/user_setting');
 });
+Route::post('/user_setting', [UserSettingController::class, 'update'])->name('user_setting');
 
 Route::get('/login', function () {
     return view('auth/login');
@@ -51,6 +40,7 @@ Route::get('/login', function () {
 Route::get('/setup', function () {
     return view('auth/setup');
 });
+
 
 // phase1~5------------------------------------------
 
@@ -91,4 +81,3 @@ Route::delete('phase4/{id}', [LandLogController::class, 'destroy'])->name('phase
 Route::get('/phase5', function () {
     return view('phase5');
 });
-
