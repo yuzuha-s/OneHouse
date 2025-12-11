@@ -14,22 +14,23 @@
 
     <div class="section">
         <div class="nav">
-            <div class="auth-nav">{{ Auth::user()->name }}</div>
+            <div class="auth-nav">
+                <ul>
+                    <li><a href="#">
+                            <div class="icon2"><svg xmlns="http://www.w3.org/2000/svg" height="30px"
+                                    viewBox="0 -960 960 960" width="30px" fill="#000">
+                                    <path
+                                        d="M230.77-190.77h161.54v-240h175.38v240h161.54v-373.85L480-753.46 230.77-564.87v374.1ZM200-160v-420l280-211.54L760-580v420H536.92v-240H423.08v240H200Zm280-312.23Z">
+                                    </path>
+                                </svg></div>
+                        </a></li>
+                    <li><span class="title">{{ Auth::user()->name }}</span></li>
+                </ul>
+            </div>
             <div class="main-nav">
                 <ul>
-                    <li class="phase svg-phase1"><a href="/phase1">
-                            <div class="icon {{ request()->is('/') ? 'active' : '' }}"><svg
-                                    xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
-                                    width="40px" fill="#fff">
-                                    <path
-                                        d="M710.97-192.56h32v-104.88h104.88v-32H742.97v-104.87h-32v104.87H606.1v32h104.87v104.88ZM726.15-140q-72.16 0-123-51.05t-50.84-122.59q0-72.73 50.83-123.72 50.84-51 123.34-51 71.83 0 122.88 51 51.05 50.99 51.05 123.72 0 71.54-51.05 122.59T726.15-140ZM180-220v-450l300-225.77L780-670v102.95q-11.82-3.67-24.47-5.1-12.65-1.44-25.79-1.85v-70.87L480-833.08 230.26-644.96v374.7h240.23q1.87 13.08 5.86 25.83 3.99 12.74 9.32 24.43H180Zm300-331.87Z" />
-                                </svg>
 
-                            </div><span class="title">Checklist</span>
-                        </a></li>
-
-                    <li class="phase svg-phase2">
-                        <a href="/phase2">
+                    <li class="phase svg-phase2"><a href="/phase2">
                             <div class="icon {{ request()->is('phase2') ? 'active' : '' }}"><svg
                                     xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
                                     width="40px" fill="#fff">
@@ -60,13 +61,13 @@
                                 </svg></div><span class="title">Land size</span>
                         </a></li>
 
-                    <li class="phase svg-phase5"><a href="/phase5">
-                            <div class="icon {{ request()->is('phase5') ? 'active' : '' }}"><svg
+                    <li class="phase svg-phase1"><a href="/phase1">
+                            <div class="icon {{ request()->is('phase1') ? 'active' : '' }}"><svg
                                     xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
                                     width="40px" fill="#fff">
                                     <path
-                                        d="M180-140v-383.1l-80.64 61.77-30.13-40L180-586v-109.9h50.26v71.08L480-815l410.77 314.08-30.13 39.38L780-523.1V-140H180Zm50.26-50.26h206.92v-175.38h85.64v175.38h206.92v-371.02L480-751.72 230.26-561.28v371.02ZM180-744.61q0-41.18 27.9-70.08 27.89-28.9 71.84-28.9 23.69 0 36.59-14.34 12.9-14.35 12.9-34.38h50.26q0 40.77-27.62 69.88-27.62 29.1-72.13 29.1-23.1 0-36.29 14.05-13.19 14.06-13.19 34.67H180Zm50.26 554.35h499.48-499.48Z" />
-                                </svg></div><span class="title">Final step</span>
+                                        d="M371.33-198.67v-66.66H840v66.66H371.33Zm0-248v-66.66H840v66.66H371.33Zm0-248.66V-762H840v66.67H371.33ZM192.67-160.67q-29.7 0-50.85-20.5-21.15-20.5-21.15-50.5t20.83-50.83q20.83-20.83 50.83-20.83t50.5 21.15q20.5 21.15 20.5 50.85 0 29.15-20.76 49.91-20.75 20.75-49.9 20.75Zm0-248q-29.7 0-50.85-20.95-21.15-20.96-21.15-50.38t21.15-50.38q21.15-20.95 50.85-20.95 29.15 0 49.9 20.95 20.76 20.96 20.76 50.38t-20.76 50.38q-20.75 20.95-49.9 20.95ZM192-657.33q-29.43 0-50.38-20.96-20.95-20.95-20.95-50.38 0-29.42 20.95-50.38Q162.57-800 192-800q29.42 0 50.38 20.95 20.95 20.96 20.95 50.38 0 29.43-20.95 50.38-20.96 20.96-50.38 20.96Z" />
+                                </svg></div><span class="title">Checklist</span>
                         </a></li>
 
                 </ul>
@@ -77,18 +78,7 @@
             <div class="navigate">
                 <nav>
                     <ul>
-                        <li class="{{ request()->is('phase5') ? 'active' : '' }}"><a href="/phase5">
-                                <div class="icon2"><svg xmlns="http://www.w3.org/2000/svg" height="40px"
-                                        viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
-                                        <path
-                                            d="M371.33-198.67v-66.66H840v66.66H371.33Zm0-248v-66.66H840v66.66H371.33Zm0-248.66V-762H840v66.67H371.33ZM192.67-160.67q-29.7 0-50.85-20.5-21.15-20.5-21.15-50.5t20.83-50.83q20.83-20.83 50.83-20.83t50.5 21.15q20.5 21.15 20.5 50.85 0 29.15-20.76 49.91-20.75 20.75-49.9 20.75Zm0-248q-29.7 0-50.85-20.95-21.15-20.96-21.15-50.38t21.15-50.38q21.15-20.95 50.85-20.95 29.15 0 49.9 20.95 20.76 20.96 20.76 50.38t-20.76 50.38q-20.75 20.95-49.9 20.95ZM192-657.33q-29.43 0-50.38-20.96-20.95-20.95-20.95-50.38 0-29.42 20.95-50.38Q162.57-800 192-800q29.42 0 50.38 20.95 20.95 20.96 20.95 50.38 0 29.43-20.95 50.38-20.96 20.96-50.38 20.96Z" />
-                                    </svg></div><span class="title">Checklist</span>
-                            </a></li>
-                        {{-- <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="40px"
-                                    viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
-                                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-                                </svg><span class="title">Checklist</span></a></li> --}}
-                        <li><a href="/user_setting">
+                        <li><a href="/user_setting" class="nav-item">
                                 <div class="icon2"><svg xmlns="http://www.w3.org/2000/svg" height="40px"
                                         viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
                                         <path
@@ -97,17 +87,15 @@
                             </a></li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <li><button type="submit" class="logout-button">
+                            <li><button type="submit" class="logout-button" class="nav-item">
                                     <div class="icon2"><svg xmlns="http://www.w3.org/2000/svg" height="40px"
                                             viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
                                             <path
                                                 d="M186.67-120q-27 0-46.84-19.83Q120-159.67 120-186.67v-586.66q0-27 19.83-46.84Q159.67-840 186.67-840h292.66v66.67H186.67v586.66h292.66V-120H186.67Zm470.66-176.67-47-48 102-102H360v-66.66h351l-102-102 47-48 184 184-182.67 182.66Z" />
                                         </svg></div><span class="title">Logout</span>
-                                </button></li>
+                                </button>
+                            </li>
                         </form>
-
-
-
                     </ul>
                 </nav>
             </div>

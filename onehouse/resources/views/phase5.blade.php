@@ -1,4 +1,4 @@
-@extends('layout.nav')
+{{-- @extends('layout.nav')
 
 @section('ttitle', 'phase5')
 
@@ -210,4 +210,4 @@
 
     @vite('resources/js/checkList.js')
 
-@endsection
+@endsection --}}
