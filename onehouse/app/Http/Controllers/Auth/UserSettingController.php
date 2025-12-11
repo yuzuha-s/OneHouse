@@ -38,10 +38,9 @@ class UserSettingController extends Controller
     {
 
         $validated = $request->validate([
-
             'name' => 'required|string|max:255',
             'email' => 'required|string|max:255',
-            'password' => 'nullable|string|mix:8|max:255',
+            'password' => 'nullable|string|max:255',
         ]);
 
 

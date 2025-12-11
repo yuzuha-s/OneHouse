@@ -14,7 +14,7 @@ class ChecklistSeeder extends Seeder
         $profile = Profile::first() ?? Profile::create([
             'user_id' => 1,
         ]);
-       $checklists = [
+        $checklists = [
             [
                 'profile_id' => $profile->id,
                 'phase_id' => 1,

@@ -8,24 +8,39 @@ use Illuminate\Http\Request;
 
 class CheckListController extends Controller
 {
-    public function indexPhase1()
+    // public function indexPhase1()
+    // {
+    //     $checkLists = Checklist::with('profile')->get();
+    //     return view('phase1', compact('checkLists'));
+    // }
+    // public function indexPhase5()
+    // {
+    //     return view('phase5');
+    // }
+
+
+    public function index()
     {
-        $checkLists = Checklist::with('profile')->get();
+        $user = auth()->user();
+        $profile = $user->profile ?: $user->profile()->create([]);
+        $profileId = $profile->id;
+
+        $checkLists = Checklist::where('profile_id', $profileId)
+            ->with('phase')
+            ->get();
+
         return view('phase1', compact('checkLists'));
-    }
-    public function indexPhase5()
-    {
-        return view('phase5');
-    }
-
-
-    public function create()
-    {
     }
 
     //リストを登録する
     public function store(Request $request)
     {
+        if(!$request->profile_id) {
+            return response()->json(['error' => 'profile_idが必要です'], 422);
+        }
+
+        $profileId = $request->profile_id;
+
 
         $validated = $request->validate([
             'list' => 'required|string|min:1|max:255',
@@ -34,8 +49,9 @@ class CheckListController extends Controller
             'number' => 6,
             'list' => $validated['list'],
         ]);
+
         $checklist = Checklist::firstOrCreate([
-            'profile_id' => 1,
+            'profile_id' => $profileId,
             'phase_id'   => $phase->id,
         ], [
             'checked' => false,
@@ -50,20 +66,15 @@ class CheckListController extends Controller
     }
 
 
-    public function show(string $id)
-    {
-    }
+    public function show(string $id) {}
 
-    public function edit(string $id)
-    {
-    }
+    public function edit(string $id) {}
 
     // チェックリストを更新する
     public function update(Request $request, string $id)
     {
 
         $validated = $request->validate([
-
             'list' => 'sometimes|string|min:1|max:255',
             'checked' => 'sometimes|boolean',
         ]);

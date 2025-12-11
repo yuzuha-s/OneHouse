@@ -17,7 +17,7 @@
             <div class="auth-nav">{{ Auth::user()->name }}</div>
             <div class="main-nav">
                 <ul>
-                    <li class="phase svg-phase1"><a href="/">
+                    <li class="phase svg-phase1"><a href="/phase1">
                             <div class="icon {{ request()->is('/') ? 'active' : '' }}"><svg
                                     xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
                                     width="40px" fill="#fff">

@@ -33,7 +33,6 @@ class LandLogController extends Controller
     {
         // 保存する
         Log::info('LandLogs store called', $request->all());
-        //  dd($request->all());
 
         $validated = $request->validate([
             'address' => 'required|string|max:255',
@@ -47,12 +46,14 @@ class LandLogController extends Controller
         ]);
 
         //    更新する
+
+        $profileId = auth()->user()->profile->id;
         if ($request->id) {
             $landLog = LandLog::findOrFail($request->id);
             $landLog->update($validated);
         } else {
             LandLog::create([
-                'profile_id' => 1,
+                'profile_id' => $profileId,
                 'address' => $validated['address'],
                 'landarea' => $validated['landarea'],
                 'far' => $validated['far'],
@@ -79,16 +80,7 @@ class LandLogController extends Controller
 
     public function update(LandLogRequest $request, string $id)
     {
-        // $validated =  $request->validated();
-        // $profile_id = 1;
-
-        // $landLog = LandLog::updateOrCreate(
-        //     ['profile_id' => $profile_id],
-        //     $validated+['profile_id' => $profile_id]
-        // );
-        // return response()->json([
-        //     'data' => $landLog
-        // ]);
+        //
     }
 
     // 土地情報を削除する

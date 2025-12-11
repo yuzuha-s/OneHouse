@@ -24,10 +24,9 @@ class MakerController extends Controller
     // メーカー情報を新規登録する
     public function store(Request $request)
     {
-
+        $profileId = auth()->user()->profile->id;
         // dd($request->all());
         $validated = $request->validate([
-
             'name' => 'required|string|max:255',
             'sales' => 'nullable|string|max:255',
             'option' => 'nullable|string',
@@ -40,7 +39,7 @@ class MakerController extends Controller
         $maxStar = max($validated['star']);
 
         $maker = Maker::create([
-            'profile_id' => 1,
+            'profile_id' => $profileId,
             'name' => $validated['name'],
             'sales' => $validated['sales'] ?? null,
             'option' => $validated['option'] ?? null,
@@ -70,6 +69,7 @@ class MakerController extends Controller
     //  変更ページを更新する
     public function update(Request $request, string $id)
     {
+        $profileId = auth()->user()->profile->id;
         $validated = $request->validate([
 
             'name' => 'required|string|max:255',
@@ -86,7 +86,7 @@ class MakerController extends Controller
         $maxStar = max($validated['star']);
 
         $maker->update([
-            'profile_id' => 1,
+            'profile_id' =>  $profileId,
             'name' => $validated['name'],
             'sales' => $validated['sales'] ?? null,
             'option' => $validated['option'] ?? null,

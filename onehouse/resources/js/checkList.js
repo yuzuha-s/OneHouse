@@ -148,8 +148,10 @@ function setupEventListeners() {
             const tr = e.target.closest("tr");
             const input = tr.querySelector(".checklist_input");
             const listInput = input.value;
+            const profileId = document.getElementById("profile_id").value;
 
             const data = {
+                profile_id: profileId,
                 number: 6,
                 checked: false,
                 list: listInput,

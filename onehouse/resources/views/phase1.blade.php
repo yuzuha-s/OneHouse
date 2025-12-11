@@ -70,6 +70,8 @@
                     </tr>
                 </thead>
                 <tbody class="checklist">
+                    <input type="hidden" id="profile_id" value="{{ auth()->user()->profile->id }}">
+
 
                     @foreach ($checkLists ?? [] as $checkList)
                         @if ($checkList->phase->number === 1)
@@ -100,7 +102,7 @@
                                             @if ($checkList->checked) checked @endif>
                                         <span class="slider"></span>
                                     </label></td>
-                                <td><input type="text" placeholder="リストを入力" class="checklist_input" name="list"
+                                <td><input type="text" placeholder="タスクを入力" class="checklist_input" name="list"
                                         value="{{ $checkList->phase->list }}" disabled></td>
                                 <td></td>
                                 <td><button type="button" class="edit-list"><svg xmlns="http://www.w3.org/2000/svg"

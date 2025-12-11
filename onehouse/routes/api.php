@@ -6,10 +6,9 @@ use App\Http\Controllers\PhaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
-
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
 // ローンシミュレーションの更新・データ履歴の表示
 Route::put('/phase3/{profile_id}', [LoanSimulationController::class, 'update']);
 Route::get('/phase3/{profile_id}', [LoanSimulationController::class, 'show']);

@@ -23,9 +23,7 @@ Route::get('/', function () {
 require __DIR__ . '/auth.php';
 
 Route::middleware('auth')->group(function () {
-    Route::get('/phase1', function () {
-        return view('phase1');
-    })->name('phase1');
+    Route::get('/phase1', [CheckListController::class, 'index'])->name('phase1');
 });
 
 Route::get('/user_setting', function () {
@@ -40,6 +38,7 @@ Route::get('/login', function () {
 Route::get('/setup', function () {
     return view('auth/setup');
 });
+
 
 
 // phase1~5------------------------------------------

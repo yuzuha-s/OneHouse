@@ -23,6 +23,7 @@ class LoanSimulationController extends Controller
     // phase3のinput値を受け取る
     public function store(Request $request)
     {
+
         $validated = $request->validate([
             'loan' => 'required|numeric|min:1',
             'loan_term' => 'required|numeric|between:10,40',
@@ -31,10 +32,11 @@ class LoanSimulationController extends Controller
             'income' => 'required|numeric|min:1',
             'expense' => 'required|numeric|min:1',
         ]);
+        $profileId = auth()->user()->profile->id;
 
-        $validated['profile_id'] = $profile->id ?? 1;
-
-        LoanSimulation::create($validated);
+        LoanSimulation::create([
+            'profile_id' => $profileId,
+        ]);
 
         return response()->json([
             'message' => 'シミュレーションが完了しました！'
