@@ -309,7 +309,7 @@ function setupEventListeners() {
                 toggleTr.classList.add("toggleTr1");
                 toggleTr.innerHTML = `<td>
                                 <div style="display: flex; align-items: center; ">
-                                <span class="phase-toggle"><svg
+                                <span class="phase-toggle">Phase1<svg
                                     xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960"
                                     width="35px" fill="#8C8C8C">
                                     <path

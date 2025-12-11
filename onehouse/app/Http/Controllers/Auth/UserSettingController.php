@@ -8,30 +8,7 @@ use Illuminate\Http\Request;
 
 class UserSettingController extends Controller
 {
-    public function index()
-    {
-        //
-    }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show(string $id)
-    {
-        //
-    }
-
-    public function edit(string $id)
-    {
-        //
-    }
 
     // ログイン済ページで基本情報を変更する
     public function update(Request $request)

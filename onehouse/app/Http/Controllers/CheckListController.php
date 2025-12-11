@@ -35,7 +35,7 @@ class CheckListController extends Controller
     //リストを登録する
     public function store(Request $request)
     {
-        if(!$request->profile_id) {
+        if (!$request->profile_id) {
             return response()->json(['error' => 'profile_idが必要です'], 422);
         }
 
@@ -65,10 +65,6 @@ class CheckListController extends Controller
         ]);
     }
 
-
-    public function show(string $id) {}
-
-    public function edit(string $id) {}
 
     // チェックリストを更新する
     public function update(Request $request, string $id)

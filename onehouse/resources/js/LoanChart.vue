@@ -168,7 +168,7 @@
     </div>
   </div>
 </template>
-
+#TODO: セッション認証が上手くいかず
 <script>
 import ApexChart from "vue3-apexcharts";
 import { defineComponent } from "vue";

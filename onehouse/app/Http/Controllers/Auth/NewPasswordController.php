@@ -36,8 +36,6 @@ class NewPasswordController extends Controller
             'password.max' => 'パスワードは8文字以下で入力してください。',
         ]);
 
-
-
         // メールアドレスが登録されているか確認
         $user = User::where('email', $request->email)->first();
 

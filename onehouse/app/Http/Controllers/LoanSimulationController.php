@@ -20,10 +20,7 @@ class LoanSimulationController extends Controller
     }
 
 
-    public function create()
-    {
-        //
-    }
+
 
     // phase3のinput値を受け取る
     public function store(Request $request)
@@ -100,10 +97,7 @@ class LoanSimulationController extends Controller
     }
 
 
-    public function edit(string $id)
-    {
-        //
-    }
+
 
     public function update(LoanSimulationRequest $request, $id)
     {
@@ -126,11 +120,5 @@ class LoanSimulationController extends Controller
         return response()->json([
             'data' => $loanSimulations
         ]);
-    }
-
-
-    public function destroy(string $id)
-    {
-        //
     }
 }

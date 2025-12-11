@@ -63,10 +63,6 @@ class MakerController extends Controller
         return redirect()->route('phase2')->with('success', $validated['name'] . 'の登録が完了しました');
     }
 
-    public function show(string $id)
-    {
-        //
-    }
 
     //  変更ページを表示する
     public function edit(string $id)
