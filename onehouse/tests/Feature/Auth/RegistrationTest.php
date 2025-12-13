@@ -24,7 +24,7 @@ class RegistrationTest extends TestCase
         foreach (range(1, 23) as $i) {
             Phase::create([
                 'number' => $i,
-                'list' => 'default', 
+                'list' => 'default',
             ]);
         }
         $response = $this->post('/register', [
