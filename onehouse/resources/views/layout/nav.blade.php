@@ -14,16 +14,15 @@
 
     <div class="section">
         <div class="nav">
-            <div class="auth-nav">
+            <div class="loginuser-nav">
                 <ul>
-                    <li><a href="#">
-                            <div class="icon2"><svg xmlns="http://www.w3.org/2000/svg" height="30px"
-                                    viewBox="0 -960 960 960" width="30px" fill="#000">
-                                    <path
-                                        d="M230.77-190.77h161.54v-240h175.38v240h161.54v-373.85L480-753.46 230.77-564.87v374.1ZM200-160v-420l280-211.54L760-580v420H536.92v-240H423.08v240H200Zm280-312.23Z">
-                                    </path>
-                                </svg></div>
-                        </a></li>
+                    <li>
+                        <div class="icon2"><svg xmlns="http://www.w3.org/2000/svg" height="40px"
+                                viewBox="0 -960 960 960" width="40px" fill="#fff">
+                                <path
+                                    d="M131-90.67v-524.11l349-262.55 349.67 262.22v524.44H567.33v-316H392.67v316H131Z" />
+                            </svg></div>
+                    </li>
                     <li><span class="title">{{ Auth::user()->name }}</span></li>
                 </ul>
             </div>

@@ -12,9 +12,17 @@ use App\Http\Controllers\UserController;
 
 use App\Models\Maker;
 use App\Models\MakerFeature;
+use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/login', function () {
+    return view('auth/login');
+});
+
+Route::get('/setup', function () {
+    return view('auth/setup');
 });
 
 
@@ -24,27 +32,21 @@ require __DIR__ . '/auth.php';
 
 Route::middleware('auth')->group(function () {
     Route::get('/phase1', [CheckListController::class, 'index'])->name('phase1');
+    Route::get('/user_setting', function () {
+        return view('auth/user_setting');
+    });
+    Route::post('/user_setting', [UserSettingController::class, 'update'])->name('user_setting');
 });
 
-Route::get('/user_setting', function () {
-    return view('auth/user_setting');
-});
-Route::post('/user_setting', [UserSettingController::class, 'update'])->name('user_setting');
 
-Route::get('/login', function () {
-    return view('auth/login');
-});
-
-Route::get('/setup', function () {
-    return view('auth/setup');
-});
-
+Route::get('/sanctum/csrf-cookie', [CsrfCookieController::class, 'show']);
 // phase1~5------------------------------------------
 
 Route::middleware('auth')->group(function () {
     Route::get('/phase2', function () {
         return view('phase2');
     });
+
     // 住宅メーカー一覧表示
     Route::get('/phase2', [MakerController::class, 'index']);
     Route::get('/phase2', [MakerController::class, 'index'])->name('phase2');
@@ -75,8 +77,3 @@ Route::middleware('auth')->group(function () {
         return view('phase3');
     });
 });
-
-
-// Route::get('/phase5', function () {
-//     return view('phase5');
-// });

@@ -174,11 +174,6 @@ import ApexChart from "vue3-apexcharts";
 import { defineComponent } from "vue";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://127.0.0.1:8001";
-
-// クッキー送信を有効化
-axios.defaults.withCredentials = true;
-
 export default defineComponent({
   components: { apexchart: ApexChart },
 
@@ -238,7 +233,9 @@ export default defineComponent({
     async fetchLoanSimulation() {
       try {
         // profile_idのデータ取得
-        const res = await axios.get(`/api/phase3/${window.profileId}`);
+        const res = await axios.get('/api/phase3', {
+          withCredentials: true,
+        });
         if (res.data) {
           this.loan = res.data.loan ?? 0;
           this.loan_term = res.data.loan_term ?? 0;
@@ -252,7 +249,7 @@ export default defineComponent({
           console.warn("APIレスポンスが空です");
         }
       } catch (error) {
-        console.error("データ取得失敗", error);
+        console.error("データ取得失敗 表示できません", error);
         this.loan = 0;
         this.loan_term = 0;
         this.age = 0;
@@ -366,8 +363,9 @@ export default defineComponent({
 
         // LaravelのAPIのPOST
         const res = await axios.put(
-          `api/phase3/${window.profileId}`,
-          loanSimulation
+          '/api/phase3',
+          loanSimulation,
+          { withCredentials: true }
         );
         this.saveMessage = "シミュレーションを保存しました";
         this.calculationMessage = "";
@@ -387,8 +385,8 @@ export default defineComponent({
           this.errors = error.response.data.errors;
           // alert("バリデーション値と一致しないよ");
         } else {
+          console.error("サーバーへの通信に失敗しました。");
           console.error("通信エラー:", error);
-          alert("サーバーへの通信に失敗しました。");
         }
       }
     },

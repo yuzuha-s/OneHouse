@@ -492,8 +492,7 @@ h3 {
 
 
 .navigate,
-.main-nav,
-.auth-nav {
+.main-nav{
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
@@ -503,9 +502,16 @@ h3 {
   transition: width 0.6s ease;
 }
 
-.auth-nav {
-
+.loginuser-nav {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  width: 90px;
+  overflow: hidden;
+  margin: 30px auto;
+  transition: width 0.6s ease;
 }
+
 
 .navigate nav ul {
   display: flex;
@@ -514,6 +520,19 @@ h3 {
   gap: 15px;
   padding: 1.3rem 10px;
   margin: auto;
+}
+
+.loginuser-nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 1.1rem;
+  margin: auto;
+  background-color: #576bf5;
+  opacity: 0.6;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  color: #fff;
 }
 
 .main-nav ul {
@@ -535,6 +554,12 @@ h3 {
   padding: 0 10px;
 }
 
+.loginuser-nav li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .navigate li a,
 .main-nav li a,
 .auth-nav a {
@@ -543,6 +568,11 @@ h3 {
   width: 100%;
   position: relative;
   align-items: center;
+}
+
+.loginuser-nav svg {
+  display: block;
+  margin: 0 auto;
 }
 
 .main-nav li a {

@@ -19,9 +19,6 @@ class LoanSimulationController extends Controller
         return view('default', compact('loanSimulations'));
     }
 
-
-
-
     // phase3のinput値を受け取る
     public function store(Request $request)
     {
@@ -60,9 +57,9 @@ class LoanSimulationController extends Controller
     }
 
     // 登録データを表示する
-    public function show()
+    public function show(Request $request)
     {
-        $user = auth()->user();
+        $user = $request->user();
         // auth()->user() が null の場合
         if (!$user) {
             return redirect('/phase1');
@@ -99,9 +96,9 @@ class LoanSimulationController extends Controller
 
 
 
-    public function update(LoanSimulationRequest $request, $id)
+    public function update(LoanSimulationRequest $request)
     {
-        $user = auth()->user();
+        $user = $request->user();
         // auth()->user() が null の場合
         if (!$user) {
             return response()->json(['error' => 'ログインしてください'], 401);
