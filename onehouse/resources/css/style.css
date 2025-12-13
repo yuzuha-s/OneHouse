@@ -430,8 +430,6 @@ h3 {
   display: flex;
 }
 
-
-
 /* ナビゲーションバー ------------------------------------ */
 
 .nav {
@@ -493,9 +491,8 @@ h3 {
 }
 
 
-
 .navigate,
-.main-nav {
+.main-nav{
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
@@ -505,6 +502,17 @@ h3 {
   transition: width 0.6s ease;
 }
 
+.loginuser-nav {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  width: 90px;
+  overflow: hidden;
+  margin: 30px auto;
+  transition: width 0.6s ease;
+}
+
+
 .navigate nav ul {
   display: flex;
   flex-direction: column;
@@ -512,6 +520,19 @@ h3 {
   gap: 15px;
   padding: 1.3rem 10px;
   margin: auto;
+}
+
+.loginuser-nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 1.1rem;
+  margin: auto;
+  background-color: #576bf5;
+  opacity: 0.6;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  color: #fff;
 }
 
 .main-nav ul {
@@ -533,13 +554,25 @@ h3 {
   padding: 0 10px;
 }
 
+.loginuser-nav li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .navigate li a,
-.main-nav li a {
+.main-nav li a,
+.auth-nav a {
   color: #8C8C8C;
   display: flex;
   width: 100%;
   position: relative;
   align-items: center;
+}
+
+.loginuser-nav svg {
+  display: block;
+  margin: 0 auto;
 }
 
 .main-nav li a {
@@ -585,6 +618,7 @@ h3 {
 
 .navigate li:hover {
   background-color: #576bf5;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
 }
 
 .navigate li:active {
@@ -617,12 +651,62 @@ h3 {
   opacity: 0.3;
 }
 
+.logout-button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logout-button .icon2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout-button .title {
+  height: 60px;
+  line-height: 60px;
+  opacity: 0;
+  margin-left: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.nav:hover li .logout-button .title {
+  opacity: 1;
+  color: #8C8C8C;
+}
+
+.navigate li:hover .logout-button .title {
+  color: #fff;
+}
+
+
+li:hover .logout-button .title {
+  height: 60px;
+  line-height: 60px;
+  opacity: 1;
+  margin-left: 10px;
+  transition: opacity 0.3s ease;
+
+}
+
+li:hover .logout-button svg {
+  fill: #fff;
+}
+
+
 .icon2 {
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color 0.3s;
 }
+
+button.logout-button:hover {
+  background: none;
+}
+
 
 .icon.active {
   background-color: #FFA83F;
@@ -631,6 +715,7 @@ h3 {
 
 .navigate li.active {
   background-color: #576bf5;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
 }
 
 .navigate li.active a svg {
@@ -640,6 +725,7 @@ h3 {
 .navigate li.active a {
   color: #fff;
 }
+
 
 /* setting ------------------------------------ */
 .reset-form {

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Models\Phase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -18,14 +19,21 @@ class RegistrationTest extends TestCase
 
     public function test_new_users_can_register(): void
     {
+        parent::setUp();
+        // phases テーブルに 1〜23 を作成
+        foreach (range(1, 23) as $i) {
+            Phase::create([
+                'number' => $i,
+                'list' => 'default', 
+            ]);
+        }
         $response = $this->post('/register', [
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Test User1',
+            'email' => 'test1@example.com',
             'password' => 'password',
-            'password_confirmation' => 'password',
         ]);
-
+        // $this->assertGuest();
         $this->assertAuthenticated();
-        $response->assertRedirect(route('dashboard', absolute: false));
+        $response->assertRedirect('phase1');
     }
 }

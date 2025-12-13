@@ -13,10 +13,7 @@ class FeatureController extends Controller
         return view('phase2_edit', compact('features'));
     }
 
-    public function create()
-    {
-        //
-    }
+
     public function store(Request $request)
     {
         $validated =  $request->validate([
@@ -27,27 +24,5 @@ class FeatureController extends Controller
         Feature::create($validated);
 
         return redirect()->route('phase2')->with('success', '登録が完了しました');
-    }
-
-
-    public function show(string $id)
-    {
-        //
-    }
-
-
-    public function edit(string $id)
-    {
-        //
-    }
-
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    public function destroy(string $id)
-    {
-        //
     }
 }

@@ -60,7 +60,7 @@
                 type="number"
                 :style="{ textAlign: 'right' }"
               />
-              <span class ="loan-span">万円</span>
+              <span class="loan-span">万円</span>
             </div>
           </div>
 
@@ -73,7 +73,7 @@
                 step="0.1"
                 :style="{ textAlign: 'right' }"
               />
-              <span class ="loan-span">%</span>
+              <span class="loan-span">%</span>
             </div>
           </div>
 
@@ -87,7 +87,7 @@
                 max="40"
                 :style="{ textAlign: 'right' }"
               />
-              <span class ="loan-span">年</span>
+              <span class="loan-span">年</span>
             </div>
           </div>
         </div>
@@ -101,7 +101,7 @@
                 type="number"
                 :style="{ textAlign: 'right' }"
               />
-              <span class ="loan-span">歳</span>
+              <span class="loan-span">歳</span>
             </div>
           </div>
 
@@ -113,7 +113,7 @@
                 type="number"
                 :style="{ textAlign: 'right' }"
               />
-              <span class ="loan-span">万円/月</span>
+              <span class="loan-span">万円/月</span>
             </div>
           </div>
 
@@ -125,25 +125,28 @@
                 type="number"
                 :style="{ textAlign: 'right' }"
               />
-              <span class ="loan-span">万円/年</span>
+              <span class="loan-span">万円/年</span>
             </div>
           </div>
         </div>
         <div class="calculate">
           <button @click="calculateLoan">計算する</button>
-
         </div>
       </div>
 
       <div class="loan-right">
         <div class="loan-card">
           <div class="valiableform-row">
-            <div class="form-valiable" :class="{highlight: borderlight}">{{ payoffAge }}</div>
+            <div class="form-valiable" :class="{ highlight: borderlight }">
+              {{ payoffAge }}
+            </div>
             <span>歳で完済が完了します。</span>
           </div>
           <div class="valiableform-row">
             <span>月々の返済額は</span>
-            <div class="form-valiable" :class="{highlight: borderlight}">{{ monthlyPayment }}</div>
+            <div class="form-valiable" :class="{ highlight: borderlight }">
+              {{ monthlyPayment }}
+            </div>
             <span>万円です。</span>
           </div>
 
@@ -165,7 +168,7 @@
     </div>
   </div>
 </template>
-
+#TODO: セッション認証が上手くいかず
 <script>
 import ApexChart from "vue3-apexcharts";
 import { defineComponent } from "vue";
@@ -229,8 +232,13 @@ export default defineComponent({
   methods: {
     async fetchLoanSimulation() {
       try {
-        // profile_id=1 のデータ取得
-        const res = await axios.get("/api/phase3/1");
+        // profile_idのデータ取得
+        const res = await axios.get("/api/phase3", {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${this.token}`,
+          },
+        });
         if (res.data) {
           this.loan = res.data.loan ?? 0;
           this.loan_term = res.data.loan_term ?? 0;
@@ -244,7 +252,7 @@ export default defineComponent({
           console.warn("APIレスポンスが空です");
         }
       } catch (error) {
-        console.error("データ取得失敗", error);
+        console.error("データ取得失敗 表示できません", error);
         this.loan = 0;
         this.loan_term = 0;
         this.age = 0;
@@ -341,7 +349,6 @@ export default defineComponent({
         setTimeout(() => {
           this.showValidate = false;
         }, 3000);
-
       }
     },
 
@@ -349,7 +356,6 @@ export default defineComponent({
     async saveLoanSimulate() {
       try {
         const loanSimulation = {
-          profile_id: 1,
           loan: this.loan,
           rate: this.rate,
           loan_term: this.loan_term,
@@ -359,7 +365,12 @@ export default defineComponent({
         };
 
         // LaravelのAPIのPOST
-        const res = await axios.put("/api/phase3/1", loanSimulation);
+        const res = await axios.put("/api/phase3", loanSimulation, {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${this.token}`,
+          },
+        });
         this.saveMessage = "シミュレーションを保存しました";
         this.calculationMessage = "";
 
@@ -378,8 +389,8 @@ export default defineComponent({
           this.errors = error.response.data.errors;
           // alert("バリデーション値と一致しないよ");
         } else {
+          console.error("サーバーへの通信に失敗しました。");
           console.error("通信エラー:", error);
-          alert("サーバーへの通信に失敗しました。");
         }
       }
     },

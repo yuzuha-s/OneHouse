@@ -10,8 +10,14 @@ use Illuminate\Support\Facades\Log;
 class MakerController extends Controller
 {
     public function index(Request $request)
+
     {
-        $makers = Maker::with('features.category')->simplePaginate(2);
+        $user = auth()->user();
+        $profile = $user->profile ?: $user->profile()->create([]);
+        $profileId = $profile->id;
+        $makers = Maker::with('features.category')
+            ->where('profile_id', $profileId)
+            ->simplePaginate(2);
         return view('phase2', compact('makers'));
     }
     // 新規作成する
@@ -24,10 +30,13 @@ class MakerController extends Controller
     // メーカー情報を新規登録する
     public function store(Request $request)
     {
+        $user = auth()->user();
+        $profile = $user->profile ?: $user->profile()->create([]);
+        $profileId = $profile->id;
 
-        // dd($request->all());
+
+
         $validated = $request->validate([
-
             'name' => 'required|string|max:255',
             'sales' => 'nullable|string|max:255',
             'option' => 'nullable|string',
@@ -40,7 +49,7 @@ class MakerController extends Controller
         $maxStar = max($validated['star']);
 
         $maker = Maker::create([
-            'profile_id' => 1,
+            'profile_id' => $profileId,
             'name' => $validated['name'],
             'sales' => $validated['sales'] ?? null,
             'option' => $validated['option'] ?? null,
@@ -54,15 +63,16 @@ class MakerController extends Controller
         return redirect()->route('phase2')->with('success', $validated['name'] . 'の登録が完了しました');
     }
 
-    public function show(string $id)
-    {
-        //
-    }
 
     //  変更ページを表示する
     public function edit(string $id)
     {
-        $maker = Maker::with('features.category')->findOrFail($id);
+        $profileId = auth()->user()->profile->id;
+
+        $maker = Maker::with('features.category')
+            ->where('id', $id)
+            ->where('profile_id', $profileId)
+            ->firstOrFail();
         $features = Feature::with('category')->get();
         return view('phase2_update', compact('maker', 'features'));
     }
@@ -70,8 +80,8 @@ class MakerController extends Controller
     //  変更ページを更新する
     public function update(Request $request, string $id)
     {
+        $profileId = auth()->user()->profile->id;
         $validated = $request->validate([
-
             'name' => 'required|string|max:255',
             'sales' => 'nullable|string|max:255',
             'option' => 'nullable|string',
@@ -82,11 +92,13 @@ class MakerController extends Controller
         ]);
 
 
-        $maker = Maker::findOrFail($id);
+        $maker = Maker::where('id', $id)
+            ->where('profile_id', $profileId)
+            ->firstOrFail();
+
         $maxStar = max($validated['star']);
 
         $maker->update([
-            'profile_id' => 1,
             'name' => $validated['name'],
             'sales' => $validated['sales'] ?? null,
             'option' => $validated['option'] ?? null,
@@ -102,7 +114,10 @@ class MakerController extends Controller
     // メーカー情報を削除する
     public function destroy(string $id)
     {
-        $maker = Maker::findOrFail($id);
+        $profileId = auth()->user()->profile->id;
+        $maker = Maker::where('id', $id)
+            ->where('profile_id', $profileId)
+            ->firstOrFail();
         $makerName = $maker->name;
         $maker->features()->detach();
         $maker->delete();

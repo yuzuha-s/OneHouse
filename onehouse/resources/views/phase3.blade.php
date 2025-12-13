@@ -12,6 +12,10 @@
         <div class="list">
 
             <div id="chart-app"></div>
+            <script>
+                window.profileId = {{ auth()->user()->profile->id ?? '' }}
+            </script>
+
             @vite('resources/js/app.js')
 
         </div>

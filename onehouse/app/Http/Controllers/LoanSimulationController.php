@@ -10,19 +10,27 @@ class LoanSimulationController extends Controller
 {
     public function index()
     {
-        $loanSimulations = LoanSimulation::with('profile')->get();
+        $user = auth()->user();
+        $profile = $user->profile ?: $user->profile()->create([]);
+        $profileId = $profile->id;
+
+        $loanSimulations = LoanSimulation::where('profile_id', $profileId)
+            ->get();
         return view('default', compact('loanSimulations'));
-    }
-
-
-    public function create()
-    {
-        //
     }
 
     // phase3のinput値を受け取る
     public function store(Request $request)
     {
+        $user = auth()->user();
+
+        // auth()->user() が null の場合
+        if (!$user) {
+            return response()->json(['error' => 'ログインしてください'], 401);
+        }
+        $profile = $user->profile ?: $user->profile()->create([]);
+        $profileId = $profile->id;
+
         $validated = $request->validate([
             'loan' => 'required|numeric|min:1',
             'loan_term' => 'required|numeric|between:10,40',
@@ -32,9 +40,16 @@ class LoanSimulationController extends Controller
             'expense' => 'required|numeric|min:1',
         ]);
 
-        $validated['profile_id'] = $profile->id ?? 1;
 
-        LoanSimulation::create($validated);
+        LoanSimulation::updateOrcreate([
+            'profile_id' => $profileId,
+            'loan'        => $validated['loan'],
+            'loan_term'   => $validated['loan_term'],
+            'age'         => $validated['age'],
+            'rate'        => $validated['rate'],
+            'income'      => $validated['income'],
+            'expense'     => $validated['expense'],
+        ]);
 
         return response()->json([
             'message' => 'シミュレーションが完了しました！'
@@ -42,11 +57,17 @@ class LoanSimulationController extends Controller
     }
 
     // 登録データを表示する
-    public function show(string $id)
+    public function show(Request $request)
     {
-        $loanSimulation = LoanSimulation::where('profile_id', 1)
-            ->latest('updated_at')
-            ->first();
+        $user = $request->user();
+        // auth()->user() が null の場合
+        if (!$user) {
+            return redirect('/phase1');
+        }
+        $profile = $user->profile ?: $user->profile()->create([]);
+        $profileId = $profile->id;
+
+        $loanSimulation = LoanSimulation::where('profile_id', $profileId)->first();
         if (!$loanSimulation) {
             return response()->json([
                 'loan' => 0,
@@ -73,29 +94,28 @@ class LoanSimulationController extends Controller
     }
 
 
-    public function edit(string $id)
-    {
-        //
-    }
 
-    public function update(LoanSimulationRequest $request, $id)
+
+    public function update(LoanSimulationRequest $request)
     {
+        $user = $request->user();
+        // auth()->user() が null の場合
+        if (!$user) {
+            return response()->json(['error' => 'ログインしてください'], 401);
+        }
+        $profile = $user->profile ?: $user->profile()->create([]);
+        $profileId = $profile->id;
+
         $validated =  $request->validated();
-        $profile_id = 1;
+
 
         $loanSimulations = LoanSimulation::updateOrCreate(
-            ['profile_id' => $profile_id],
-            $validated + ['profile_id' => $profile_id]
+            ['profile_id' => $profileId],
+            $validated + ['profile_id' => $profileId]
         );
 
         return response()->json([
             'data' => $loanSimulations
         ]);
-    }
-
-
-    public function destroy(string $id)
-    {
-        //
     }
 }
