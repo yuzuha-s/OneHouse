@@ -32,7 +32,7 @@ class LandLogController extends Controller
 
         $validated = $request->validate([
             'address' => 'required|string|max:255',
-            'landarea' => 'required|decimal:0,1',
+            'landarea' => 'required|numeric',
             'far' => 'required|integer|min:1',
             'bcr' => 'required|integer|min:1',
             'floor' => 'required|integer|min:1|max:3',
