@@ -71,6 +71,7 @@
                 </div>
             </div>
 
+
             <div class="setup-form wrapper">
                 <div class="register">
                     <button type="submit">新規登録</button>

@@ -46,6 +46,12 @@
                             class="forminput" required autofocus>
                     </div>
                 </div>
+                <div class="setup-form wrapper hidden">
+                    <div class="resetform-contant">
+                        <label></label>
+                        <input>
+                    </div>
+                </div>
 
                 <div class="setup-form wrapper">
                     <div class="register">
