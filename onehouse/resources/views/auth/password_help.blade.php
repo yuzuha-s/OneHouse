@@ -30,37 +30,38 @@
 
         <div class="auth-form">
             <div class="setup-form wrapper">
-                <div class="resetform-contant">
-                    <label for="email">email</label>
-                    <input id="email" value="{{ old('email') }}" type="email" name="email" class="forminput"
-                        required autofocus>
+                <div class="setup-form wrapper">
+                    <div class="resetform-contant">
+                        <label for="email">email</label>
+                        <input id="email" value="{{ old('email') }}" type="email" name="email" class="forminput"
+                            required autofocus>
+                    </div>
+                </div>
+
+
+                <div class="setup-form wrapper">
+                    <div class="resetform-contant">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" value="{{ old('password') }}" type="password"
+                            class="forminput" required autofocus>
+                    </div>
+                </div>
+
+                <div class="setup-form wrapper">
+                    <div class="register">
+                        <button type="submit">変更する</button>
+                    </div>
+                </div>
+
+
+                <div class="setup-form wrapper">
+                    <div class="button-form wrapper">
+                        <a href="/login" class="setup-button">ログイン</a>
+                        <a class="btn-hidden setup-button">ログイン</a>
+
+                    </div>
                 </div>
             </div>
-
-
-            <div class="setup-form wrapper">
-                <div class="resetform-contant">
-                    <label for="password">Password</label>
-                    <input id="password" name="password" value="{{ old('password') }}" type="password" class="forminput"
-                        required autofocus>
-                </div>
-            </div>
-
-            <div class="setup-form wrapper">
-                <div class="register">
-                    <button type="submit">変更する</button>
-                </div>
-            </div>
-
-
-            <div class="setup-form wrapper">
-                <div class="button-form wrapper">
-                    <a href="/login" class="setup-button">ログイン</a>
-                    <a class="btn-hidden setup-button">ログイン</a>
-
-                </div>
-            </div>
-        </div>
     </form>
 
 

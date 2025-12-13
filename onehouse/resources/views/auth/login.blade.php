@@ -4,6 +4,8 @@
 
 @section('content')
 
+
+
     <div class="auth-header wrapper">
         <div class="list-nav">
             <h1>Login</h1>

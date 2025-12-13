@@ -1,5 +1,5 @@
 body {
-  height: 100vh;
+  height: auto;
   margin: 0;
   display: flex;
   background: conic-gradient(from 0deg at 50% 50%,
@@ -12,6 +12,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  font-family: "Noto Sans JP", Arial, "Roboto", sans-serif;
 }
 
 .fade {
@@ -194,6 +195,9 @@ h3 {
     transform: translateY(-10px);
   }
 }
+.mobile-only {
+  display: none;
+}
 
 .validate {
   display: flex;
@@ -300,7 +304,7 @@ h3 {
 }
 
 .auth-form {
-  margin-top: 100px;
+  margin-top: 60px;
 
 }
 
@@ -310,13 +314,13 @@ h3 {
 }
 
 .app-title {
-  font-size: 73px;
+  font-size: 4.3rem;
   font-weight: lighter;
 }
 
 
 .auth-nav {
-  width: 80%;
+  width: 100%;
   text-align: center;
   margin-top: 20px;
 }
@@ -492,7 +496,7 @@ h3 {
 
 
 .navigate,
-.main-nav{
+.main-nav {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
@@ -770,7 +774,7 @@ button.logout-button:hover {
 }
 
 .setup-form {
-  width: 80%;
+  width: 90%;
 }
 
 .setup-form button {
@@ -779,9 +783,13 @@ button.logout-button:hover {
 }
 
 .setup-button {
+  display: inline-flex;
+  white-space: nowrap;
   background-color: #E7E9FE;
   border-radius: 40px;
   padding: 15px 40px;
+  align-items: center;
+  justify-content: center;
   border: none;
   font-size: 10px;
   letter-spacing: 3px;
@@ -1865,10 +1873,107 @@ input.landinput:focus {
 }
 
 /* スマホサイズ向け */
-@media (max-width: 768px) {
+@media (max-width: 938px) {
+  html {
+    font-size: 14px;
+    opacity: 0.9;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+  .mobile-only {
+    display: block;
+  }
+
   .main-nav ul {
+    width: 100%;
     gap: 40px;
-    flex-wrap: wrap;
+  }
+
+  .auth-section {
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    margin: 20px auto;
+  }
+
+  .detail,
+  .auth-contant {
+    width: 93%;
+    margin: 20px auto;
+  }
+
+  .app-title {
+    font-size: 3.2rem;
+  }
+
+  .appname .icon svg {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin-top: auto;
+  }
+
+  .auth-nav .icon {
+    padding: 15px;
+  }
+
+  .auth-nav .icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .auth-nav li a .title {
+    margin-left: 20px;
+  }
+
+  .auth-contant {}
+
+  .auth-header {
+    margin-top: 30px;
+  }
+
+  .auth-form {
+    margin-top: 30px;
+  }
+
+  .setup-form {
+    width: 95%;
+  }
+
+  .resetform-contant input {
+    width: 90%;
+    padding: 20px 10px;
+  }
+
+  .setup-form .register {
+    width: 90%;
+    margin: auto;
+  }
+
+  .button-form {
+    /* flex-direction: column; */
+    margin-bottom: 30px;
+  }
+
+  .register button {
+    padding: 15px 40px;
+  }
+
+  .setup-button {
+    padding: 15px 20px;
+  }
+
+  .setup {
+    background-color: #576bf5;
   }
 }
 
