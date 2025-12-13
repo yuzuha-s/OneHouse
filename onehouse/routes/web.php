@@ -24,7 +24,7 @@ Route::get('/login', function () {
 Route::get('/setup', function () {
     return view('auth/setup');
 });
-
+Route::get('/sanctum/csrf-cookie', [CsrfCookieController::class, 'show']);
 
 // auth------------------------------------------
 
@@ -38,8 +38,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/user_setting', [UserSettingController::class, 'update'])->name('user_setting');
 });
 
-
-Route::get('/sanctum/csrf-cookie', [CsrfCookieController::class, 'show']);
 // phase1~5------------------------------------------
 
 Route::middleware('auth')->group(function () {

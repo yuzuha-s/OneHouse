@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LandLogRequest;
 use App\Models\LandLog;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class LandLogController extends Controller
 {
@@ -59,7 +58,6 @@ class LandLogController extends Controller
                 'pricePerTsubo' =>  $validated['pricePerTsubo'],
             ]);
         }
-
 
         return redirect()->route('phase4')->with('success', '登録が完了しました');
     }

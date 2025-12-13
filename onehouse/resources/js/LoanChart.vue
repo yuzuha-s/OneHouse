@@ -233,8 +233,11 @@ export default defineComponent({
     async fetchLoanSimulation() {
       try {
         // profile_idのデータ取得
-        const res = await axios.get('/api/phase3', {
+        const res = await axios.get("/api/phase3", {
           withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${this.token}`,
+          },
         });
         if (res.data) {
           this.loan = res.data.loan ?? 0;
@@ -362,11 +365,12 @@ export default defineComponent({
         };
 
         // LaravelのAPIのPOST
-        const res = await axios.put(
-          '/api/phase3',
-          loanSimulation,
-          { withCredentials: true }
-        );
+        const res = await axios.put("/api/phase3", loanSimulation, {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${this.token}`,
+          },
+        });
         this.saveMessage = "シミュレーションを保存しました";
         this.calculationMessage = "";
 
