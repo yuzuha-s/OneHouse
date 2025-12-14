@@ -45,7 +45,9 @@
       </div>
 
       <div class="list-nav">
-        <p>最終更新日：{{ lastUpdated }}</p>
+        <div class="updated_at wrraper">
+          <p class="update">最終更新日：{{ lastUpdated }}</p>
+        </div>
       </div>
     </div>
 

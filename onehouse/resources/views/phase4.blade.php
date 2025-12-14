@@ -94,8 +94,8 @@
                                         <div class="error">{{ $message }}</div>
                                     @enderror
                                 </div>
-
                             </div>
+
                             <div class="landform-contant">
                                 <label for="">建ぺい率(%)</label>
                                 <div class="land-form-row"> <input type="number" class="landinput" placeholder="80"

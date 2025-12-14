@@ -14,6 +14,10 @@
             </div>
 
             <div class="list-nav">
+                <p class="updated_at">前回更新日：{{ Auth::user()->updated_at }}</p>
+            </div>
+
+            <div class="list-nav">
                 <div class="validate-wrapper">
                     @if (session('status'))
                         <div class="validate"> <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
@@ -36,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="list-nav">前回更新日：{{ Auth::user()->updated_at }}</div>
+
         </div>
 
         <form method="POST" action="{{ route('user_setting') }}">
