@@ -12,6 +12,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  font-family: "Noto Sans JP", Arial, "Roboto", sans-serif;
 }
 
 .fade {
@@ -195,6 +196,10 @@ h3 {
   }
 }
 
+.mobile-only {
+  display: none;
+}
+
 .validate {
   display: flex;
   gap: 20px;
@@ -287,7 +292,6 @@ h3 {
   width: 80%;
   gap: 100px;
   margin-top: 100px;
-
 }
 
 .auth-contant {
@@ -300,23 +304,21 @@ h3 {
 }
 
 .auth-form {
-  margin-top: 100px;
-
+  margin-top: 60px;
 }
-
 
 .appname {
   display: flex;
 }
 
 .app-title {
-  font-size: 73px;
+  font-size: 4.3rem;
   font-weight: lighter;
 }
 
 
 .auth-nav {
-  width: 80%;
+  width: 100%;
   text-align: center;
   margin-top: 20px;
 }
@@ -394,7 +396,8 @@ h3 {
   text-align: center;
 }
 
-.btn-hidden {
+.btn-hidden,
+.hidden {
   visibility: hidden;
 }
 
@@ -412,8 +415,8 @@ h3 {
   transform: scale(1.05);
   box-shadow: 13px 13px 100px #969696,
     -13px -13px 100px #ffffff;
-
 }
+
 
 /* main contant ------------------------------------ */
 .contant {
@@ -437,12 +440,8 @@ h3 {
   width: 100px;
   align-items: flex-start;
   position: relative;
-  margin: auto;
+  /* margin: auto; */
   transition: width 0.6s ease;
-}
-
-.nav:hover {
-  width: 250px;
 }
 
 .maker-back {
@@ -492,7 +491,7 @@ h3 {
 
 
 .navigate,
-.main-nav{
+.main-nav {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
@@ -599,21 +598,25 @@ h3 {
   opacity: 1;
 }
 
-.nav:hover {
-  width: 270px;
-}
+@media (hover: hover) and (pointer: fine) {
 
-.nav:hover .navigate {
-  width: 200px;
-  transition: width 0.6s ease;
-  margin: 50px auto 0 auto;
-}
+  .nav:hover {
+    width: 270px;
+  }
 
-.nav:hover .main-nav {
-  width: 200px;
-  transition: width 0.6s ease;
-  margin: 50px auto 0 auto;
+  .nav:hover .navigate {
+    width: 200px;
+    transition: width 0.6s ease;
+    margin: 50px auto 0 auto;
+  }
 
+
+  .nav:hover .main-nav {
+    width: 200px;
+    transition: width 0.6s ease;
+    margin: 50px auto 0 auto;
+
+  }
 }
 
 .navigate li:hover {
@@ -765,12 +768,12 @@ button.logout-button:hover {
 
 .reset-form button {
   width: 100%;
-  margin-top: 200px;
+  margin-top: 100px;
   height: 90px;
 }
 
 .setup-form {
-  width: 80%;
+  width: 90%;
 }
 
 .setup-form button {
@@ -779,9 +782,13 @@ button.logout-button:hover {
 }
 
 .setup-button {
+  display: inline-flex;
+  white-space: nowrap;
   background-color: #E7E9FE;
   border-radius: 40px;
   padding: 15px 40px;
+  align-items: center;
+  justify-content: center;
   border: none;
   font-size: 10px;
   letter-spacing: 3px;
@@ -1057,7 +1064,7 @@ tr.checked svg {
 
 .update {
   font-size: 12px;
-  margin-top: 10px;
+  margin: 10px 0;
 }
 
 .cards {
@@ -1779,14 +1786,14 @@ input.landinput:focus {
 }
 
 .pagination {
-  margin: auto;
-  margin-top: 50px;
-  width: 90%;
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: static;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  margin: 30px auto;
+  width: 80%;
 }
+
 
 .pagination-gap {
   display: flex;
@@ -1839,6 +1846,12 @@ input.landinput:focus {
   background-color: #576bf5;
 }
 
+.updated_at {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
 
 .register-list,
 .update-list {
@@ -1853,23 +1866,835 @@ input.landinput:focus {
   cursor: pointer;
 }
 
-/* phase5-------------------- */
+
+/* レスポンシブ対応------------------------------------------- */
+@media (max-width: 1100px) {
+  body {}
+
+  .wrapper {
+    width: 98%;
+  }
+
+  span {
+    white-space: nowrap;
+  }
+
+  .auth-section {
+    width: 90%;
+  }
+
+  .detail,
+  .auth-contant {
+    width: 100%;
+  }
+
+  .detail {
+    width: 50%;
+  }
+
+  .auth-contant {
+    width: 50%;
+  }
+
+  .list-nav {
+    width: 90%;
+    margin: auto;
+  }
+
+  .app-title {
+    font-size: 3.2rem;
+  }
+
+  .appname .icon svg {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin-top: auto;
+  }
+
+  .auth-nav li a .title {
+    margin-left: 10px;
+  }
+
+  .auth-header {
+    margin-top:40px;
+  }
+
+  .resetform-contant {
+    width: 90%;
+    padding: 20px 10px;
+    margin: 0 auto;
+  }
+
+  .reset-form button {
+    margin: 30px 0;
+  }
+
+  .setup-form {
+    width: 90%;
+  }
 
 
+  .nav,
+  .maker-back {
+    margin: 0 10px;
+  }
 
-/* スマホ------------------------------------------- */
-@media (max-width: 1024px) {
-  .main-nav ul {
-    gap: 80px;
+  .section {
+    width: 98%;
+  }
+
+  .loginuser-nav,
+  .main-nav,
+  .navigate {
+    width: 80%;
+  }
+
+  .marker-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+  }
+
+  .cards {
+    width: 80%;
+  }
+
+
+  .maker-delete,
+  .maker-edit {
+    background-color: transparent;
+    border: none;
+    border-radius: 50px;
+    box-shadow: none;
+  }
+
+
+  .maker-delete svg,
+  .maker-edit svg {
+    padding: 3px;
+    fill: #fff;
+  }
+
+  .card-right {
+    opacity: 1;
+  }
+
+  .marker-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .maker-left,
+  .maker-right {
+    width: 90%;
+  }
+
+  .end-contant {
+    display: flex;
+    flex-direction: column;
+    ;
+  }
+
+  .star-rating {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin: auto;
+  }
+
+  .star-check {
+    width: 50px;
+  }
+
+  .star-check svg {
+    width: 80%;
+  }
+
+  .register {
+    margin: 20px 0;
+    width: 100% !important;
+    justify-items: center;
+
+  }
+
+  .register button {
+    display: block;
+    width: 80%;
+  }
+
+  .pagination {
+    position: static;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: 30px auto;
+    width: 80%;
+  }
+
+  .pagination-gap {
+    justify-content: center;
+  }
+
+  .main-nav .icon {
+    padding: 5px;
+
+  }
+
+  .list-header {
+    margin: 0 auto;
+    gap: 0px;
+  }
+
+  .nav-item .title,
+  .logout-button .title {
+    display: none !important;
+  }
+
+  .contant {
+    margin-top: 40px;
+  }
+
+  .list-header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .list-nav {
+    justify-content: center;
+  }
+
+  .land2_add,
+  .add_button {
+    width: 80%;
+  }
+
+  .add_button button {
+    margin: auto;
+    width: 100%;
+    border-radius: 30px;
+  }
+
+  .visible {
+    width: 100%;
+  }
+
+  .choice {
+    padding: 4px 20px;
+  }
+
+  .validate-wrapper {
+    margin: 20px 0;
+  }
+
+  .marker-liststar svg {
+    width: 30px;
+  }
+
+  /* phase3------------------------ */
+  .loan-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .loan-left,
+  .land-left,
+  .loan-right,
+  .land-right {
+    width: 90%;
+  }
+
+  .chart-wrapper {
+    justify-content: center;
+    margin: 0;
+  }
+
+  .landform-contant {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  /*phase4---------------------------*/
+  .land-right {
+    margin: 0;
+  }
+
+  .land-card {
+    width: 98%;
+    justify-content: center;
+  }
+
+  #range {
+    width: 50%;
+  }
+
+  .landform-contant label {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+  }
+
+  .landform-contant input {
+    padding: 15px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    border: none;
+    width: 20%;
+    align-items: center;
+    margin: 0;
+  }
+
+  .landform-contant textarea {
+    width: 100%;
+  }
+
+
+  .land-left-fix {
+    display: block;
+    margin: 0 auto;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .landform-contant {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+
+  .error-space {
+    text-align: center;
+    font-size: small;
+    flex-basis: 100%;
+  }
+
+  .landtable-contant {
+    width: 100%;
+  }
+
+  .validate {
+    font-size: small;
+    padding: 3px 50px;
+  }
+
+}
+
+
+/* スマホサイズ向け---------------------- */
+@media (hover: none) and (pointer: coarse) {
+  *:hover {
+    all: unset;
+    cursor: default;
   }
 }
 
-/* スマホサイズ向け */
 @media (max-width: 768px) {
+  html {
+    font-size: 14px;
+    opacity: 0.9;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  h1,
+  h3 {
+    font-size: 32px;
+  }
+
+  h3 {
+    margin-left: 20px
+  }
+
+  span {
+    white-space: nowrap;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  /*  ログイン前ページ---------------------------- */
   .main-nav ul {
+    width: 100%;
     gap: 40px;
+  }
+
+  .auth-section {
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    margin: 20px auto;
+  }
+
+  .detail,
+  .auth-contant {
+    width: 93%;
+    margin: 20px auto;
+  }
+
+  .app-title {
+    font-size: 3.2rem;
+  }
+
+  .appname .icon svg {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin-top: auto;
+  }
+
+  .auth-nav .icon {
+    padding: 15px;
+  }
+
+  .auth-nav .icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .auth-nav li a .title {
+    margin-left: 20px;
+  }
+
+
+  .auth-header {
+    margin-top: 30px;
+  }
+
+  .auth-form {
+    margin-top: 30px;
+  }
+
+  .setup-form {
+    width: 95%;
+  }
+
+  .resetform-contant input {
+    width: 90%;
+    padding: 20px 10px;
+  }
+
+  .setup-form .register {
+    width: 90%;
+    margin: auto;
+  }
+
+  .button-form {
+    margin-bottom: 30px;
+  }
+
+  .register button {
+    padding: 15px 40px;
+  }
+
+  .setup-button {
+    padding: 15px 20px;
+  }
+
+  .setup {
+    background-color: #576bf5;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /*  ログイン済ページ---------------------------- */
+  .section {
+    width: 95% !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    margin: 20px auto;
+  }
+
+  .nav {
+    width: 98% !important;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
     flex-wrap: wrap;
   }
+
+  .maker-back {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+  .reset-form button {
+    width: 100%;
+    margin: 30px auto 50px;
+    height: 70px;
+  }
+
+  .nav:hover {
+    width: 95% !important;
+  }
+
+  .loginuser-nav {
+    order: 1;
+  }
+
+  .navigate {
+    order: 2;
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100% !important;
+    flex-basis: 100%;
+  }
+
+  .loginuser-nav,
+  .navigate,
+  .main-nav {
+    width: auto !important;
+    margin: 0 !important;
+  }
+
+  .loginuser-nav ul,
+  .navigate nav ul {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .nav:hover,
+  .nav:hover .navigate,
+  .nav:hover .main-nav {
+    width: auto !important;
+    margin: 0 !important;
+  }
+
+  .navigate li a .title,
+  .main-nav li a .title,
+  .logout-button .title {
+    opacity: 1 !important;
+  }
+
+  .nav .title {
+    display: inline-block !important;
+    height: auto;
+    line-height: normal;
+    margin-left: 6px;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .nav:hover,
+  .nav:hover .navigate,
+  .nav:hover .main-nav {
+    width: initial !important;
+    margin: 0 !important;
+  }
+
+  .navigate,
+  .loginuser-nav,
+  .loginuser-nav ul {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .loginuser-nav ul {
+    color: #8C8C8C;
+  }
+
+  .loginuser-nav .icon2 svg {
+    fill: #8C8C8C;
+  }
+
+  span .title {
+    font-size: 30px;
+  }
+
+  .main-nav ul {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .main-nav ul:not(.carousel) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .main-nav ul.carousel {
+    display: flex;
+    gap: 200px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    position: relative;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-left: 160px;
+    width: 100%;
+    max-width: 100%;
+    scroll-behavior: smooth;
+    /* padding: 0 50%;   */
+  }
+
+  .main-nav ul.carousel::scroll-button(left) {
+    content: "←";
+    position: absolute;
+    left: 6px;
+    top: 60%;
+    transform: translateY(-50%);
+    padding: 10px;
+    border-radius: 50%;
+    background: #9EABFA;
+    color: #fff;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .main-nav ul.carousel::scroll-button(right) {
+    content: "→";
+    position: absolute;
+    right: 6px;
+    top: 60%;
+    transform: translateY(-50%);
+    padding: 10px;
+    border-radius: 50%;
+    background: #9EABFA;
+    color: #fff;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .main-nav li {
+    width: auto;
+  }
+
+  .main-nav li.phase {
+    flex: 0 0 auto;
+    /* width: 100%; */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: center;
+    border-radius: 16px;
+    scroll-snap-align: center;
+  }
+
+  .main-nav ul.carousel::scroll-marker-group {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .main-nav li.phase::scroll-marker {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .4);
+  }
+
+  .main-nav li.phase::scroll-marker:target-current {
+    background: #000;
+  }
+
+  .list-header {
+    margin: 0 auto;
+    gap: 0px;
+  }
+
+  .nav-item .title,
+  .logout-button .title {
+    display: none !important;
+  }
+
+  .contant {
+    margin-top: 40px;
+  }
+
+  .list-header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .list-nav {
+    justify-content: center;
+  }
+
+  .land2_add {
+    width: 80%;
+  }
+
+  .add_button button {
+    margin: auto;
+    width: 100%;
+    border-radius: 30px;
+  }
+
+  .visible {
+    width: 100%;
+  }
+
+  .choice {
+    padding: 4px 20px;
+  }
+
+  .validate-wrapper {
+    margin: 20px 0;
+  }
+
+  .marker-liststar svg {
+    width: 30px;
+  }
+
+
+  /* makerページ------------------------------ */
+
+  .marker-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+  }
+
+  .cards {
+    width: 80%;
+  }
+
+
+  .maker-delete,
+  .maker-edit {
+    background-color: transparent;
+    border: none;
+    border-radius: 50px;
+    box-shadow: none;
+  }
+
+
+  .maker-delete svg,
+  .maker-edit svg {
+    padding: 3px;
+    fill: #fff;
+  }
+
+  .card-right {
+    opacity: 1;
+  }
+
+  .marker-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .maker-left,
+  .maker-right {
+    width: 90%;
+  }
+
+  .end-contant {
+    display: flex;
+    flex-direction: column;
+    ;
+  }
+
+  .star-rating {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin: auto;
+  }
+
+  .star-check {
+    width: 50px;
+  }
+
+  .star-check svg {
+    width: 80%;
+  }
+
+  .register {
+    margin: 20px 0;
+    width: 100% !important;
+    justify-items: center;
+
+  }
+
+  .register button {
+    display: block;
+    width: 80%;
+  }
+
+  .pagination {
+    position: static;
+    /* absolute を解除 */
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: 30px auto;
+    width: 80%;
+  }
+
+  .pagination-gap {
+    justify-content: center;
+  }
+
+  /* landページ---------------------- */
+
+  .land-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .land-card {
+    width: 90%;
+  }
+
+  .card-inner h3 {
+    font-size: 20px;
+  }
+
+  .land-left-fix {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    width: 100%;
+  }
+
+  thead th,
+  td {
+    font-size: small;
+    white-space: normal;
+  }
+
+  .landtable-contant {
+    width: 100%;
+  }
+
+  .edit-row svg,
+  .land-delete-btn svg {
+    width: 30px;
+  }
+
 }
 
 .my-carousel-progress {

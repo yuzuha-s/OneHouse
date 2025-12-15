@@ -4,6 +4,8 @@
 
 @section('content')
 
+
+
     <div class="auth-header wrapper">
         <div class="list-nav">
             <h1>Login</h1>
@@ -51,6 +53,13 @@
                         <label for="passsword">Password</label>
                         <input id="password" name="password" value="{{ old('password') }}" type="password"
                             class="forminput" required autofocus>
+                    </div>
+                </div>
+
+                <div class="setup-form wrapper hidden">
+                    <div class="resetform-contant">
+                        <label></label>
+                        <input>
                     </div>
                 </div>
 

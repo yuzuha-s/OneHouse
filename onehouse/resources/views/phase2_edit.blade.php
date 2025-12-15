@@ -48,7 +48,7 @@
                         </div>
                     </div>
 
-                    <div class="list-nav">
+                    <div class="list-nav end-contant">
                         <div>
                             <div class="star-rating">
                                 @for ($i = 1; $i <= 5; $i++)

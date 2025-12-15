@@ -48,7 +48,7 @@
                         </div>
                     </div>
 
-                    <div class="list-nav">
+                    <div class="list-nav end-contant">
                         <div class="star-rating">
                             <input type="hidden" name="star_value" value="{{ old('star_value', $maker->star ?? 0) }}">
 

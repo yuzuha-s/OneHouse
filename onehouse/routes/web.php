@@ -27,7 +27,6 @@ Route::get('/setup', function () {
 Route::get('/sanctum/csrf-cookie', [CsrfCookieController::class, 'show']);
 
 // auth------------------------------------------
-
 require __DIR__ . '/auth.php';
 
 Route::middleware('auth')->group(function () {
