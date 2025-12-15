@@ -63,7 +63,7 @@
                             <div class="landform-contant">
                                 <label for="">土地面積(㎡)</label>
                                 <div class="land-form-row"><input type="number" class="landinput" placeholder="90"
-                                        step="0.1" name="landarea" value="{{ old('landarea') }}"><span>㎡</span>
+                                        step="0.1" name="landarea" value="{{ old('landarea') }}">
                                 </div>
                                 <div class="error-space"> @error('landarea')
                                         <div class="error">{{ $message }}</div>
@@ -75,7 +75,7 @@
                             <div class="landform-contant">
                                 <label for="">階数(1～3階)</label>
                                 <div class="land-form-row"><input type="number" class="landinput" placeholder="2"
-                                        name="floor" value="{{ old('floor') }}"><span>階</span>
+                                        name="floor" value="{{ old('floor') }}">
                                 </div>
                                 <div class="error-space"> @error('floor')
                                         <div class="error">{{ $message }}</div>
@@ -89,7 +89,7 @@
                             <div class="landform-contant">
                                 <label for="">容積率(%)</label>
                                 <div class="land-form-row"><input type="number" class="landinput" placeholder="200"
-                                        name="far" value="{{ old('far') }}"><span>%</span></div>
+                                        name="far" value="{{ old('far') }}"></div>
                                 <div class="error-space"> @error('far')
                                         <div class="error">{{ $message }}</div>
                                     @enderror
@@ -99,7 +99,7 @@
                             <div class="landform-contant">
                                 <label for="">建ぺい率(%)</label>
                                 <div class="land-form-row"> <input type="number" class="landinput" placeholder="80"
-                                        name="bcr" value="{{ old('bcr') }}"><span>%</span></div>
+                                        name="bcr" value="{{ old('bcr') }}"></div>
                                 <div class="error-space"> @error('bcr')
                                         <div class="error">{{ $message }}</div>
                                     @enderror
@@ -111,7 +111,7 @@
                             <div class="landform-contant">
                                 <label for="">坪単価(万円)</label>
                                 <div class="land-form-row"> <input type="number" class="landinput" placeholder="80"
-                                        name="pricePerTsubo" value="{{ old('pricePerTsubo') }}"><span>万円/坪</span></div>
+                                        name="pricePerTsubo" value="{{ old('pricePerTsubo') }}"></div>
                                 <div class="error-space"> @error('pricePerTsubo')
                                         <div class="error">{{ $message }}</div>
                                     @enderror

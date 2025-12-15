@@ -62,12 +62,11 @@
                 type="number"
                 :style="{ textAlign: 'right' }"
               />
-              <span class="loan-span">万円</span>
             </div>
           </div>
 
           <div class="loanform-contant">
-            <label for="">年利(固定金利)</label>
+            <label for="">年利(固定金利%)</label>
             <div class="form-row">
               <input
                 type="number"
@@ -75,7 +74,6 @@
                 step="0.1"
                 :style="{ textAlign: 'right' }"
               />
-              <span class="loan-span">%</span>
             </div>
           </div>
 
@@ -89,7 +87,6 @@
                 max="40"
                 :style="{ textAlign: 'right' }"
               />
-              <span class="loan-span">年</span>
             </div>
           </div>
         </div>
@@ -103,7 +100,6 @@
                 type="number"
                 :style="{ textAlign: 'right' }"
               />
-              <span class="loan-span">歳</span>
             </div>
           </div>
 
@@ -115,7 +111,6 @@
                 type="number"
                 :style="{ textAlign: 'right' }"
               />
-              <span class="loan-span">万円/月</span>
             </div>
           </div>
 
@@ -127,7 +122,6 @@
                 type="number"
                 :style="{ textAlign: 'right' }"
               />
-              <span class="loan-span">万円/年</span>
             </div>
           </div>
         </div>
