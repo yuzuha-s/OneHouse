@@ -62,9 +62,10 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/phase2/{id}', [MakerController::class, 'destroy'])->name('destroy');
 
-    Route::get('/phase3', function () {
-        return view('phase3');
-    });
+    // ローンシュミレーション画面Bladeを描写
+    Route::get('/phase3', [LoanSimulationController::class, 'showLoanChart']);
+    // chartで使うJSONデータを返す
+    Route::get('/api/phase3', [LoanSimulationController::class, 'chartApi']);
 
     //土地登録情報一覧を表示する
     Route::get('/phase4', [LandLogController::class, 'index'])->name('phase4');

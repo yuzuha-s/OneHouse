@@ -10,13 +10,18 @@ class LoanSimulationController extends Controller
 {
     public function index()
     {
-        $user = auth()->user();
-        $profile = $user->profile ?: $user->profile()->create([]);
-        $profileId = $profile->id;
 
-        $loanSimulations = LoanSimulation::where('profile_id', $profileId)
-            ->get();
-        return view('default', compact('loanSimulations'));
+        return view('phase3');
+    }
+    public function chartApi()
+    {
+        return response()->json([
+            'years' => [], //x軸
+            'incomeData' => [],
+            'expenseData' => [],
+            'principalPaymentData' => [],
+            'interestPaymentData' => [],
+        ]);
     }
 
     // phase3のinput値を受け取る
@@ -55,6 +60,17 @@ class LoanSimulationController extends Controller
             'message' => 'シミュレーションが完了しました！'
         ]);
     }
+    public function showLoanChart()
+    {
+        $loan = 3000;
+        $rate = 0.8;
+        $loan_term = 20;
+        $age = 30;
+        $expense = 30;
+        $income = 800;
+
+        return view('phase3', compact('loan', 'rate', 'loan_term', 'age', 'expense', 'income'));
+    }
 
     // 登録データを表示する
     public function show(Request $request)
@@ -88,7 +104,7 @@ class LoanSimulationController extends Controller
             'rate' => $loanSimulation->rate,
             'income' => $loanSimulation->income,
             'expense' => $loanSimulation->expense,
-            'updated_at' => $loanSimulation->updated_at?->format('Y/m/d H:i') ?? null,
+            'updated_at' => $loanSimulation->updated_at?->format('Y/m/d') ?? null,
 
         ]);
     }

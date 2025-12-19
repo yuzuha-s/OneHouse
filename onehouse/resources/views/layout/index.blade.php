@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/style.css')
 
-    <title>@yield('ttitle', 'OneHouse')</title>
+    <title>@yield('title', 'OneHouse')</title>
 </head>
 
 <body class="fade">

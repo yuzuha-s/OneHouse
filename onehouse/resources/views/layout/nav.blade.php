@@ -8,7 +8,7 @@
 
     @vite('resources/css/style.css')
 
-    <title>@yield('ttitle', 'OneHouse')</title>
+    <title>@yield('title', 'OneHouse')</title>
 </head>
 
 <body class="fade">
