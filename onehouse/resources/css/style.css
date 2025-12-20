@@ -228,7 +228,7 @@ h4 {
   gap: 20px;
   margin-top: 7px;
   background-color: #E7E9FE;
-  padding: 3px 70px;
+  padding: 5px 50px;
   border-radius: 40px;
   color: #586BFF;
   letter-spacing: 2px;
@@ -270,6 +270,10 @@ h4 {
   background: transparent;
   cursor: pointer;
   margin-left: 5px;
+}
+.toggle-row {
+  background-color: #E7E9FE;
+
 }
 
 .toggle:hover,
@@ -853,7 +857,7 @@ button.logout-button:hover {
 .list-header {
   display: flex;
   justify-content: space-between;
-  gap: 100px;
+  /* gap: 100px; */
   border-bottom: 0.5px solid #ddd;
   width: 90%;
   margin: auto;
@@ -950,13 +954,17 @@ tbody tr {
 
 .list th:nth-child(2),
 .list td:nth-child(2) {
-  width: 45%;
+  width: 10%;
   text-align: left;
+
 }
 
 .list th:nth-child(3),
 .list td:nth-child(3) {
-  width: 20%;
+  width: 55%;
+  text-align: left;
+  align-items: center;
+
 }
 
 .list th:nth-child(4),
@@ -1317,7 +1325,7 @@ tr.checked svg {
   width: 98%;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .form-button {
@@ -1373,8 +1381,6 @@ tr.checked svg {
 
 .loanform-contant input,
 .loanform-contant textarea,
-.makerform-contant input,
-.makerform-contant textarea,
 .landform-contant input,
 .landform-contant textarea {
   padding: 15px;
@@ -1383,6 +1389,21 @@ tr.checked svg {
   border: none;
   width: 100%;
   justify-content: flex-start;
+}
+
+.makerform-contant input,
+.makerform-contant textarea {
+  padding: 15px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: none;
+  width: 70%;
+  margin: auto;
+}
+
+.makerform-contant textarea {
+  width: 100%;
+
 }
 
 .loanform-contant input:focus,
@@ -1399,9 +1420,7 @@ tr.checked svg {
   height: 120px;
 }
 
-.makerform-contant input {
-  width: 70%;
-}
+
 
 .form-button input,
 .star-check input {
@@ -1602,7 +1621,7 @@ span {
 }
 
 .land-left textarea {
-  width: 400px;
+  width: 300px;
   height: 60px;
   font-size: 1.2rem;
 }
@@ -1717,11 +1736,12 @@ textarea:focus {
   max-height: 35vh;
   overflow-y: auto;
 }
+
 .land-list th,
 .land-list td {
   text-align: center;
   padding: 10px;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
 .land-list th:nth-child(1) {
