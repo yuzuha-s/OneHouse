@@ -63,7 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/phase2/{id}', [MakerController::class, 'destroy'])->name('destroy');
 
     // ローンシュミレーション画面Bladeを描写
-    Route::get('/phase3', [LoanSimulationController::class, 'showLoanChart']);
+    Route::get('/phase3', [LoanSimulationController::class, 'showLoanChart'])->name('phase3.showLoanChart');
     // chartで使うJSONデータを返す
     Route::get('/api/phase3', [LoanSimulationController::class, 'chartApi']);
 

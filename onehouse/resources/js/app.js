@@ -10,29 +10,45 @@ import LoanChart from "./LoanChart.vue";
 import { calculateLoan } from "./LoanSimulation.js";
 
 const el = document.getElementById("loan-chart");
+
 const apiData = {
     loan: Number(el.dataset.loan),
-        rate: Number(el.dataset.rate),
-        loan_term: Number(el.dataset.term),
-        age: Number(el.dataset.age),
-        expense: Number(el.dataset.expense),
-        income: Number(el.dataset.income),
+    rate: Number(el.dataset.rate),
+    loan_term: Number(el.dataset.term),
+    age: Number(el.dataset.age),
+    expense: Number(el.dataset.expense),
+    income: Number(el.dataset.income),
 };
 const result = calculateLoan(apiData);
 
-fetch("/api/phase3")
-    .then((res) => res.json())
-    .then((apiData) => {
-        console.log("API Data:", apiData);
+if (!result.errors) {
+    const validateEl = document.getElementById("calc-validate");
+    const msgEl = document.getElementById("calc-message");
 
-        if (result.errors) {
-            console.error(result.errors);
-            return;
-        }
-        const app = createApp(LoanChart, {
-            categories: result.labels,
-            series: result.series,
-        });
-        app.use(VueApexCharts);
-        app.mount(el);
+    const payoffAgeEl = document.getElementById("payoffAge");
+    if (payoffAgeEl) {
+        payoffAgeEl.textContent = result.payoffAge;
+    }
+
+    const monthlyPaymentEL = document.getElementById("monthlyPayment");
+    if (monthlyPaymentEL) {
+        monthlyPaymentEL.textContent = result.monthlyPayment;
+    }
+
+    if (msgEl) {
+        msgEl.textContent = "ローンシュミレーションが完了しました！";
+        setTimeout(() => {
+            validateEl.classList.add("hidden");
+        }, 3000);
+    }
+
+    validateEl.classList.remove("hidden");
+
+    const app = createApp(LoanChart, {
+        categories: result.labels,
+        series: result.series,
     });
+
+    app.use(VueApexCharts);
+    app.mount(el);
+}

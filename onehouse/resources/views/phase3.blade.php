@@ -22,49 +22,60 @@
                 </div>
 
                 <div class="list-nav">
-                    <div class="validate-wrapper">
-                        @if (session('status'))
-                            <div class="validate"><svg xmlns="http://www.w3.org/2000/svg" height="40px"
-                                    viewBox="0 -960 960 960" width="40px" fill="#576bf5">
-                                    <path
-                                        d="M422-297.33 704.67-580l-49.34-48.67L422-395.33l-118-118-48.67 48.66L422-297.33ZM480-80q-82.33 0-155.33-31.5-73-31.5-127.34-85.83Q143-251.67 111.5-324.67T80-480q0-83 31.5-156t85.83-127q54.34-54 127.34-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82.33-31.5 155.33-31.5 73-85.5 127.34Q709-143 636-111.5T480-80Zm0-66.67q139.33 0 236.33-97.33t97-236q0-139.33-97-236.33t-236.33-97q-138.67 0-236 97-97.33 97-97.33 236.33 0 138.67 97.33 236 97.33 97.33 236 97.33ZM480-480Z" />
-                                </svg>
-                                <p>{{ session('status') }}</p>
-                            </div>
-                        @endif
+                    <div class="validate-wrapper hidden" id="calc-validate">
+
+                        <div class="validate"><svg xmlns="http://www.w3.org/2000/svg" height="40px"
+                                viewBox="0 -960 960 960" width="40px" fill="#576bf5">
+                                <path
+                                    d="M422-297.33 704.67-580l-49.34-48.67L422-395.33l-118-118-48.67 48.66L422-297.33ZM480-80q-82.33 0-155.33-31.5-73-31.5-127.34-85.83Q143-251.67 111.5-324.67T80-480q0-83 31.5-156t85.83-127q54.34-54 127.34-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82.33-31.5 155.33-31.5 73-85.5 127.34Q709-143 636-111.5T480-80Zm0-66.67q139.33 0 236.33-97.33t97-236q0-139.33-97-236.33t-236.33-97q-138.67 0-236 97-97.33 97-97.33 236.33 0 138.67 97.33 236 97.33 97.33 236 97.33ZM480-480Z" />
+                            </svg>
+                            <p id="calc-message"></p>
+                        </div>
+
                     </div>
                 </div>
 
                 <div class="list-nav">
-                    <div class="updated_at wrapper">
-                        <p class="update">最終更新日：</p>
-                    </div>
+
                 </div>
             </div>
 
-            <form method="POST" action="">
+            <form method="GET" action="{{ route('phase3.showLoanChart') }}">
                 @csrf
                 <div class="loan-form wrapper">
                     <div class="loan-left">
+                        <div class="wrapper">
+                            <div class="play">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="30px"
+                                    viewBox="0 -960 960 960" width="30px" fill="#8C8C8C">
+                                    <path
+                                        d="M403.33-320 630-480.67 403.33-640v320ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-42.33 8.33-82.5 8.34-40.17 25.34-78.5l50.66 50.67q-8 27.33-12.83 54.82-4.83 27.48-4.83 55.51 0 139.58 96.87 236.46 96.88 96.87 236.46 96.87t236.46-96.87q96.87-96.88 96.87-236.46T716.4-716.46q-96.93-96.87-236.59-96.87-28.14 0-55.66 4.67-27.51 4.68-54.48 12.99l-51-51Q357.33-862 396.33-871q39-9 81-9 83.24 0 156.46 31.5Q707-817 761.63-763q54.63 54 86.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80ZM215.25-692.67q-22.25 0-37.75-15.58-15.5-15.57-15.5-37.83 0-22.25 15.58-37.75t37.83-15.5q22.26 0 37.76 15.58 15.5 15.57 15.5 37.83 0 22.25-15.58 37.75t-37.84 15.5ZM480-480Z" />
+                                </svg>
+                                <p>金額を入れてシュミレーションしてみよう！</p>
+                            </div>
+                        </div>
+
                         <div class="left-fix">
                             <div class="loanform-contant">
                                 <label for="">借入金額(万円)</label>
                                 <div class="form-row">
-                                    <input id="loan" type="number">
+                                    <input id="loan" type="number" name="loan" value="{{ old('loan', $loan) }}">
                                 </div>
                             </div>
 
                             <div class="loanform-contant">
                                 <label for="">年利(固定金利%)</label>
                                 <div class="form-row">
-                                    <input type="number" id="rate" step="0.1">
+                                    <input type="number" id="rate" step="0.1" name="rate"
+                                        value="{{ old('rate', $rate) }}">
                                 </div>
                             </div>
 
                             <div class="loanform-contant">
                                 <label for="">返済期間(年)</label>
                                 <div class="form-row">
-                                    <input id="loan_term" type="number" min="10" max="40">
+                                    <input id="loan_term" type="number" min="10" max="40" name="loan_term"
+                                        value="{{ old('loan_term', $loan_term) }}">
                                 </div>
                             </div>
                         </div>
@@ -73,26 +84,28 @@
                             <div class="loanform-contant">
                                 <label for="">年齢(歳)</label>
                                 <div class="form-row">
-                                    <input id="age" type="number">
+                                    <input id="age" type="number" name="age" value="{{ old('age', $age) }}">
                                 </div>
                             </div>
 
                             <div class="loanform-contant">
                                 <label for="">毎月の支出(万円)</label>
                                 <div class="form-row">
-                                    <input id="expense" type="number">
+                                    <input id="expense" type="number" name="expense"
+                                        value="{{ old('expense', $expense) }}">
                                 </div>
                             </div>
 
                             <div class="loanform-contant">
                                 <label for="">現在の収入(万円/年間)</label>
                                 <div class="form-row">
-                                    <input id="income" type="number">
+                                    <input id="income" type="number" name="income"
+                                        value="{{ old('income', $income) }}">
                                 </div>
                             </div>
                         </div>
                         <div class="calculate">
-                            <button type="button">計算する</button>
+                            <button type="submit" id="calc-btn">計算する</button>
                         </div>
                     </div>
 
@@ -108,9 +121,6 @@
                                 <span>万円です。</span>
                             </div>
 
-                            <div class="loan-register">
-                                <button type="submit" id="saveLoan">保存する</button>
-                            </div>
                         </div>
                     </div>
                 </div>

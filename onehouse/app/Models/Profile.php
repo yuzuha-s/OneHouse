@@ -27,10 +27,10 @@ class Profile extends Model
         return $this->hasMany(Maker::class);
     }
 
-    public function loanSimulations()
-    {
-        return $this->hasMany(LoanSimulation::class);
-    }
+    // public function loanSimulations()
+    // {
+    //     return $this->hasMany(LoanSimulation::class);
+    // }
 
     public function landLog()
     {

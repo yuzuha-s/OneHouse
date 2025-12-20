@@ -45,17 +45,17 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('loan_simulations', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('profile_id')->constrained()->cascadeOnDelete();
-            $table->bigInteger('loan');
-            $table->decimal('rate', 5, 2);
-            $table->integer('loan_term');
-            $table->integer('age');
-            $table->bigInteger('income');
-            $table->bigInteger('expense');
-            $table->timestamps();
-        });
+        // Schema::create('loan_simulations', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->foreignId('profile_id')->constrained()->cascadeOnDelete();
+        //     $table->bigInteger('loan');
+        //     $table->decimal('rate', 5, 2);
+        //     $table->integer('loan_term');
+        //     $table->integer('age');
+        //     $table->bigInteger('income');
+        //     $table->bigInteger('expense');
+        //     $table->timestamps();
+        // });
         Schema::create('landlogs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('profile_id')->constrained()->cascadeOnDelete();
@@ -90,7 +90,7 @@ return new class extends Migration
         Schema::dropIfExists('makers_feature');
         Schema::dropIfExists('landlogs');
         Schema::dropIfExists('phases');
-        Schema::dropIfExists('loan_simulations');
+        // Schema::dropIfExists('loan_simulations');
         Schema::dropIfExists('features');
         Schema::dropIfExists('categories');
         Schema::dropIfExists('makers');
