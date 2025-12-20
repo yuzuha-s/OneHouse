@@ -1,6 +1,6 @@
 @extends('layout.back')
 
-@section('ttitle', 'phase2 | edit')
+@section('title', 'phase2 | edit')
 
 @section('content')
 

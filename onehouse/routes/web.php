@@ -1,17 +1,12 @@
 <?php
 
 use App\Http\Controllers\Auth\UserSettingController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckListController;
-use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\LandLogController;
 use App\Http\Controllers\LoanSimulationController;
 use App\Http\Controllers\MakerController;
-use App\Http\Controllers\UserController;
 
-use App\Models\Maker;
-use App\Models\MakerFeature;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 
 Route::get('/', function () {
@@ -62,9 +57,10 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/phase2/{id}', [MakerController::class, 'destroy'])->name('destroy');
 
-    Route::get('/phase3', function () {
-        return view('phase3');
-    });
+    // ローンシュミレーション画面Bladeを描写
+    Route::get('/phase3', [LoanSimulationController::class, 'showLoanChart'])->name('phase3.showLoanChart');
+    // chartで使うJSONデータを返す
+    Route::get('/api/phase3', [LoanSimulationController::class, 'chartApi']);
 
     //土地登録情報一覧を表示する
     Route::get('/phase4', [LandLogController::class, 'index'])->name('phase4');

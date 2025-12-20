@@ -7,7 +7,6 @@ use App\Models\LoanSimulation;
 use App\Models\MakerFeature;
 use App\Models\Profile;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Ramsey\Uuid\FeatureSet;
 
@@ -25,7 +24,6 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             FeatureSeeder::class,
             MakerFeatureSeeder::class,
-            LoanSimulationSeeder::class,
             LandLogSeeder::class,
             PhaseSeeder::class,
             ChecklistSeeder::class,

@@ -15,6 +15,7 @@ export default defineConfig({
                 "resources/js/fadein.js",
                 "resources/js/makerlist.js",
                 "resources/js/landSimulation.js",
+                "resources/js/LoanSimulation.js",
             ],
             refresh: true,
         }),

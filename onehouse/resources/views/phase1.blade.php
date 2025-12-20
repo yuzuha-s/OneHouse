@@ -1,6 +1,6 @@
 @extends('layout.nav')
 
-@section('ttitle', 'phase1')
+@section('title', 'phase1')
 
 @section('content')
 

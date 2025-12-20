@@ -4,19 +4,51 @@ import Alpine from "alpinejs";
 window.Alpine = Alpine;
 Alpine.start();
 
-import axios from "axios";
 import { createApp } from "vue";
 import VueApexCharts from "vue3-apexcharts";
 import LoanChart from "./LoanChart.vue";
+import { calculateLoan } from "./LoanSimulation.js";
 
+const el = document.getElementById("loan-chart");
 
-axios.defaults.baseURL = "http://127.0.0.1:8000";
-axios.defaults.withCredentials = true;
-axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+const apiData = {
+    loan: Number(el.dataset.loan),
+    rate: Number(el.dataset.rate),
+    loan_term: Number(el.dataset.term),
+    age: Number(el.dataset.age),
+    expense: Number(el.dataset.expense),
+    income: Number(el.dataset.income),
+};
+const result = calculateLoan(apiData);
 
-axios.get("/sanctum/csrf-cookie").then(() => {
-    console.log("CSRF cookie 取得成功");
-    const chartApp = createApp(LoanChart);
-    chartApp.use(VueApexCharts);
-    chartApp.mount("#chart-app");
-});
+if (!result.errors) {
+    const validateEl = document.getElementById("calc-validate");
+    const msgEl = document.getElementById("calc-message");
+
+    const payoffAgeEl = document.getElementById("payoffAge");
+    if (payoffAgeEl) {
+        payoffAgeEl.textContent = result.payoffAge;
+    }
+
+    const monthlyPaymentEL = document.getElementById("monthlyPayment");
+    if (monthlyPaymentEL) {
+        monthlyPaymentEL.textContent = result.monthlyPayment;
+    }
+
+    if (msgEl) {
+        msgEl.textContent = "ローンシュミレーションが完了しました！";
+        setTimeout(() => {
+            validateEl.classList.add("hidden");
+        }, 3000);
+    }
+
+    validateEl.classList.remove("hidden");
+
+    const app = createApp(LoanChart, {
+        categories: result.labels,
+        series: result.series,
+    });
+
+    app.use(VueApexCharts);
+    app.mount(el);
+}

@@ -78,17 +78,6 @@ class RegisteredUserController extends Controller
             ]);
         }
 
-        LoanSimulation::create([
-            'profile_id' => $profile->id,
-            'loan' => $request->loan ?? 0,
-            'rate' => $request->rate ?? 0,
-            'loan_term' => $request->loan_term ?? 0,
-            'age' => $request->age ?? 0,
-            'income' => $request->income ?? 0,
-            'expense' => $request->expense ?? 0,
-        ]);
-
-
         event(new Registered($user));
 
         Auth::login($user);

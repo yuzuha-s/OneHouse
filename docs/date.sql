@@ -4,9 +4,8 @@
 -- 住宅メーカー      makers
 -- ※中間テーブル makers_features 
 -- 住宅メーカータグfeatures
--- 住宅メーカータグカテゴリー categories
--- 住宅ローン loan_simulations
--- 土地 landlogs
+-- 住宅メーカータグカテゴリー makerOptionCategories
+-- 建築可能面積 landProperties
 -- チェックリスト checklists
 -- フェーズ phase
 
@@ -22,7 +21,7 @@ insert into markers (profile_id, name, sales, option star) values
 (1, ミサワホーム, 田中, 紹介で３０万円割引特典あり, 2),
 (1, スター工務店, 立花, なし, 1);
 
-insert into categories (name) values
+insert into makerOptionCategories (name) values
 1(ブランド力),
 2(工法・構造),
 3(耐熱性脳・省エネ性),
@@ -73,10 +72,7 @@ insert into makers_features (marker_id, feature_id) values
 (2, 22);
 
 
-insert into loan_simulations (profile_id, loan, rate, loan_term, age, income, expense) values
-(1, 6000, 1.5, 35, 32, 800, 25);
-
-insert into landlogs (profile_id, address, landarea,  far, bcr, floor, buildable_area, pricePerTsubo ) values
+insert into landProperties (profile_id, address, landarea,  far, bcr, floor, buildable_area, pricePerTsubo ) values
 (1, 東京都板橋区3丁目1-55, 80, 200, 80, 2, 0, 87);
 (1, 東京都板橋区5丁目2-66, 90, 150, 60, 3, 0, 77);
 
