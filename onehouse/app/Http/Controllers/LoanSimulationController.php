@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LoanSimulationRequest;
-use App\Models\LoanSimulation;
 use Illuminate\Http\Request;
 
 class LoanSimulationController extends Controller

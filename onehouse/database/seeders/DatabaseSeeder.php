@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             FeatureSeeder::class,
             MakerFeatureSeeder::class,
-            // LoanSimulationSeeder::class,
             LandLogSeeder::class,
             PhaseSeeder::class,
             ChecklistSeeder::class,

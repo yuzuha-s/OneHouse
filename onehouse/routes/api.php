@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CheckListController;
-use App\Http\Controllers\LoanSimulationController;
-use App\Http\Controllers\PhaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

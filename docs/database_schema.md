@@ -34,7 +34,7 @@
 | option     | VARCHAR(100) |      | NOT NULL |
 | star       | INT          |      |          |
 
-### categories
+### makerOptionCategories
 
 | カラム名 | データ型     | キー | NOT NULL |
 | -------- | ------------ | ---- | -------- |
@@ -63,22 +63,7 @@
 FOREIGN KEY (maker_id) REFERENCES makers(id),  
 FOREIGN KEY (feature_id) REFERENCES features(id)
 
-### loan_simulations
-
-| カラム名   | データ型     | キー | NOT NULL |
-| ---------- | ------------ | ---- | -------- |
-| id         | BIGINT       | PK   |          |
-| profile_id | BIGINT       | FK   |
-| loan       | BIGINT       |      |
-| rate       | DECIMAL(5,2) |      |
-| loan_term  | INT          |      |
-| age        | INT          |
-| income     | BIGINT       |
-| expense    | BIGINT       |
-| created_at | timestamp    |
-| updated_at | timestamp    |
-
-### landlogs
+### landProperties
 
 | カラム名       | データ型     | キー | NOT NULL |
 | -------------- | ------------ | ---- | -------- |
@@ -93,7 +78,6 @@ FOREIGN KEY (feature_id) REFERENCES features(id)
 | range          | BIGINT       |      |
 
 ### phases
-
 
 | カラム名 | データ型     | キー | NOT NULL |
 | -------- | ------------ | ---- | -------- |

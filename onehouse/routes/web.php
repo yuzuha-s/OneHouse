@@ -1,17 +1,12 @@
 <?php
 
 use App\Http\Controllers\Auth\UserSettingController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckListController;
-use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\LandLogController;
 use App\Http\Controllers\LoanSimulationController;
 use App\Http\Controllers\MakerController;
-use App\Http\Controllers\UserController;
 
-use App\Models\Maker;
-use App\Models\MakerFeature;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 
 Route::get('/', function () {

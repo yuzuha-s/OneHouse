@@ -3,26 +3,26 @@
 ## ディレクトリ構成
 
 docs/
-|変更あり|ファイルリンク|ファイル| |
-|:----:|----|----|---|
-| |[アプリテーマ](docs/focus.md) |focus.md |※のちのち要件定義に一本化する |
-| |[要件定義](docs/requirements.md)　　　|requirements.md |
-| 〇 |[業務フロー](docs/business_flow.md)　|business_flow.md |
-| 〇|[システム構成図](docs/images/infra.svg)　|infra.svg |
-|〇 |[テーブル定義書](docs/database_schema.md)　|database_schema.md |
-|〇|[画面遷移図・ワイヤーフレーム](docs/screen_transition.md)　|screen_transition.md |
+|ファイルリンク|ファイル| |
+|----|----|---|
+|[アプリテーマ](docs/focus.md) |focus.md |※のちのち要件定義に一本化する |
+|[要件定義](docs/requirements.md)　　　|requirements.md |
+|[業務フロー](docs/business_flow.md)　|business_flow.md |
+|[システム構成図](docs/images/infra.svg)　|infra.svg |
+|[テーブル定義書](docs/database_schema.md)　|database_schema.md |
+|[画面遷移図・ワイヤーフレーム](docs/screen_transition.md)　|screen_transition.md |
 
 ---
 
 ## コア機能進捗
 
-| テスト  |   ⏳ 予定タスク   | コア機能                          | アクセスページ |
-| :-----: | :---------------: | --------------------------------- | -------------- |
-|         | テスト・UI 微調整 | チェックリスト機能                | /phase1.5      |
-|         | テスト・UI 微調整 | メーカー訪問記録機能              | /phase2        |
-|         | テスト・UI 微調整 | 住宅ローンシミレーショ ApexCharts | /phase3        |
-| ☑ 11/26 |     UI 微調整     | 建物面積計算                      | /phase4        |
-| ☑ 12/13 |         ☑         | ログイン・ログアウト・新規登録    |                |
+| テスト  | ⏳ 予定タスク | コア機能                         | アクセスページ |
+| :-----: | :-----------: | -------------------------------- | -------------- |
+|         |   UI 微調整   | チェックリスト機能               | /phase1        |
+|         |   UI 微調整   | メーカー訪問記録機能             | /phase2        |
+|         |    テスト     | 住宅ローンシミレーションチャート | /phase3        |
+| ☑ 11/26 |   UI 微調整   | 建物面積計算                     | /phase4        |
+| ☑ 12/13 |       ☑       | ログイン・ログアウト・新規登録   |                |
 
 ## 静的解析
 
@@ -64,7 +64,7 @@ docs/
 - [x] 静的解析ツールの全チェックが通っている
 
 - want
-- [ ] スマホ及び PC 両方のデザイン対応ができている
+- [x] スマホ及び PC 両方のデザイン対応ができている
 - [ ] ストレスなく使え、UI/UX が良い
 - [ ] デザインが綺麗
 - [ ] コードの可読性が高い

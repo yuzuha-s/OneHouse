@@ -1,19 +1,3 @@
-// export function buildChartData({
-//     loan,
-//     rate,
-//     loan_term,
-//     age,
-//     income,
-//     expense,
-// }) {
-//     return {
-//         labels,
-//         principalPaymentData,
-//         interestPaymentData,
-//         incomeData,
-//         expenseData,
-//     };
-// }
 export function calculateLoan(data) {
     const {
         loan = 0,
@@ -58,7 +42,7 @@ export function calculateLoan(data) {
         balance -= principalPayment;
 
         // 年間の支出・収入額
-        const annualIncome = income * Math.pow(1.01, year - 1); // 年1%上昇
+        const annualIncome = income * Math.pow(1.01, year - 1.0); // 年1%上昇
         const annualExpense = expense * 12;
 
         interestPaymentData.push(Math.round(interestPayment));
