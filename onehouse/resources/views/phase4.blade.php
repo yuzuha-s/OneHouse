@@ -35,7 +35,9 @@
                     </div>
                 </div>
 
-                <div class="list-nav"><div class="back"></div></div>
+                <div class="list-nav">
+                    <div class="back"></div>
+                </div>
             </div>
 
             <form action="{{ route('phase4.store') }}" method="POST">
@@ -49,7 +51,7 @@
                             <div class="landform-contant">
                                 <label for="">住所</label>
                                 <div class="land-form-row">
-                                    <textarea name="address" placeholder="〒">{{ old('address') }}</textarea>
+                                    <textarea name="address" placeholder="〒" class="landtextarea">{{ old('address') }}</textarea>
                                 </div>
                                 <div class="error-space"> @error('address')
                                         <div class="error">登録には{{ $message }}</div>
@@ -120,9 +122,11 @@
                             </div>
 
                             <div class="form-contact">
+                                <label class="hidden">aaa</label>
                                 <div class="land-form-row">
-                                    <div class="land-calculate"><button type="button"
-                                            id="calculate-btn">計算する</button><span></span></div>
+                                    <div class="land-calculate">
+                                        <button type="button"id="calculate-btn">計算する</button><span></span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -134,7 +138,7 @@
                     <div class="land-right">
                         <div class="land-card">
                             <div class="card-inner wrapper">
-                                <h3>建築可能面積</h3>
+                                <h4>建築可能面積</h4>
                                 <div class="land-right-valiable">
                                     <div class="land-form-row"><span class="long-p">合計</span>
                                         <input type="hidden" name="builable_area" id="builable_area_hidden"
@@ -155,8 +159,8 @@
                                         <div class="error">{{ $message }}</div>
                                     @enderror
                                 </div>
-
                             </div>
+
                             <div class="card-inner-center wrapper">
                                 <input type="range" id="range" name="builable_area_Tubo" min="0"
                                     class="range">
@@ -165,12 +169,17 @@
                                     </span>
                                     <span>坪</span>
                                 </div>
+                            </div>
 
+                            <div class="landform-contant">
+                                <div class="error-space">
+                                    <div class="error"></div>
+                                </div>
                             </div>
 
 
                             <div class="card-inner wrapper">
-                                <h3>建築費用</h3>
+                                <h4>建築費用</h4>
                                 <div class="land-right-valiable">
                                     <div class="land-form-row">
                                         <div class="form-valiable building_cost">{{ $building_cost ?? 0 }}</div>
@@ -191,17 +200,15 @@
                     <div class="landtable-contant">
                         <table class="land-table">
                             <thead>
-                                <tr>
-                                    {{-- <th></th> --}}
-                                    <th>訪問日</th>
-                                    <th>住所</th>
-                                    <th>土地面積</th>
-                                    <th>建物最大面積</th>
-
-                                    <th>容積率/建ぺい率</th>
+                                <tr class="hidden">
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
                                     <th></th>
                                 </tr>
-
                             </thead>
                             <tbody class="landsimulation">
                                 @foreach ($landLogs as $landLog)
@@ -217,7 +224,7 @@
                                         <td>{{ $landLog->landarea }}㎡</td>
                                         <td>{{ $landLog->builable_area }}㎡/{{ $landLog->tsubo }}坪</td>
 
-                                        <td>{{ $landLog->far }}/{{ $landLog->bcr }}%</td>
+                                        <td>{{ $landLog->far }}%/{{ $landLog->bcr }}%</td>
                                         <td><button type="button" class="edit-row"><svg
                                                     xmlns="http://www.w3.org/2000/svg" height="40px"
                                                     viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
@@ -243,6 +250,17 @@
                                 @endforeach
 
                             </tbody>
+                            <thead>
+                                <tr class="hidden">
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
                         </table>
                     </div>
 
