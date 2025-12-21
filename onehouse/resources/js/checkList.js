@@ -303,6 +303,7 @@ function setupEventListeners() {
             });
 
             const existingToggleTr = document.querySelector(".toggleTr1");
+            const toggleRow = document.querySelector(".toggle-row");
 
             if (!existingToggleTr) {
                 const toggleTr = document.createElement("tr");
