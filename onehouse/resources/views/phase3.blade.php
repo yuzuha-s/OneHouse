@@ -103,7 +103,9 @@
                                         value="{{ old('income', $income) }}">
                                 </div>
                             </div>
+
                         </div>
+
                         <div class="calculate">
                             <button type="submit" id="calc-btn">計算する</button>
                         </div>
