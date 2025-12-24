@@ -999,7 +999,7 @@ tbody tr {
 .checklist_input {
   border-radius: 10px;
   border: 1px solid #CCCCCC;
-  width: 100%;
+  width: 90%;
   padding: 5px 10px;
   font-size: 16px;
   font-family: 'Noto Sans JP ';
@@ -2455,6 +2455,11 @@ textarea:focus {
   .loginuser-nav ul {
     background-color: transparent;
     box-shadow: none;
+  }
+
+  .navigate li {
+    padding: 10px 10px;
+    width: auto;
   }
 
   .loginuser-nav ul {

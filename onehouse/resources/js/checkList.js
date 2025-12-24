@@ -51,8 +51,8 @@ function setupEventListeners() {
     const handleAddRow = () => {
         const tr = document.createElement("tr");
         tr.innerHTML = `<td></td>
-                        <td><input type="text" placeholder="ここに入力" class="checklist_input" name="list" value=""></td>
                         <td></td>
+                        <td><input type="text" placeholder="ここに入力" class="checklist_input" name="list" value=""></td>
                         <td><button type="button" class="register-list">
                             <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ffff"><path d="M380.67-331.33 158.33-553.67l47.67-47L380.67-426l374-374 47 47.67-421 421ZM200-160v-66.67h560V-160H200Z"/></svg></button></td>
 
