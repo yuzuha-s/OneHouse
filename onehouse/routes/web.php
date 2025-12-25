@@ -75,3 +75,8 @@ Route::middleware('auth')->group(function () {
     // 土地情報を削除する
     Route::delete('phase4/{id}', [LandLogController::class, 'destroy'])->name('phase4.destroy');
 });
+
+
+Route::get('/debug-sentry', function () {
+    throw new Exception('Sentry test error from local!');
+});
