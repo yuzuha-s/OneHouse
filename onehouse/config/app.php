@@ -149,6 +149,9 @@ return [
     Illuminate\Validation\ValidationServiceProvider::class,
     Illuminate\View\ViewServiceProvider::class,
 ],
+[
+'force_https' => env('FORCE_HTTPS', false),
+],
 
 
 ];
