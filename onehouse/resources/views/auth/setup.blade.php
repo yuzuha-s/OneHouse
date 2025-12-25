@@ -81,7 +81,7 @@
 
             <div class="setup-form wrapper">
                 <div class="button-form wrapper">
-                    <a href="/login" class="setup-button">ログイン</a>
+                    <a href="{{ route('login') }}" class="setup-button">ログイン</a>
                     <a class="btn-hidden setup-button">ログイン</a>
 
                 </div>

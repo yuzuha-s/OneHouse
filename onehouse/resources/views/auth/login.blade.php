@@ -72,8 +72,8 @@
 
                 <div class="setup-form wrapper">
                     <div class="button-form wrapper">
-                        <a href="/password_help" class="setup-button">パスワードを忘れた方</a>
-                        <a href="/setup" class="setup-button">新規登録</a>
+                        <a href="{{route('password.store')}}" class="setup-button">パスワードを忘れた方</a>
+                        <a href="{{route('login')}}" class="setup-button">新規登録</a>
                     </div>
                 </div>
             </div>
