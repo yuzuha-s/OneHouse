@@ -18,7 +18,7 @@ Route::get('/login', function () {
 
 Route::get('/setup', function () {
     return view('auth/setup');
-});
+})->name('setup');
 Route::get('/sanctum/csrf-cookie', [CsrfCookieController::class, 'show']);
 
 // auth------------------------------------------
@@ -38,6 +38,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/phase2', function () {
         return view('phase2');
     });
+    Route::get('/help-page', function () {
+        return view('auth/help-page');
+    })->name('help-page');
+
 
     // 住宅メーカー一覧表示
     Route::get('/phase2', [MakerController::class, 'index']);

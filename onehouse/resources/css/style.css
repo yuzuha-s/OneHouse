@@ -15,6 +15,12 @@ body {
   font-family: "Noto Sans JP", Arial, "Roboto", sans-serif;
 }
 
+.body-light {
+  background-color: rgba(255, 255, 255, 0.25);
+  min-height: 170%;
+
+}
+
 .fade {
   opacity: 0;
   transition: opacity 1.4s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -491,6 +497,16 @@ input {
   margin: 0 auto;
 }
 
+.help-back {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  margin: 30px;
+}
+
 .maker-back nav {
   display: flex;
   align-items: center;
@@ -954,6 +970,309 @@ tbody tr {
   border-radius: 20px;
   overflow: hidden;
 }
+
+/* welcomページ---------------- */
+.body-light {
+  width: 100%;
+}
+
+.welcome {
+  margin-top: 50px;
+  width: 90%;
+  /* display: flex; */
+  /* flex-direction: row; */
+}
+
+.welcome .icon svg {
+  width: 90px;
+  height: 90px;
+
+}
+
+.welcome .app-title {
+  font-size: 3.5rem;
+}
+
+.illust img {
+  width: 300px;
+  height: auto;
+}
+
+.lead-text {
+  width: 70%;
+  margin-top: 30px;
+  background-color: #61C6DF;
+  color: #fff;
+  padding: 1.5rem 1rem;
+  border-radius: 20px;
+}
+
+.lead-text h1 {
+  font-size: 2.3rem;
+  white-space: nowrap;
+}
+
+.lead-text p {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.worry-content {
+  width: 80%;
+  margin-top: 30px;
+}
+
+.worry-list li {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+
+.worry-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 12.6rem;
+  gap: 5px;
+  padding: 0;
+}
+
+.worry-bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5em;
+  max-width: 8em;
+  border-radius: 50%;
+  border: 3px #fff solid;
+  padding: 20px;
+  aspect-ratio: 1 / 1;
+}
+
+.worry-bubble:nth-child(1) {
+  align-self: start;
+  justify-self: end;
+}
+
+.worry-bubble:nth-child(2) {
+  align-self: end;
+  justify-self: center;
+}
+
+.worry-bubble:nth-child(3) {
+  align-self: start;
+  justify-self: start;
+}
+
+.worry-bubble:nth-child(4) {
+  align-self: start;
+  justify-self: end;
+}
+
+.worry-bubble:nth-child(5) {
+  align-self: start;
+  justify-self: end;
+}
+
+.worry-p {
+  border-radius: 50%;
+  font-weight: 300;
+  margin: 10px;
+}
+
+.app-intro {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(147, 216, 232, 0.2);
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.article-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  padding: 0;
+  margin: 60px auto;
+}
+
+
+
+.article-point {
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+  color: #fff;
+  border-radius: 50%;
+  background-color: #93D8E8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  min-width: 3em;
+  max-width: 8em;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.article-title strong {
+  font-size: 1.5rem;
+}
+
+.article-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+
+.intro-box {
+  width: 45%;
+  padding: 50px 30px 0 30px;
+
+}
+
+.intro-box h3 {
+  color: #3FAEC8;
+  font-weight: 400;
+  text-align: start;
+}
+
+.intro-box p,
+.sub-text {
+  text-align: left;
+  padding: 0 20px;
+}
+
+.intro-content {
+  width: 55%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.welcome-setup .register a {
+  display: inline-block;
+  text-align: center;
+}
+
+
+.welcome-setup .register {
+  margin: 20px auto;
+}
+
+.welcome-setup .register button {
+  padding: 20px 15rem;
+}
+
+.screen img {
+  width: 100%;
+  height: auto;
+  display: block;
+
+}
+
+.phone {
+  position: relative;
+  margin: 10px 0 0 20px;
+  width: 200px;
+  padding: 6px;
+  background: #000;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.screen {
+  background: #fff;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  overflow: hidden;
+}
+
+.caption {
+  position: absolute;
+  border-radius: 40px;
+  width: 50%;
+  bottom: 0;
+  right: 0;
+}
+
+.point-cap1 {
+  top: 100px;
+  left: 400px;
+}
+
+.point-cap2 {
+  top: 10.2rem;
+  left: 21.0rem;
+}
+
+.point-cap4 {
+  top: 170px;
+  left: 470px;
+  width: 35%;
+}
+
+.is-img4 {
+  width: 120%;
+  margin-top: 40px;
+}
+
+.is-glow p {
+  font-size: 0.85rem;
+
+}
+
+.is-glow img {
+  width: 87%;
+  border-radius: 40px;
+  border: #3FAEC8 2px solid;
+}
+
+.is-point1 {
+  position: relative;
+  width: 38%;
+  text-align: left;
+  background-color: #EEF8FB;
+  top: 8px;
+  left: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
+}
+
+.is-point2 {
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  text-align: left;
+  background-color: #EEF8FB;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
+}
+
+.is-point4 {
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  text-align: left;
+  background-color: #EEF8FB;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
+
+}
+
+.point3 {
+  width: 40%;
+}
+
 
 /* phase1-------------------- */
 .checklist th,
@@ -2221,6 +2540,75 @@ textarea:focus {
     padding: 3px 50px;
   }
 
+  /* welcomeページ--------------- */
+  .lead-text {
+    width: 90%;
+  }
+
+  .article-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 80%;
+    gap: 60px;
+    padding: 0;
+    margin: 60px auto;
+  }
+
+  .article-title {
+    padding: 8px;
+  }
+
+  .intro-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .lead-text h1 {
+    font-size: 2.0rem;
+    white-space: nowrap;
+  }
+
+  .is-glow img {
+    width: 70%;
+
+  }
+
+  .intro-box h3 {
+    font-size: 1.3rem;
+  }
+
+  .point-cap1 {
+    top: 100px;
+    left: 270px;
+  }
+
+  .point-cap2 {
+    top: 9.2rem;
+    left: 18.0rem;
+  }
+
+  .point-cap4 {
+    top: 170px;
+    left: 350px;
+    width: 35%;
+  }
+
+  .welcome-setup .register button {
+    width: 100%;
+  }
+
+  .is-img4 {
+    width: 150%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: start;
+  }
+
+  .is-point1 {
+    left: 100px;
+  }
+
+
 }
 
 
@@ -2277,6 +2665,90 @@ textarea:focus {
 
   .pc-only {
     display: none;
+  }
+
+  /* welcom---------------- */
+  .worry-content {
+    width: 90%;
+  }
+
+  .worry-bubble {
+    min-width: 0.8em;
+    max-width: 8em;
+    padding: 10px;
+  }
+
+  .worry-p {
+    font-size: 0.8rem;
+  }
+
+  .illust img {
+    width: 100%;
+    height: auto;
+
+  }
+
+  .lead-text {
+    width: 80%;
+    margin-top: 0px;
+  }
+
+  .lead-text h1,
+  .lead-text p {
+    font-size: 0.9rem;
+  }
+
+  .app-intro {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .intro-box,
+  .intro-content {
+    width: 80%;
+  }
+
+  .phone {
+    width: 80%;
+  }
+
+  .app-intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .welcome-setup .register button {
+    padding: 20px 70px;
+  }
+
+  .is-glow img {
+    width: 170%;
+  }
+
+  .point-cap1 {
+    top: 400px;
+    left: 30px;
+  }
+
+  .is-point1 {
+    left: 0;
+    width: 60%;
+  }
+
+  .point-cap4 {
+    top: 500px;
+    left: 30px;
+  }
+
+  .is-point4 {
+    width: 100%;
+
+  }
+
+  .is-img4 {
+    width: 60%;
   }
 
   /*  ログイン前ページ---------------------------- */
