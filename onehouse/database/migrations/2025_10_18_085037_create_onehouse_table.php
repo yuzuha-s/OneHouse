@@ -57,36 +57,45 @@ return new class extends Migration
             $table->bigInteger('pricePerTsubo');
             $table->timestamps();
         });
-
-        Schema::create('phases', function (Blueprint $table) {
-            $table->id();
-            $table->integer('number');
-            $table->string('list');
-            $table->timestamps();
-        });
-
-        Schema::create('phase_templates', function (Blueprint $table) {
-            $table->id();
-            $table->integer('number');
-            $table->string('list');
-            $table->timestamps();
-        });
-        Schema::create('checklists', function (Blueprint $table) {
+        Schema::create('checklist_templates', function (Blueprint $table) {
             $table->id();
             $table->foreignId('profile_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('phase_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('template_list_id')->constrained()->cascadeOnDelete();
             $table->boolean('checked')->default(false);
+            $table->timestamps();
+        });
+
+        Schema::create('template_lists', function (Blueprint $table) {
+            $table->id();
+            $table->integer('phase');
+            $table->string('list');
+            $table->timestamps();
+        });
+        Schema::create('checklist_customs', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('profile_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('custom_list_id')->constrained()->cascadeOnDelete();
+            $table->boolean('checked')->default(false);
+            $table->timestamps();
+        });
+
+        Schema::create('custom_lists', function (Blueprint $table) {
+            $table->id();
+            $table->integer('phase');
+            $table->string('list');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('checklists');
-        Schema::dropIfExists('makers_feature');
+        Schema::dropIfExists('checklist_templates');
+        Schema::dropIfExists('checklist_customs');
+        Schema::dropIfExists('template_lists');
+        Schema::dropIfExists('custom_lists');
+
+        Schema::dropIfExists('maker_features');
         Schema::dropIfExists('landlogs');
-        Schema::dropIfExists('phases');
-        // Schema::dropIfExists('loan_simulations');
         Schema::dropIfExists('features');
         Schema::dropIfExists('categories');
         Schema::dropIfExists('makers');

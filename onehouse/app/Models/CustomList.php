@@ -5,17 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Phase extends Model
+class CustomList extends Model
 {
     use HasFactory;
 
-    protected $table = 'phases';
     protected $fillable = [
-        'number',
+        'phase',
         'list',
     ];
-    public function checkList()
+
+    public $timestamps = true;
+
+    public function checklistCustoms()
     {
-        return $this->hasMany(Checklist::class, 'phase_id');
+        return $this->hasMany(ChecklistCustom::class, 'custom_list_id');
     }
 }

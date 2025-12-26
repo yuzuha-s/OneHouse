@@ -32,8 +32,13 @@ class Profile extends Model
         return $this->hasMany(LandLog::class);
     }
 
-    public function checkList()
+    public function checklist_template()
     {
-        return $this->hasMany(Checklist::class);
+        return $this->hasMany(ChecklistTemplate::class);
     }
+    public function checklist_custom()
+    {
+        return $this->hasMany(checklistCustom::class);
+    }
+
 }
