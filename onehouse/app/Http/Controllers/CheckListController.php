@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Checklist;
+use App\Models\ChecklistTemplate;
 use App\Models\Phase;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,8 @@ class CheckListController extends Controller
         $profile = $user->profile ?: $user->profile()->create([]);
         $profileId = $profile->id;
 
-        $checkLists = Checklist::where('profile_id', $profileId)
-            ->with('phase')
+        $checkLists = ChecklistTemplate::where('profile_id', $profileId)
+            ->with('templateList')
             ->get();
 
         return view('phase1', compact('checkLists'));

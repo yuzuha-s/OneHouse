@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Checklist;
+use App\Models\ChecklistTemplate;
 use App\Models\Phase;
 use App\Models\Profile;
+use App\Models\TemplateList;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -36,27 +38,23 @@ class RegisteredUserController extends Controller
             'password' => ['required', Rules\Password::defaults()],
         ]);
 
-        FacadesDB::transaction(function () use ($request, &$user) {
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        $profile = Profile::create([
+            'user_id' => $user->id,
+        ]);
+
+
+        $templateLists = TemplateList::all();
+        foreach ($templateLists as $templateList) {
+            ChecklistTemplate::create([
+                'profile_id' => $profile->id,
+                'template_list_id' => $templateList->id
             ]);
-            $profile = Profile::create([
-                'user_id' => $user->id,
-            ]);
-            $phases = Phase::pluck('id');
-
-            foreach ($phases as $phaseId) {
-                Checklist::create([
-                    'profile_id' => $profile->id,
-                    'phase_id'   => $phaseId,
-                    'checked'    => false,
-                ]);
-            }
-        });
-
-
+        }
 
         event(new Registered($user));
         Auth::login($user);
