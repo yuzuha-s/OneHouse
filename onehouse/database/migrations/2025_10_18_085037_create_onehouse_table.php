@@ -64,6 +64,13 @@ return new class extends Migration
             $table->string('list');
             $table->timestamps();
         });
+
+        Schema::create('phase_templates', function (Blueprint $table) {
+            $table->id();
+            $table->integer('number');
+            $table->string('list');
+            $table->timestamps();
+        });
         Schema::create('checklists', function (Blueprint $table) {
             $table->id();
             $table->foreignId('profile_id')->constrained()->cascadeOnDelete();

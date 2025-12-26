@@ -85,6 +85,14 @@ FOREIGN KEY (feature_id) REFERENCES features(id)
 | phase    | INT          |      | NOT NULL |
 | list     | VARCHAR(255) |
 
+### phase_templates
+
+| カラム名 | データ型     | キー | NOT NULL |
+| -------- | ------------ | ---- | -------- |
+| id       | BIGINT       | PK   |          |
+| phase    | INT          |      | NOT NULL |
+| list     | VARCHAR(255) |
+
 ### checklists
 
 チェックリスト
