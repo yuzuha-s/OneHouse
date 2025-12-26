@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Checklist;
+use App\Models\ChecklistCustom;
 use App\Models\ChecklistTemplate;
+use App\Models\CustomList;
 use App\Models\Phase;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CheckListController extends Controller
 {
@@ -35,27 +38,28 @@ class CheckListController extends Controller
         $validated = $request->validate([
             'list' => 'required|string|min:1|max:255',
         ]);
-        $phase = Phase::firstOrCreate([
-            'number' => 6,
+        $customList = CustomList::firstOrCreate([
+            'phase' => 6,
             'list' => $validated['list'],
         ]);
 
-        $checklist = Checklist::firstOrCreate([
+        $checklistCustom = ChecklistCustom::firstOrCreate([
             'profile_id' => $profileId,
-            'phase_id'   => $phase->id,
+            'custom_list_id'   => $customList->id,
         ], [
             'checked' => false,
         ]);
 
         return response()->json([
             'success' => true,
-            'id' => $checklist->id,
-            'checklist' => $checklist,
-            'number' => $phase->number,
+            'id' => $checklistCustom->id,
+            'checklist' => $checklistCustom,
+            'phase' => $customList->phase,
         ]);
     }
 
-
+# TODO:ChecklistCustom-CustomListでは　入力変更・checked変更
+# TODO:ChecklistTemplate-TemplateListでは　checked変更のみ変更
     // チェックリストを更新する
     public function update(Request $request, string $id)
     {
@@ -88,11 +92,14 @@ class CheckListController extends Controller
     // チェックリストを削除する
     public function destroy(string $id)
     {
-        $checklist = Checklist::findOrFail($id);
-        $phase = Phase::findOrFail($checklist->phase_id);
+        DB::transaction(function () use ($id) {
+            $checklist = ChecklistCustom::findOrFail($id);
+            $customList = CustomList::findOrFail($checklist->customList_id);
 
-        $checklist->delete();
-        $phase->delete();
+            $customList->delete();
+            $checklist->delete();
+        });
+
 
         return response()->json([
             'success' => true,
