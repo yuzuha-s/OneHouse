@@ -148,10 +148,9 @@ return [
     Illuminate\Translation\TranslationServiceProvider::class,
     Illuminate\Validation\ValidationServiceProvider::class,
     Illuminate\View\ViewServiceProvider::class,
+    Sentry\Laravel\ServiceProvider::class,
 ],
-[
-'force_https' => env('FORCE_HTTPS', false),
-],
+
 
 
 ];

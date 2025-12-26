@@ -132,7 +132,7 @@
                 data-term="{{ $loan_term }}" data-age="{{ $age }}" data-expense={{ $expense }}
                 data-income="{{ $income }}"></div>
 
-            @vite('resources/js/loanSimulation.js')
+            @vite('resources/js/LoanSimulation.js')
             @vite('resources/js/app.js')
 
         </div>

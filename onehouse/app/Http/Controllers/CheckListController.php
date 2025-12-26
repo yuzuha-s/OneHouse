@@ -8,17 +8,6 @@ use Illuminate\Http\Request;
 
 class CheckListController extends Controller
 {
-    // public function indexPhase1()
-    // {
-    //     $checkLists = Checklist::with('profile')->get();
-    //     return view('phase1', compact('checkLists'));
-    // }
-    // public function indexPhase5()
-    // {
-    //     return view('phase5');
-    // }
-
-
     public function index()
     {
         $user = auth()->user();
