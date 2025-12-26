@@ -57,6 +57,12 @@ return new class extends Migration
             $table->bigInteger('pricePerTsubo');
             $table->timestamps();
         });
+        Schema::create('template_lists', function (Blueprint $table) {
+            $table->id();
+            $table->integer('phase');
+            $table->string('list');
+            $table->timestamps();
+        });
         Schema::create('checklist_templates', function (Blueprint $table) {
             $table->id();
             $table->foreignId('profile_id')->constrained()->cascadeOnDelete();
@@ -64,25 +70,18 @@ return new class extends Migration
             $table->boolean('checked')->default(false);
             $table->timestamps();
         });
-
-        Schema::create('template_lists', function (Blueprint $table) {
+        Schema::create('custom_lists', function (Blueprint $table) {
             $table->id();
             $table->integer('phase');
             $table->string('list');
             $table->timestamps();
         });
+
         Schema::create('checklist_customs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('profile_id')->constrained()->cascadeOnDelete();
             $table->foreignId('custom_list_id')->constrained()->cascadeOnDelete();
             $table->boolean('checked')->default(false);
-            $table->timestamps();
-        });
-
-        Schema::create('custom_lists', function (Blueprint $table) {
-            $table->id();
-            $table->integer('phase');
-            $table->string('list');
             $table->timestamps();
         });
     }

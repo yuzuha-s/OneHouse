@@ -17,9 +17,8 @@ class DatabaseSeeder extends Seeder
             FeatureSeeder::class,
             MakerFeatureSeeder::class,
             LandLogSeeder::class,
-            PhaseSeeder::class,
-            ChecklistSeeder::class,
-            PhaseTemplateSeeder::class,
+            TemplateListSeeder::class,
+            ChecklistTemplateSeeder::class,
         ]);
     }
 }
