@@ -10,8 +10,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 // チェックリストの登録・更新・削除
-Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/checklist', [CheckListController::class, 'store']);
-    Route::put('/checklist/{id}', [CheckListController::class, 'update']);
-    Route::delete('/checklist/{id}', [CheckListController::class, 'destroy']);
-});
+
+
+// Route::middleware('auth:sanctum')->group(function () {
+//     Route::post('/checklist', [CheckListController::class, 'store']);
+//     Route::put('/checklist/{id}', [CheckListController::class, 'update']);
+//     Route::delete('/checklist/{id}', [CheckListController::class, 'destroy']);
+// });

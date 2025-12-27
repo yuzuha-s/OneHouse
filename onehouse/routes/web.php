@@ -76,7 +76,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('phase4/{id}', [LandLogController::class, 'destroy'])->name('phase4.destroy');
 });
 
+Route::middleware('auth:sanctum')->post('/checklist', [ChecklistController::class, 'store']);
 
 Route::get('/debug-sentry', function () {
     throw new Exception('Sentry test error from local!');
 });
+

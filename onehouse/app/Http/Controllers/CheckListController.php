@@ -8,6 +8,7 @@ use App\Models\CustomList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class CheckListController extends Controller
 {
@@ -20,8 +21,11 @@ class CheckListController extends Controller
         $checkLists = ChecklistTemplate::where('profile_id', $profileId)
             ->with('templateList')
             ->get();
+        $customLists= ChecklistCustom::where('profile_id', $profileId)
+            ->with('customList')
+            ->get();
 
-        return view('phase1', compact('checkLists'));
+        return view('phase1', compact('checkLists','customLists'));
     }
 
     //リストを登録する
@@ -31,7 +35,8 @@ class CheckListController extends Controller
             'list' => 'required|string|min:1|max:255',
         ]);
 
-        $profileId = auth()->user()->profile_id;
+        $profileId = $request->input('profile_id');
+        Log::info('profileId', ['id' => $profileId]);
 
         $customList = CustomList::firstOrCreate([
             'phase' => 6,
@@ -48,8 +53,6 @@ class CheckListController extends Controller
         return response()->json([
             'success' => true,
             'id' => $checklistCustom->id,
-            'checklist' => $checklistCustom,
-            'phase' => $customList->phase,
         ]);
     }
 

@@ -43,6 +43,9 @@
         </div>
 
         <div class="table-wrapper">
+            {{-- profile_idをバックエンド --}}
+            <div id="app" data-profile-id="{{ auth()->user()->profile->id }}"></div>
+
             <table class="checklist">
                 <thead>
                     <tr>
@@ -112,17 +115,17 @@
                 </thead>
                 <tbody class="checklist">
                     <input type="hidden" id="profile_id" value="{{ auth()->user()->profile->id }}">
-                    @foreach ($checkLists as $checkList)
-                        @if ($checkList->templateList->phase === 6)
-                            <tr data-id="{{ $checkList->id }}" data-type="custom">
+                    @foreach ($customLists as $customList)
+                        @if ($customList->customList->phase === 6)
+                            <tr data-id="{{ $customList->id }}" data-type="custom">
                                 <td><label class="switch">
-                                        <input type="checkbox" name="checked" value="{{ $checkList->checked }}"
-                                            @if ($checkList->checked) checked @endif>
+                                        <input type="checkbox" name="checked" value="{{ $customList->checked }}"
+                                            @if ($customList->checked) checked @endif>
                                         <span class="slider"></span>
                                     </label></td>
                                 <td></td>
                                 <td><input type="text" class="checklist_input" name="list"
-                                        value="{{ $checkList->templateList->list }}" disabled></td>
+                                        value="{{ $customList->customList->list }}" disabled></td>
 
                                 <td><button type="button" class="edit-list"><svg xmlns="http://www.w3.org/2000/svg"
                                             height="40px" viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">

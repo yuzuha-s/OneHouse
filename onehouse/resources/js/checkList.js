@@ -148,38 +148,52 @@ function setupEventListeners() {
             const tr = e.target.closest("tr");
             const input = tr.querySelector(".checklist_input");
             const listInput = input.value;
-            // const profileId = document.getElementById("profile_id").value;
 
-            const data = {
-                type: "custom",
-                phase: 6,
-                checked: false,
-                list: listInput,
-            };
+            const profileId = document.querySelector("#app").dataset.profileId;
+
+            // CSRF Cookie 取得
+            await fetch("/sanctum/csrf-cookie", {
+                method: "GET",
+                credentials: "include",
+            });
 
             // type=customのみPOST
             handleRegister(e);
             try {
-                const response = await fetch("/api/checklist", {
+                const response = await fetch("/checklist", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                         Accept: "application/json",
+                        "X-CSRF-TOKEN": document.querySelector(
+                            'meta[name="csrf-token"]'
+                        ).content,
                     },
 
-                    body: JSON.stringify(data),
-                    credentials: "include"
+                    body: JSON.stringify({
+                        profile_id: parseInt(profileId, 10),
+                        list: listInput,
+                    }),
+                    credentials: "include",
                 });
-
                 const result = await response.json();
-                const id =
-                    result.id ||
-                    (result.checklist && result.checklist.id) ||
-                    result.checklist_id ||
-                    (result.data && result.data.id);
 
-                if (id) {
-                    tr.dataset.id = String(id);
+                if (!response.ok) {
+                    if (response.status === 401) {
+                        console.error(
+                            "認証エラー: ログインしてください",
+                            result
+                        );
+                    } else {
+                        console.error(
+                            `サーバーエラー (status ${response.status}):`,
+                            result
+                        );
+                    }
+                }
+                if (result.id) {
+                    tr.dataset.id = String(result.id);
+                    showMessage("success", tr);
                     console.log("assigned data-id:", tr.dataset.id);
                 } else {
                     console.warn(
@@ -187,112 +201,102 @@ function setupEventListeners() {
                         result
                     );
                 }
-                console.log(result);
             } catch (error) {
                 console.log("送信エラー:handleRegister", error);
             }
-        } else if (e.target.closest(".edit-list")) {
-            handleEdit(e);
-        } else if (e.target.closest(".update-list")) {
-            const tr = e.target.closest("tr");
-            const id = tr.dataset.id;
-            const input = tr.querySelector(".checklist_input");
-            const listInput = input.value;
 
-            const data = {
-                list: listInput,
-            };
+            //     // type=custom：checkedとlistでPUT,type =templat：checkedのPUT
+            //     try {
+            //         const response = await fetch(`/api/checklist/${id}`, {
+            //             method: "PUT",
+            //             headers: {
+            //                 "Content-Type": "application/json",
+            //             },
+            //             body: JSON.stringify(data),
+            //             credentials: "include",
+            //         });
+            //         const result = await response.json();
 
-            // type=custom：checkedとlistでPUT,type =templat：checkedのPUT
-            try {
-                const response = await fetch(`/api/checklist/${id}`, {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
-                });
-                const result = await response.json();
+            //         console.log(result);
 
-                console.log(result);
+            //         if (result.success || response.ok) {
+            //             const updateBtn = tr.querySelector(".update-list");
+            //             updateBtn.classList.remove("update-list");
+            //             updateBtn.classList.add("edit-list");
+            //             updateBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="40px"
+            //                             viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
+            //                             <path
+            //                                 d="M284-286h68l250-249.33-68-69.34-250 250V-286Zm339.33-270.67 40-40.66q6.67-6.67 7-15 .34-8.34-7-15.67l-38-37.33q-7.33-7.34-15.33-7-8 .33-14.67 7l-40 39.33 68 69.33ZM186.67-120q-27.5 0-47.09-19.58Q120-159.17 120-186.67v-586.66q0-27.5 19.58-47.09Q159.17-840 186.67-840h192.66q7.67-35.33 35.84-57.67Q443.33-920 480-920t64.83 22.33Q573-875.33 580.67-840h192.66q27.5 0 47.09 19.58Q840-800.83 840-773.33v586.66q0 27.5-19.58 47.09Q800.83-120 773.33-120H186.67Zm0-66.67h586.66v-586.66H186.67v586.66Zm293.33-608q13.67 0 23.5-9.83t9.83-23.5q0-13.67-9.83-23.5t-23.5-9.83q-13.67 0-23.5 9.83t-9.83 23.5q0 13.67 9.83 23.5t23.5 9.83Zm-293.33 608v-586.66 586.66Z" />
+            //                         </svg>`;
+            //             showMessage("update", tr);
+            //             input.disabled = true;
+            //         }
+            //     } catch (error) {
+            //         console.log("送信エラー:handleEdit", error);
+            //     }
+            // } else if (e.target.closest(".delete-list")) {
+            //     const tr = e.target.closest("tr");
+            //     const id = tr.dataset.id;
+            //     const data = {};
 
-                if (result.success || response.ok) {
-                    const updateBtn = tr.querySelector(".update-list");
-                    updateBtn.classList.remove("update-list");
-                    updateBtn.classList.add("edit-list");
-                    updateBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="40px"
-                                    viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
-                                    <path
-                                        d="M284-286h68l250-249.33-68-69.34-250 250V-286Zm339.33-270.67 40-40.66q6.67-6.67 7-15 .34-8.34-7-15.67l-38-37.33q-7.33-7.34-15.33-7-8 .33-14.67 7l-40 39.33 68 69.33ZM186.67-120q-27.5 0-47.09-19.58Q120-159.17 120-186.67v-586.66q0-27.5 19.58-47.09Q159.17-840 186.67-840h192.66q7.67-35.33 35.84-57.67Q443.33-920 480-920t64.83 22.33Q573-875.33 580.67-840h192.66q27.5 0 47.09 19.58Q840-800.83 840-773.33v586.66q0 27.5-19.58 47.09Q800.83-120 773.33-120H186.67Zm0-66.67h586.66v-586.66H186.67v586.66Zm293.33-608q13.67 0 23.5-9.83t9.83-23.5q0-13.67-9.83-23.5t-23.5-9.83q-13.67 0-23.5 9.83t-9.83 23.5q0 13.67 9.83 23.5t23.5 9.83Zm-293.33 608v-586.66 586.66Z" />
-                                </svg>`;
-                    showMessage("update", tr);
-                    input.disabled = true;
-                }
-            } catch (error) {
-                console.log("送信エラー:handleEdit", error);
-            }
-        } else if (e.target.closest(".delete-list")) {
-            const tr = e.target.closest("tr");
-            const id = tr.dataset.id;
-            const data = {};
+            //     handleDelete(e);
 
-            handleDelete(e);
+            //     // type=customのみDELETE
 
-            // type=customのみDELETE
+            //     try {
+            //         const response = await fetch(`/api/checklist/${id}`, {
+            //             method: "DELETE",
+            //             headers: {
+            //                 "Content-Type": "application/json",
+            //             },
+            //             body: JSON.stringify(data),
+            //         });
+            //         const result = await response.json();
+            //         console.log(result);
+            //     } catch (error) {
+            //         console.log("送信エラー:handleDelete", error);
+            //     }
+            // } else if (e.target.matches("input[name='checked']")) {
+            //     const target = e.target;
+            //     const tr = target.closest("tr");
+            //     const id = tr.dataset.id;
 
-            try {
-                const response = await fetch(`/api/checklist/${id}`, {
-                    method: "DELETE",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
-                });
-                const result = await response.json();
-                console.log(result);
-            } catch (error) {
-                console.log("送信エラー:handleDelete", error);
-            }
-        } else if (e.target.matches("input[name='checked']")) {
-            const target = e.target;
-            const tr = target.closest("tr");
-            const id = tr.dataset.id;
+            //     const checked = target.checked;
+            //     target.value = checked ? "1" : "0";
+            //     target.setAttribute("value", target.value);
+            //     const checkedValue = target.checked ? 1 : 0;
 
-            const checked = target.checked;
-            target.value = checked ? "1" : "0";
-            target.setAttribute("value", target.value);
-            const checkedValue = target.checked ? 1 : 0;
+            //     if (!id) {
+            //         console.warn(
+            //             "更新対象の data-id がありません。まず登録してください。"
+            //         );
+            //         // UI を元に戻す
+            //         target.checked = !checked;
+            //         showMessage("error", tr);
+            //         return;
+            //     }
+            //     try {
+            //         const response = await fetch(`/api/checklist/${id}`, {
+            //             method: "PUT",
+            //             headers: {
+            //                 "Content-Type": "application/json",
+            //                 Accept: "application/json",
+            //             },
+            //             body: JSON.stringify({ checked: checkedValue }),
+            //             credentials: "include",
+            //         });
+            //         const result = await response.json();
+            //         console.log(result);
 
-            if (!id) {
-                console.warn(
-                    "更新対象の data-id がありません。まず登録してください。"
-                );
-                // UI を元に戻す
-                target.checked = !checked;
-                showMessage("error", tr);
-                return;
-            }
-            try {
-                const response = await fetch(`/api/checklist/${id}`, {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Accept: "application/json",
-                    },
-                    body: JSON.stringify({ checked: checkedValue }),
-                });
-                const result = await response.json();
-                console.log(result);
-
-                if (result.success || response.ok) {
-                    checkButton(tr, checked);
-                    if (checked) {
-                        showMessage("checked", tr);
-                    }
-                }
-            } catch (error) {
-                console.log("送信エラー:checked", error);
-            }
+            //         if (result.success || response.ok) {
+            //             checkButton(tr, checked);
+            //             if (checked) {
+            //                 showMessage("checked", tr);
+            //             }
+            //         }
+            //     } catch (error) {
+            //         console.log("送信エラー:checked", error);
+            //     }
         }
     });
 
