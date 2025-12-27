@@ -53,8 +53,9 @@
                             </svg></th>
                         <th></th>
                         <th>
-                            <div class="pc-only"><button id="toggle-phase1" class="toggle"><svg xmlns="http://www.w3.org/2000/svg"
-                                        height="30px" viewBox="0 -960 960 960" width="30px" fill="#1f1f1f">
+                            <div class="pc-only"><button id="toggle-phase1" class="toggle"><svg
+                                        xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960"
+                                        width="30px" fill="#1f1f1f">
                                         <path
                                             d="M710.97-192.56h32v-104.88h104.88v-32H742.97v-104.87h-32v104.87H606.1v32h104.87v104.88ZM726.15-140q-72.16 0-123-51.05t-50.84-122.59q0-72.73 50.83-123.72 50.84-51 123.34-51 71.83 0 122.88 51 51.05 50.99 51.05 123.72 0 71.54-51.05 122.59T726.15-140ZM180-220v-450l300-225.77L780-670v102.95q-11.82-3.67-24.47-5.1-12.65-1.44-25.79-1.85v-70.87L480-833.08 230.26-644.96v374.7h240.23q1.87 13.08 5.86 25.83 3.99 12.74 9.32 24.43H180Zm300-331.87Z" />
                                     </svg><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
@@ -113,14 +114,14 @@
                     <input type="hidden" id="profile_id" value="{{ auth()->user()->profile->id }}">
                     @foreach ($checkLists as $checkList)
                         @if ($checkList->templateList->phase === 6)
-                            <tr data-id="{{ $checkList->id }}">
+                            <tr data-id="{{ $checkList->id }}" data-type="custom">
                                 <td><label class="switch">
                                         <input type="checkbox" name="checked" value="{{ $checkList->checked }}"
                                             @if ($checkList->checked) checked @endif>
                                         <span class="slider"></span>
                                     </label></td>
                                 <td></td>
-                                <td><input type="text" placeholder="タスクを入力" class="checklist_input" name="list"
+                                <td><input type="text" class="checklist_input" name="list"
                                         value="{{ $checkList->templateList->list }}" disabled></td>
 
                                 <td><button type="button" class="edit-list"><svg xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +155,7 @@
 
                     @foreach ($checkLists ?? [] as $checkList)
                         @if ($checkList->templateList->phase === 1)
-                            <tr class="phase1-row" data-id="{{ $checkList->id }}">
+                            <tr class="phase1-row" data-id="{{ $checkList->id }}" data-type="template">
                                 <td> <label class="switch">
                                         <input type="checkbox" name="checked" value="{{ $checkList->checked }}"
                                             @if ($checkList->checked) checked @endif>
@@ -191,7 +192,7 @@
                     </tr>
                     @foreach ($checkLists as $checkList)
                         @if ($checkList->templateList->phase === 2)
-                            <tr class="phase2-row" data-id="{{ $checkList->id }}">
+                            <tr class="phase2-row" data-id="{{ $checkList->id }}" data-type="template">
                                 <td> <label class="switch">
                                         <input type="checkbox" name="checked" value="{{ $checkList->checked }}"
                                             @if ($checkList->checked) checked @endif>
@@ -229,7 +230,7 @@
                     </tr>
                     @foreach ($checkLists as $checkList)
                         @if ($checkList->templateList->phase === 3)
-                            <tr class="phase3-row" data-id="{{ $checkList->id }}">
+                            <tr class="phase3-row" data-id="{{ $checkList->id }}" data-type="template">
                                 <td> <label class="switch">
                                         <input type="checkbox" name="checked" value="{{ $checkList->checked }}"
                                             @if ($checkList->checked) checked @endif>
@@ -267,7 +268,7 @@
                     </tr>
                     @foreach ($checkLists as $checkList)
                         @if ($checkList->templateList->phase === 4)
-                            <tr class="phase4-row" data-id="{{ $checkList->id }}">
+                            <tr class="phase4-row" data-id="{{ $checkList->id }}" data-type="template">
                                 <td> <label class="switch">
                                         <input type="checkbox" name="checked" value="{{ $checkList->checked }}"
                                             @if ($checkList->checked) checked @endif>
@@ -306,7 +307,7 @@
                     </tr>
                     @foreach ($checkLists as $checkList)
                         @if ($checkList->templateList->phase === 5)
-                            <tr class="phase5-row" data-id="{{ $checkList->id }}">
+                            <tr class="phase5-row" data-id="{{ $checkList->id }}" data-type="template">
                                 <td> <label class="switch">
                                         <input type="checkbox" name="checked" value="{{ $checkList->checked }}"
                                             @if ($checkList->checked) checked @endif>
@@ -335,6 +336,6 @@
     </div>
 
 
-    {{-- @vite('resources/js/checkList.js') --}}
+    @vite('resources/js/checkList.js')
 
 @endsection

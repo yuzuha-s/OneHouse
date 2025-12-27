@@ -52,7 +52,7 @@ function setupEventListeners() {
         const tr = document.createElement("tr");
         tr.innerHTML = `<td></td>
                         <td></td>
-                        <td><input type="text" placeholder="ここに入力" class="checklist_input" name="list" value=""></td>
+                        <td><input type="text" placeholder="タスクを追加していこう" class="checklist_input" name="list" value=""></td>
                         <td><button type="button" class="register-list">
                             <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ffff"><path d="M380.67-331.33 158.33-553.67l47.67-47L380.67-426l374-374 47 47.67-421 421ZM200-160v-66.67h560V-160H200Z"/></svg></button></td>
 
@@ -148,15 +148,16 @@ function setupEventListeners() {
             const tr = e.target.closest("tr");
             const input = tr.querySelector(".checklist_input");
             const listInput = input.value;
-            const profileId = document.getElementById("profile_id").value;
+            // const profileId = document.getElementById("profile_id").value;
 
             const data = {
-                profile_id: profileId,
-                number: 6,
+                type: "custom",
+                phase: 6,
                 checked: false,
                 list: listInput,
             };
 
+            // type=customのみPOST
             handleRegister(e);
             try {
                 const response = await fetch("/api/checklist", {
@@ -167,6 +168,7 @@ function setupEventListeners() {
                     },
 
                     body: JSON.stringify(data),
+                    credentials: "include"
                 });
 
                 const result = await response.json();
@@ -201,6 +203,7 @@ function setupEventListeners() {
                 list: listInput,
             };
 
+            // type=custom：checkedとlistでPUT,type =templat：checkedのPUT
             try {
                 const response = await fetch(`/api/checklist/${id}`, {
                     method: "PUT",
@@ -234,6 +237,8 @@ function setupEventListeners() {
             const data = {};
 
             handleDelete(e);
+
+            // type=customのみDELETE
 
             try {
                 const response = await fetch(`/api/checklist/${id}`, {

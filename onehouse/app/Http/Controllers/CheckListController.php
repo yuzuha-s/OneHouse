@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Checklist;
 use App\Models\ChecklistCustom;
 use App\Models\ChecklistTemplate;
 use App\Models\CustomList;
-use App\Models\Phase;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CheckListController extends Controller
@@ -28,16 +27,12 @@ class CheckListController extends Controller
     //リストを登録する
     public function store(Request $request)
     {
-        if (!$request->profile_id) {
-            return response()->json(['error' => 'profile_idが必要です'], 422);
-        }
-
-        $profileId = $request->profile_id;
-
-
         $validated = $request->validate([
             'list' => 'required|string|min:1|max:255',
         ]);
+
+        $profileId = auth()->user()->profile_id;
+
         $customList = CustomList::firstOrCreate([
             'phase' => 6,
             'list' => $validated['list'],
@@ -58,35 +53,53 @@ class CheckListController extends Controller
         ]);
     }
 
-# TODO:ChecklistCustom-CustomListでは　入力変更・checked変更
-# TODO:ChecklistTemplate-TemplateListでは　checked変更のみ変更
     // チェックリストを更新する
     public function update(Request $request, string $id)
     {
-
-        $validated = $request->validate([
-            'list' => 'sometimes|string|min:1|max:255',
+        // それぞれのバリデーション制御
+        $rules = [
+            'type' => 'required|in:template,custom',
             'checked' => 'sometimes|boolean',
-        ]);
-
-        $checklist = Checklist::findOrFail($id);
-        $phase = Phase::findOrFail($checklist->phase_id);
-
-        if (array_key_exists('list', $validated)) {
-            $phase->update([
-                'list' => $validated['list'],
-            ]);
-        }
-        if (array_key_exists('checked', $validated)) {
-            $checklist->update([
-                'checked' => $validated['checked'],
-            ]);
+        ];
+        if ($request->type === 'custom') {
+            $rules['list'] = 'sometimes|string|min:1|max:255';
         }
 
-        return response()->json([
-            'success' => true,
-            'checklist' => $checklist->fresh(),
-        ]);
+        $request->validate($rules);
+
+        // ChecklistTemplate-TemplateList：checked変更のみ変更
+        if ($request->type === 'template') {
+            $checklistTemplate = ChecklistTemplate::findOrFail($id);
+
+            if ($request->has('checked')) {
+                $checklistTemplate->update([
+                    'checked' => $request->checked,
+                ]);
+            }
+            return response()->json([
+                'success' => true,
+                'type' => 'template',
+            ]);
+        }
+        // ChecklistCustom-CustomList：入力変更・checked変更
+        if ($request->type === 'custom') {
+            $checklistCustom = ChecklistCustom::with('customList')->findOrFail($id);
+
+            if ($request->has('checked')) {
+                $checklistCustom->update([
+                    'checked' => $request->checked,
+                ]);
+            }
+            if ($request->filled('list')) {
+                $checklistCustom->customList->update([
+                    'list' => $request->list,
+                ]);
+            }
+            return response()->json([
+                'success' => true,
+                'type' => 'custom',
+            ]);
+        }
     }
 
     // チェックリストを削除する

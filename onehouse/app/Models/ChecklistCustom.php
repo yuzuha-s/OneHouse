@@ -5,17 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class checklistCustom extends Model
+class ChecklistCustom extends Model
 {
     use HasFactory;
 
-    protected $table = 'phase_templates';
+    protected $table = 'checklist_customs';
     protected $fillable = [
-        'number',
-        'list',
+        'profile_id',
+        'custom_list_id',
+        'checked',
     ];
-     public function profile()
+    public function profile()
     {
         return $this->belongsTo(Profile::class);
+    }
+    public function customList() {
+        return $this->belongsTo(CustomList::class);
     }
 }

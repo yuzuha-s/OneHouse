@@ -21,7 +21,7 @@ Route::get('/setup', function () {
 })->name('setup');
 Route::get('/sanctum/csrf-cookie', [CsrfCookieController::class, 'show']);
 
-// auth------------------------------------------
+// auth------------------------------------------------
 require __DIR__ . '/auth.php';
 
 Route::middleware('auth')->group(function () {
@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/user_setting', [UserSettingController::class, 'update'])->name('user_setting');
 });
 
-// phase1~5------------------------------------------
+// コアページ------------------------------------------
 
 Route::middleware('auth')->group(function () {
     Route::get('/phase2', function () {
