@@ -21,11 +21,11 @@ class CheckListController extends Controller
         $checkLists = ChecklistTemplate::where('profile_id', $profileId)
             ->with('templateList')
             ->get();
-        $customLists= ChecklistCustom::where('profile_id', $profileId)
+        $customLists = ChecklistCustom::where('profile_id', $profileId)
             ->with('customList')
             ->get();
 
-        return view('phase1', compact('checkLists','customLists'));
+        return view('phase1', compact('checkLists', 'customLists'));
     }
 
     //リストを登録する
@@ -86,15 +86,15 @@ class CheckListController extends Controller
         }
         // ChecklistCustom-CustomList：入力変更・checked変更
         if ($request->type === 'custom') {
-            $checklistCustom = ChecklistCustom::with('customList')->findOrFail($id);
+            $customList = CustomList::with('ChecklistCustoms')->findOrFail($id);
 
             if ($request->has('checked')) {
-                $checklistCustom->update([
+                $customList->checklistCustoms->update([
                     'checked' => $request->checked,
                 ]);
             }
             if ($request->filled('list')) {
-                $checklistCustom->customList->update([
+                $customList->update([
                     'list' => $request->list,
                 ]);
             }
@@ -108,12 +108,12 @@ class CheckListController extends Controller
     // チェックリストを削除する
     public function destroy(string $id)
     {
-        DB::transaction(function () use ($id) {
-            $checklist = ChecklistCustom::findOrFail($id);
-            $customList = CustomList::findOrFail($checklist->customList_id);
 
+        DB::transaction(function () use ($id) {
+            $customList = CustomList::findOrFail($id);
+
+            $customList->checklistCustoms()->delete();
             $customList->delete();
-            $checklist->delete();
         });
 
 

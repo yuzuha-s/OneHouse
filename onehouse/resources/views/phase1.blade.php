@@ -117,7 +117,7 @@
                     <input type="hidden" id="profile_id" value="{{ auth()->user()->profile->id }}">
                     @foreach ($customLists as $customList)
                         @if ($customList->customList->phase === 6)
-                            <tr data-id="{{ $customList->id }}" data-type="custom">
+                            <tr data-id="{{ $customList->custom_list_id }}" data-type="custom">
                                 <td><label class="switch">
                                         <input type="checkbox" name="checked" value="{{ $customList->checked }}"
                                             @if ($customList->checked) checked @endif>

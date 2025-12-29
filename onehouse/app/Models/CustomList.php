@@ -18,6 +18,6 @@ class CustomList extends Model
 
     public function checklistCustoms()
     {
-        return $this->hasMany(ChecklistCustom::class, 'custom_list_id');
+        return $this->hasMany(ChecklistCustom::class);
     }
 }

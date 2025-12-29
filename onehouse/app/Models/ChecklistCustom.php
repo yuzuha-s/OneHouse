@@ -15,11 +15,15 @@ class ChecklistCustom extends Model
         'custom_list_id',
         'checked',
     ];
+    protected $casts = [
+        'checked' => 'boolean',
+    ];
     public function profile()
     {
         return $this->belongsTo(Profile::class);
     }
-    public function customList() {
-        return $this->belongsTo(CustomList::class);
+    public function customList()
+    {
+        return $this->belongsTo(CustomList::class, 'custom_list_id');
     }
 }

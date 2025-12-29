@@ -115,15 +115,9 @@ function setupEventListeners() {
             editBtn.classList.remove("edit-list");
             editBtn.classList.add("update-list");
             editBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ffff"><path d="M380.67-331.33 158.33-553.67l47.67-47L380.67-426l374-374 47 47.67-421 421ZM200-160v-66.67h560V-160H200Z"/></svg>`;
-            input.disabled = false;
 
-            const list = input.value.trim();
-            if (!list) {
-                input.classList.add("input-error");
-                showMessage("error", tr);
-                return;
-            }
-            input.classList.remove("input-error");
+            input.disabled = false;
+            input.focus();
         }
     };
 
@@ -204,58 +198,89 @@ function setupEventListeners() {
             } catch (error) {
                 console.log("送信エラー:handleRegister", error);
             }
+        }
+        // type=customのみlistでPUT
+        else if (e.target.closest(".edit-list")) {
+            handleEdit(e);
+        } else if (e.target.closest(".update-list")) {
+            const tr = e.target.closest("tr");
+            const id = tr.dataset.id;
+            const input = tr.querySelector("input[type='text']");
 
-            //     // type=custom：checkedとlistでPUT,type =templat：checkedのPUT
-            //     try {
-            //         const response = await fetch(`/api/checklist/${id}`, {
-            //             method: "PUT",
-            //             headers: {
-            //                 "Content-Type": "application/json",
-            //             },
-            //             body: JSON.stringify(data),
-            //             credentials: "include",
-            //         });
-            //         const result = await response.json();
+            const list = input.value.trim();
+            if (!list) {
+                input.classList.add("input-error");
+                showMessage("error", tr);
+                return;
+            }
+            input.classList.remove("input-error");
 
-            //         console.log(result);
+            try {
+                const response = await fetch(`/checklist/${id}`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                        "X-CSRF-TOKEN": document.querySelector(
+                            'meta[name="csrf-token"]'
+                        ).content,
+                    },
+                    body: JSON.stringify({
+                        type: "custom",
+                        list: input.value,
+                    }),
+                    credentials: "include",
+                });
+                const result = await response.json();
 
-            //         if (result.success || response.ok) {
-            //             const updateBtn = tr.querySelector(".update-list");
-            //             updateBtn.classList.remove("update-list");
-            //             updateBtn.classList.add("edit-list");
-            //             updateBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="40px"
-            //                             viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
-            //                             <path
-            //                                 d="M284-286h68l250-249.33-68-69.34-250 250V-286Zm339.33-270.67 40-40.66q6.67-6.67 7-15 .34-8.34-7-15.67l-38-37.33q-7.33-7.34-15.33-7-8 .33-14.67 7l-40 39.33 68 69.33ZM186.67-120q-27.5 0-47.09-19.58Q120-159.17 120-186.67v-586.66q0-27.5 19.58-47.09Q159.17-840 186.67-840h192.66q7.67-35.33 35.84-57.67Q443.33-920 480-920t64.83 22.33Q573-875.33 580.67-840h192.66q27.5 0 47.09 19.58Q840-800.83 840-773.33v586.66q0 27.5-19.58 47.09Q800.83-120 773.33-120H186.67Zm0-66.67h586.66v-586.66H186.67v586.66Zm293.33-608q13.67 0 23.5-9.83t9.83-23.5q0-13.67-9.83-23.5t-23.5-9.83q-13.67 0-23.5 9.83t-9.83 23.5q0 13.67 9.83 23.5t23.5 9.83Zm-293.33 608v-586.66 586.66Z" />
-            //                         </svg>`;
-            //             showMessage("update", tr);
-            //             input.disabled = true;
-            //         }
-            //     } catch (error) {
-            //         console.log("送信エラー:handleEdit", error);
-            //     }
-            // } else if (e.target.closest(".delete-list")) {
-            //     const tr = e.target.closest("tr");
-            //     const id = tr.dataset.id;
-            //     const data = {};
+                console.log(result);
 
-            //     handleDelete(e);
+                if (result.success && response.ok) {
+                    const updateBtn = tr.querySelector(".update-list");
+                    updateBtn.classList.remove("update-list");
+                    updateBtn.classList.add("edit-list");
+                    updateBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="40px"
+                                        viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
+                                        <path
+                                            d="M284-286h68l250-249.33-68-69.34-250 250V-286Zm339.33-270.67 40-40.66q6.67-6.67 7-15 .34-8.34-7-15.67l-38-37.33q-7.33-7.34-15.33-7-8 .33-14.67 7l-40 39.33 68 69.33ZM186.67-120q-27.5 0-47.09-19.58Q120-159.17 120-186.67v-586.66q0-27.5 19.58-47.09Q159.17-840 186.67-840h192.66q7.67-35.33 35.84-57.67Q443.33-920 480-920t64.83 22.33Q573-875.33 580.67-840h192.66q27.5 0 47.09 19.58Q840-800.83 840-773.33v586.66q0 27.5-19.58 47.09Q800.83-120 773.33-120H186.67Zm0-66.67h586.66v-586.66H186.67v586.66Zm293.33-608q13.67 0 23.5-9.83t9.83-23.5q0-13.67-9.83-23.5t-23.5-9.83q-13.67 0-23.5 9.83t-9.83 23.5q0 13.67 9.83 23.5t23.5 9.83Zm-293.33 608v-586.66 586.66Z" />
+                                    </svg>`;
 
-            //     // type=customのみDELETE
+                    input.disabled = true;
+                    showMessage("update", tr);
+                }
+            } catch (error) {
+                console.log("送信エラー:handleEdit", error);
+            }
+        }
+        // type=customのみDELETE
+        else if (e.target.closest(".delete-list")) {
+            const tr = e.target.closest("tr");
+            const id = tr.dataset.id;
 
-            //     try {
-            //         const response = await fetch(`/api/checklist/${id}`, {
-            //             method: "DELETE",
-            //             headers: {
-            //                 "Content-Type": "application/json",
-            //             },
-            //             body: JSON.stringify(data),
-            //         });
-            //         const result = await response.json();
-            //         console.log(result);
-            //     } catch (error) {
-            //         console.log("送信エラー:handleDelete", error);
-            //     }
+            handleDelete(e);
+
+            try {
+                const response = await fetch(`/checklist/${id}`, {
+                    method: "DELETE",
+                    headers: {
+                        Accept: "application/json",
+                        "X-CSRF-TOKEN": document.querySelector(
+                            'meta[name="csrf-token"]'
+                        ).content,
+                    },
+                });
+                const result = await response.json();
+                console.log(result);
+                if (result.success) {
+                    tr.remove();
+                }
+            } catch (error) {
+                console.log("送信エラー:handleDelete", error);
+            }
+
+            // type = templat：checkedのPUT
+            // type = custom：checkedのPUT
+
             // } else if (e.target.matches("input[name='checked']")) {
             //     const target = e.target;
             //     const tr = target.closest("tr");
@@ -275,28 +300,31 @@ function setupEventListeners() {
             //         showMessage("error", tr);
             //         return;
             //     }
-            //     try {
-            //         const response = await fetch(`/api/checklist/${id}`, {
-            //             method: "PUT",
-            //             headers: {
-            //                 "Content-Type": "application/json",
-            //                 Accept: "application/json",
-            //             },
-            //             body: JSON.stringify({ checked: checkedValue }),
-            //             credentials: "include",
-            //         });
-            //         const result = await response.json();
-            //         console.log(result);
+            // try {
+            //     const response = await fetch(`/checklist/${id}`, {
+            //         method: "PUT",
+            //         headers: {
+            //             "Content-Type": "application/json",
+            //             Accept: "application/json",
+            //             "X-CSRF-TOKEN": document.querySelector(
+            //                 'meta[name="csrf-token"]'
+            //             ).content,
+            //         },
+            //         body: JSON.stringify({ checked: checkedValue }),
+            //         credentials: "include",
+            //     });
+            //     const result = await response.json();
+            //     console.log(result);
 
-            //         if (result.success || response.ok) {
-            //             checkButton(tr, checked);
-            //             if (checked) {
-            //                 showMessage("checked", tr);
-            //             }
+            //     if (result.success || response.ok) {
+            //         checkButton(tr, checked);
+            //         if (checked) {
+            //             showMessage("checked", tr);
             //         }
-            //     } catch (error) {
-            //         console.log("送信エラー:checked", error);
             //     }
+            // } catch (error) {
+            //     console.log("送信エラー:checked", error);
+            // }
         }
     });
 
