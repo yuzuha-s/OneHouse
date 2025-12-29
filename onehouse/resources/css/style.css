@@ -263,7 +263,8 @@ input {
 }
 
 .checklist_input,
-.forminput {
+.forminput,
+.maker-input {
   text-align: left;
 }
 
@@ -404,8 +405,7 @@ input {
 .subname {
   font-weight: 300;
   margin-top: 10px;
-  font-size: 18px;
-
+  font-size: 15px;
 }
 
 .auth-nav svg {
@@ -870,26 +870,11 @@ button.logout-button:hover {
 }
 
 
-
-
 /* 各フェーズの目次 ------------------------------------ */
-/* .list {
-  position: relative;
-  width: 100%;
-  height: 91vh;
-  overflow-y: auto;
-  text-align: center;
-  align-items: center;
-  margin: 20px auto;
-  background-color: #fff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-} */
 
 .list-header {
   display: flex;
   justify-content: space-between;
-  /* gap: 100px; */
   border-bottom: 0.5px solid #ddd;
   width: 90%;
   margin: auto;
@@ -911,9 +896,9 @@ button.logout-button:hover {
 /* チェックリストのテーブル-------------------------------------------------- */
 .table-wrapper {
   width: 100%;
-  display: flex;
+  display: block;
   margin: 0 auto;
-  max-height: 900px;
+  max-height: 800px;
   border-radius: 20px;
   overflow-y: auto;
 }
@@ -1104,7 +1089,6 @@ tbody tr {
 .article-point {
   position: absolute;
   transform: translate(-50%, -50%);
-
   color: #fff;
   border-radius: 50%;
   background-color: #93D8E8;
@@ -1151,6 +1135,10 @@ tbody tr {
   width: 55%;
   display: flex;
   align-items: flex-end;
+}
+
+.welcome-setup {
+  padding-bottom: 50px;
 }
 
 .welcome-setup .register a {
@@ -2210,12 +2198,22 @@ textarea:focus {
   background-color: #61C6DF;
   border: none;
   border-radius: 20px;
-
 }
 
 .edit-row:hover,
 .land-delete-btn:hover {
   cursor: pointer;
+}
+
+.my-carousel-progress {
+  background: #ccc;
+}
+
+.my-carousel-progress-bar {
+  background: greenyellow;
+  height: 2px;
+  transition: width 400ms ease;
+  width: 0;
 }
 
 
@@ -2670,7 +2668,7 @@ textarea:focus {
 
   /* welcom---------------- */
   .worry-content {
-    width: 90%;
+    width: 70%;
   }
 
   .worry-bubble {
@@ -2690,13 +2688,13 @@ textarea:focus {
   }
 
   .lead-text {
-    width: 80%;
+    width: 85%;
     margin-top: 0px;
   }
 
   .lead-text h1,
   .lead-text p {
-    font-size: 0.9rem;
+    font-size: 1.5rem;
   }
 
   .app-intro {
@@ -2707,7 +2705,7 @@ textarea:focus {
 
   .intro-box,
   .intro-content {
-    width: 80%;
+    width: 85%;
   }
 
   .phone {
@@ -2774,15 +2772,21 @@ textarea:focus {
   }
 
   .app-title {
-    font-size: 3.2rem;
+    font-size: 2.2rem;
   }
 
   .appname .icon svg {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     display: block;
     margin-top: auto;
   }
+
+  .article-point {
+  min-width: 2em;
+  max-width: 5em;
+}
+
 
   .auth-nav .icon {
     padding: 15px;
@@ -3243,15 +3247,4 @@ textarea:focus {
     overflow: hidden;
   }
 
-}
-
-.my-carousel-progress {
-  background: #ccc;
-}
-
-.my-carousel-progress-bar {
-  background: greenyellow;
-  height: 2px;
-  transition: width 400ms ease;
-  width: 0;
 }

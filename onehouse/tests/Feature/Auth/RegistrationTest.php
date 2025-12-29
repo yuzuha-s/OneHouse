@@ -2,7 +2,8 @@
 
 namespace Tests\Feature\Auth;
 
-use App\Models\Phase;
+use App\Models\ChecklistTemplate;
+use App\Models\TemplateList;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -20,10 +21,10 @@ class RegistrationTest extends TestCase
     public function test_new_users_can_register(): void
     {
         parent::setUp();
-        // phases テーブルに 1〜23 を作成
+        // ChecklistTemplate テーブルに 1〜23 を作成
         foreach (range(1, 23) as $i) {
-            Phase::create([
-                'number' => $i,
+            TemplateList::create([
+                'phase' => $i,
                 'list' => 'default',
             ]);
         }
