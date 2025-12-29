@@ -86,10 +86,10 @@ class CheckListController extends Controller
         }
         // ChecklistCustom-CustomList：入力変更・checked変更
         if ($request->type === 'custom') {
-            $customList = CustomList::with('ChecklistCustoms')->findOrFail($id);
+            $customList = CustomList::with('checklistCustom')->findOrFail($id);
 
             if ($request->has('checked')) {
-                $customList->checklistCustoms->update([
+                $customList->checklistCustom()->update([
                     'checked' => $request->checked,
                 ]);
             }
@@ -112,7 +112,7 @@ class CheckListController extends Controller
         DB::transaction(function () use ($id) {
             $customList = CustomList::findOrFail($id);
 
-            $customList->checklistCustoms()->delete();
+            $customList->checklistCustom()->delete();
             $customList->delete();
         });
 

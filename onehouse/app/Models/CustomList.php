@@ -16,8 +16,8 @@ class CustomList extends Model
 
     public $timestamps = true;
 
-    public function checklistCustoms()
+    public function checklistCustom()
     {
-        return $this->hasMany(ChecklistCustom::class);
+        return $this->hasOne(ChecklistCustom::class);
     }
 }
