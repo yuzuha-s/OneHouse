@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Checklist extends Model
+class ChecklistTemplate extends Model
 {
     use HasFactory;
 
-    protected $table = 'checklists';
+    protected $table = 'checklist_templates';
 
     protected $fillable = [
         'profile_id',
-        'phase_id',
+        'template_list_id',
         'checked',
     ];
     protected $casts = [
@@ -26,8 +26,8 @@ class Checklist extends Model
     {
         return $this->belongsTo(Profile::class);
     }
-    public function phase()
+    public function templateList()
     {
-        return $this->belongsTo(Phase::class, 'phase_id');
+        return $this->belongsTo(TemplateList::class, 'template_list_id');
     }
 }

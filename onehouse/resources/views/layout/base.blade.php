@@ -15,8 +15,10 @@
             <div class="section-left">
                 @yield('content')
             </div>
-
         </div>
+
+
+
     </div>
     @vite('resources/js/fadein.js')
 </body>

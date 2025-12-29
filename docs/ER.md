@@ -25,7 +25,7 @@ star int
 
 Table features {
 id bigint [pk]
-category_id bigint [ref: > categories.id]
+category_id bigint [ref: < categories.id]
 tag varchar
 }
 
@@ -51,18 +51,32 @@ buildable_area int
 range bigint
 }
 
-Table checklists {
+Table checklistTemplates {
 id bigint [pk]
 profile_id bigint [ref: > profile.id]
-phase_id bigint [ref: > phase.id]
+templateList_id bigint [ref: < templateLists.id, null]
 checked boolean
 created_at timestamp
 updated_at timestamp
 }
 
-Table phase {
+Table templateLists {
 id bigint [pk]
 phase varchar
 list varchar
 }
 
+Table checklistCustoms {
+id bigint [pk]
+profile_id bigint [ref: > profile.id]
+customList_id bigint [ref: < customLists.id]
+checked boolean
+created_at timestamp
+updated_at timestamp
+}
+
+Table customLists {
+id bigint [pk]
+phase varchar
+list varchar
+}

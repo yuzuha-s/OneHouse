@@ -21,7 +21,7 @@ Route::get('/setup', function () {
 })->name('setup');
 Route::get('/sanctum/csrf-cookie', [CsrfCookieController::class, 'show']);
 
-// auth------------------------------------------
+// auth------------------------------------------------
 require __DIR__ . '/auth.php';
 
 Route::middleware('auth')->group(function () {
@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/user_setting', [UserSettingController::class, 'update'])->name('user_setting');
 });
 
-// phase1~5------------------------------------------
+// コアページ------------------------------------------
 
 Route::middleware('auth')->group(function () {
     Route::get('/phase2', function () {
@@ -77,6 +77,14 @@ Route::middleware('auth')->group(function () {
 });
 
 
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/checklist', [CheckListController::class, 'store']);
+    Route::put('/checklist/{id}', [CheckListController::class, 'update']);
+    Route::delete('/checklist/{id}', [CheckListController::class, 'destroy']);
+});
+
 Route::get('/debug-sentry', function () {
     throw new Exception('Sentry test error from local!');
 });
+

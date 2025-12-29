@@ -77,8 +77,6 @@
                     <button type="submit">新規登録</button>
                 </div>
             </div>
-
-
             <div class="setup-form wrapper">
                 <div class="button-form wrapper">
                     <a href="{{ route('login') }}" class="setup-button">ログイン</a>
@@ -86,9 +84,11 @@
 
                 </div>
             </div>
+
+
+
         </div>
 
 </form>
-
 
 @endsection

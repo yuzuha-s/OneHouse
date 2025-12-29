@@ -77,7 +77,20 @@ FOREIGN KEY (feature_id) REFERENCES features(id)
 | buildable_area | INT          |
 | range          | BIGINT       |      |
 
-### phases
+### checklist_templates
+
+チェックリスト(初期作成データ)
+
+| カラム名         | データ型  | キー | NOT NULL | デォルト値    |
+| ---------------- | --------- | ---- | -------- | ------------- |
+| id               | BIGINT    | PK   |          |
+| profile_id       | BIGINT    | FK   |
+| template_list_id | BIGINT    | FK   |          |
+| checked          | BOOLEAN   |      |          | DEFAULT FALSE |
+| created_at       | TIMESTAMP |      |
+| updated_at       | TIMESTAMP |      |
+
+### template_lists
 
 | カラム名 | データ型     | キー | NOT NULL |
 | -------- | ------------ | ---- | -------- |
@@ -85,23 +98,23 @@ FOREIGN KEY (feature_id) REFERENCES features(id)
 | phase    | INT          |      | NOT NULL |
 | list     | VARCHAR(255) |
 
-### phase_templates
+### checklist_customs
+
+チェックリスト(タスク追加用)
+
+| カラム名       | データ型  | キー | NOT NULL | デォルト値    |
+| -------------- | --------- | ---- | -------- | ------------- |
+| id             | BIGINT    | PK   |          |
+| profile_id     | BIGINT    | FK   |
+| custom_list_id | BIGINT    | FK   |          |
+| checked        | BOOLEAN   |      |          | DEFAULT FALSE |
+| created_at     | TIMESTAMP |      |
+| updated_at     | TIMESTAMP |      |
+
+### custom_lists
 
 | カラム名 | データ型     | キー | NOT NULL |
 | -------- | ------------ | ---- | -------- |
 | id       | BIGINT       | PK   |          |
 | phase    | INT          |      | NOT NULL |
 | list     | VARCHAR(255) |
-
-### checklists
-
-チェックリスト
-
-| カラム名   | データ型  | キー | NOT NULL | デォルト値    |
-| ---------- | --------- | ---- | -------- | ------------- |
-| id         | BIGINT    | PK   |          |
-| profile_id | BIGINT    | FK   |
-| phases_id  | BIGINT    | FK   |          |
-| checked    | BOOLEAN   |      |          | DEFAULT FALSE |
-| created_at | TIMESTAMP |      |
-| updated_at | TIMESTAMP |      |
