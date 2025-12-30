@@ -165,7 +165,7 @@
                         坪単価を入力して簡単に
                         建築可能面積がわかり、保存して後から閲覧・変更できます。</p>
 
-                    <div class="">
+                    <div>
                         <div class="is-glow is-img4"> <img src="{{ asset('images/point4-2.png') }}" alt="">
                             <p></p>
                         </div>
