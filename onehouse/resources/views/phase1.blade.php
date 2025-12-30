@@ -43,7 +43,7 @@
         </div>
 
         <div class="table-wrapper">
-            {{-- profile_idをバックエンド --}}
+            {{-- profile_idのバックエンド --}}
             <div id="app" data-profile-id="{{ auth()->user()->profile->id }}"></div>
 
             <table class="checklist">

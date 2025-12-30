@@ -77,7 +77,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-
+// チェックリストの登録・更新・削除
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/checklist', [CheckListController::class, 'store']);
     Route::put('/checklist/{id}', [CheckListController::class, 'update']);

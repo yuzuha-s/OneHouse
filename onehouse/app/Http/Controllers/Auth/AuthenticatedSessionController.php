@@ -25,7 +25,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
         $request->session()->flash('status', 'ログインしました');
 
-        return redirect('/phase2');
+        return redirect('/phase1');
     }
 
 

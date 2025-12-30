@@ -9,7 +9,6 @@
 @section('aside')
 
     <div class="list">
-
         <div class="list-header wrapper">
             <div class="list-nav">
                 <svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#1f1f1f">
@@ -84,17 +83,17 @@
                                 <div class="visible-contain">
                                     <div class="visible-groupe">
                                         <p>{{ $categoryName }}</p>
+                                        <div class="select-btn">
+                                            @foreach ($features as $feature)
+                                                <button class="choice method">{{ $feature->tag }}</button>
+                                            @endforeach
+                                        </div>
 
-                                        @foreach ($features as $feature)
-                                            <button class="choice method">{{ $feature->tag }}</button>
-                                        @endforeach
                                     </div>
                                 </div>
                             @endforeach
-
-
-
                         </div>
+
                         <div class="visible-groupe textarea">
                             <p>そのほかオプション</p>
                             <p class="textarea-input">{{ $maker->option }} </p>

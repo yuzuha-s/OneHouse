@@ -15,12 +15,6 @@ body {
   font-family: "Noto Sans JP", Arial, "Roboto", sans-serif;
 }
 
-.body-light {
-  background-color: rgba(255, 255, 255, 0.25);
-  min-height: 170%;
-
-}
-
 .fade {
   opacity: 0;
   transition: opacity 1.4s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -342,7 +336,7 @@ input {
 .auth-header {
   width: 80%;
   gap: 100px;
-  margin-top: 100px;
+  margin-top: 40px;
 }
 
 .auth-contant {
@@ -363,7 +357,7 @@ input {
 }
 
 .app-title {
-  font-size: 4.3rem;
+  font-size: 3.3rem;
   font-weight: lighter;
 }
 
@@ -447,7 +441,8 @@ input {
 }
 
 .btn-hidden,
-.hidden {
+.hidden,
+.footer {
   visibility: hidden;
 }
 
@@ -472,7 +467,7 @@ input {
 .contant {
   align-items: center;
   width: 93%;
-  height: 95%;
+  height: 93%;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 20px;
   margin: auto;
@@ -799,12 +794,12 @@ button.logout-button:hover {
   display: flex;
   width: 98%;
   flex-direction: column;
-  gap: 10px;
-  margin: 50px auto;
+  gap: 8px;
+  margin: 40px auto;
 }
 
 .resetform-contant input {
-  padding: 30px 15px;
+  padding: 20px 15px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   border: none;
@@ -1004,7 +999,7 @@ tbody tr {
 }
 
 .worry-content {
-  width: 80%;
+  width: 85%;
   margin-top: 30px;
 }
 
@@ -1084,7 +1079,10 @@ tbody tr {
   margin: 60px auto;
 }
 
+.footer {
+  margin-top: 60px;
 
+}
 
 .article-point {
   position: absolute;
@@ -1661,7 +1659,6 @@ tr.checked svg {
   transition: transform 0.1s ease, box-shadow 0.1s ease;
   box-shadow: 0 4px 0 #ccc;
   padding: 5px 10px;
-
 }
 
 .checkbox-btn:hover {
@@ -1929,6 +1926,17 @@ span {
   padding: 50px 30px;
 }
 
+.land-card-success {
+  width: 80%;
+  margin: auto;
+  background-color: rgba(231, 233, 254, 1.0);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 50px 30px;
+
+}
+
+
 .land-right {
   width: 60%;
   margin: 0 auto;
@@ -2065,7 +2073,7 @@ textarea:focus {
 
 .land-table th:nth-child(2),
 .land-table td:nth-child(2) {
-  width: 40%;
+  width: 30%;
 }
 
 .land-table th:nth-child(3),
@@ -2085,12 +2093,12 @@ textarea:focus {
 
 .land-table th:nth-child(6),
 .land-table td:nth-child(6) {
-  width: 5%;
+  width: 10%;
 }
 
 .land-table th:nth-child(7),
 .land-table td:nth-child(7) {
-  width: 5%;
+  width: 10%;
 }
 
 /* phase4のテーブル */
@@ -2179,7 +2187,7 @@ textarea:focus {
 }
 
 .back button {
-  background-color: #F8F8FF;
+  background-color: #576bf5;
 }
 
 .back button:hover {
@@ -2218,9 +2226,26 @@ textarea:focus {
 
 
 /* レスポンシブ対応------------------------------------------- */
-@media (max-width: 1100px) {
-  /* body {} */
 
+@media (min-width: 1100px) and (max-width: 1500px) {
+
+
+  .point-cap1 {
+    top: 100px;
+    left: 230px;
+  }
+
+  .point-cap4 {
+    top: 170px;
+    left: 240px;
+    width: 35%;
+  }
+
+}
+
+
+
+@media (max-width: 1100px) {
   .wrapper {
     width: 98%;
   }
@@ -2498,10 +2523,9 @@ textarea:focus {
   }
 
   .landform-contant input {
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
     border: none;
-    /* width: 20%; */
     align-items: center;
     margin: 0;
   }
@@ -2536,7 +2560,7 @@ textarea:focus {
 
   .validate {
     font-size: small;
-    padding: 3px 50px;
+    padding: 3px 30px;
   }
 
   /* welcomeページ--------------- */
@@ -2633,7 +2657,11 @@ textarea:focus {
   }
 
   body {
-    min-height: 100vh;
+    height: auto;
+  }
+
+  .contant {
+    height: auto;
   }
 
   h1,
@@ -2668,11 +2696,11 @@ textarea:focus {
 
   /* welcom---------------- */
   .worry-content {
-    width: 70%;
+    width: 80%;
   }
 
   .worry-bubble {
-    min-width: 0.8em;
+    min-width: 1.2em;
     max-width: 8em;
     padding: 10px;
   }
@@ -2694,7 +2722,9 @@ textarea:focus {
 
   .lead-text h1,
   .lead-text p {
-    font-size: 1.5rem;
+    white-space: nowrap;
+    width: 100%;
+    font-size: clamp(16px, 5vw, 20px);
   }
 
   .app-intro {
@@ -2783,9 +2813,9 @@ textarea:focus {
   }
 
   .article-point {
-  min-width: 2em;
-  max-width: 5em;
-}
+    min-width: 2em;
+    max-width: 5em;
+  }
 
 
   .auth-nav .icon {
@@ -2889,7 +2919,7 @@ textarea:focus {
   .main-nav {
     order: 3;
     width: 30% !important;
-    flex-basis: 50%;
+    flex-basis: 85%;
     margin: 0 auto !important;
   }
 
@@ -2897,6 +2927,7 @@ textarea:focus {
   .navigate {
     width: auto !important;
     margin: 0 !important;
+    height: 100px;
   }
 
   .loginuser-nav ul,
@@ -2905,7 +2936,12 @@ textarea:focus {
     flex-direction: row !important;
     align-items: center;
     gap: 10px;
-    padding: 10px;
+
+  }
+
+  .navigate nav ul {
+    padding: 0.9rem;
+
   }
 
   .navigate li a .title,
@@ -2943,6 +2979,7 @@ textarea:focus {
     color: #8C8C8C;
   }
 
+
   .loginuser-nav .icon2 svg {
     fill: #8C8C8C;
   }
@@ -2961,6 +2998,9 @@ textarea:focus {
     flex-wrap: wrap;
   }
 
+  .loginuser-nav .icon svg {
+    fill: #8C8C8C;
+  }
 
   .main-nav ul.carousel {
     display: flex;
@@ -3101,6 +3141,10 @@ textarea:focus {
     width: 90%;
   }
 
+  .makerform-contant textarea {
+    width: 70%;
+  }
+
   .end-contant {
     display: flex;
     flex-direction: column;
@@ -3145,6 +3189,55 @@ textarea:focus {
 
   .pagination-gap {
     justify-content: center;
+  }
+
+  .star-rating {
+    gap: 4px;
+  }
+
+  .form-button label {
+    font-size: 0.9rem;
+    padding: 9px 20px;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-right nav ul {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: auto;
+
+  }
+
+  .card-right {
+    width: 100%;
+    order: 1;
+    border-radius: 15px 15px 0px 0px;
+  }
+
+  .card-main {
+    order: 2;
+  }
+
+  .marker-listnav-contant {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .select-btn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .select-btn .choice.method {
+    flex: 0 1 auto;
+    margin: auto;
+
   }
 
   /* landページ---------------------- */
@@ -3199,13 +3292,6 @@ textarea:focus {
     white-space: normal;
   }
 
-  .land-table th:nth-child(4),
-  .land-table td:nth-child(4),
-  .land-table th:nth-child(5),
-  .land-table td:nth-child(5) {
-    display: none;
-  }
-
   .edit-row svg,
   .land-delete-btn svg {
     width: 30px;
@@ -3213,15 +3299,57 @@ textarea:focus {
 
 
 
+  .land-table th:nth-child(1),
+  .land-table td:nth-child(1) {
+    width: 15%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
+  .land-table th:nth-child(2),
+  .land-table td:nth-child(2) {
+    width: 15%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
+  .land-table th:nth-child(3),
+  .land-table td:nth-child(3) {
+    width: 15%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
+  .land-table th:nth-child(4),
+  .land-table td:nth-child(4),
+  .land-table th:nth-child(5),
+  .land-table td:nth-child(5) {
+    display: none;
+  }
+
+  .land-table th:nth-child(6),
+  .land-table td:nth-child(6) {
+    width: 13%;
+  }
+
+  .land-table th:nth-child(7),
+  .land-table td:nth-child(7) {
+    width: 13%;
+  }
 
 
   /* phase3--------------------------- */
   .loanform-contant label {
     font-size: 1.0rem;
     white-space: nowrap;
+  }
+
+  .play {
+    width: 100%;
+    margin: 10px auto 0;
+    display: flex;
+    gap: 10px;
+    border-radius: 10px;
   }
 
 
@@ -3237,6 +3365,38 @@ textarea:focus {
     padding: 15px 75px;
   }
 
+  .left-fix,
+  .loan-card {
+    width: 100%;
+  }
+
+  .form-row input {
+    font-size: 14px;
+    border-radius: 50px;
+    width: 60%;
+    margin: 0;
+  }
+
+  .loanform-contant input {
+    padding: 13px;
+  }
+
+  .loanform-contant label {
+    font-size: 0.8rem;
+  }
+
+  .form-valiable,
+  .valiableform-row span {
+    font-size: 1.2rem;
+  }
+
+  .form-valiable {
+    padding: 12px 30px;
+  }
+
+
+
+
   /* ckecklistページ--------------- */
   .slider {
     width: 80%;
@@ -3245,6 +3405,38 @@ textarea:focus {
   .checklist_input {
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+  .checklist tbody td {
+    padding:0 5px;
+
+  }
+
+.list th:nth-child(2),
+.list td:nth-child(2) {
+  display: none;
+
+}
+
+.toggle:hover,
+.toggle button svg:hover {
+  padding: 0;
+  box-shadow: none;
+}
+
+  .edit-list svg,
+  .delete-list svg,
+  .update-list svg {
+    height: 20px;
+    width: 20px;
+  }
+
+
+  .switch {
+    height: 20px;
+  }
+
+  .slider:before {
+    height: 17px;
   }
 
 }

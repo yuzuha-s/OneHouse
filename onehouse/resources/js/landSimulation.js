@@ -118,7 +118,7 @@ function setupEventListeners() {
             showUpdateMessage("update");
 
             const backBtn = document.querySelector(".back");
-            backBtn.innerHTML = `<button type = "button" class="backEdit"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#C5C5C5"><path d="M266-200v-66.67h301.33q67.67 0 116.84-44.33 49.16-44.33 49.16-110.33t-49.16-110.34Q635-576 567.33-576H286.67l110.66 110.67-46.66 46.66L160-609.33 350.67-800l46.66 46.67-110.66 110.66h280q95.66 0 164.5 63.67Q800-515.33 800-421.33q0 94-68.83 157.66Q662.33-200 566.67-200H266Z"/></svg></button>`;
+            backBtn.innerHTML = `<button type = "button" class="backEdit"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#fff"><path d="M266-200v-66.67h301.33q67.67 0 116.84-44.33 49.16-44.33 49.16-110.33t-49.16-110.34Q635-576 567.33-576H286.67l110.66 110.67-46.66 46.66L160-609.33 350.67-800l46.66 46.67-110.66 110.66h280q95.66 0 164.5 63.67Q800-515.33 800-421.33q0 94-68.83 157.66Q662.33-200 566.67-200H266Z"/></svg></button>`;
         }
     };
 
@@ -182,6 +182,10 @@ function showUpdateMessage(type) {
             validate.style.display = "none";
         }, 5000);
     } else if (type === "back") {
+        const landCardsuccess = document.querySelector(".land-card-success");
+        landCardsuccess.classList.remove("land-card-success");
+        landCardsuccess.classList.add("land-card");
+
         validate.innerHTML = `<div class = "validate">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
                 fill="#576bf5">
@@ -208,6 +212,10 @@ function showInputMessage(type) {
         }, 3000);
         return;
     } else if (type === "calculateSuccess") {
+        const landCard = document.querySelector(".land-card");
+        landCard.classList.remove("land-card");
+        landCard.classList.add("land-card-success");
+
         validate.innerHTML = `<div class = "validate">
             <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
                 fill="#576bf5">
@@ -216,6 +224,7 @@ function showInputMessage(type) {
             <p>建てられる範囲とコストが出ました！</p></div>
         `;
         validate.style.display = "block";
+
         setTimeout(() => {
             validate.style.display = "none";
         }, 3000);

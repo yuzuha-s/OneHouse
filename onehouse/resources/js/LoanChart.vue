@@ -6,7 +6,7 @@
         :options="chartOptions"
         :series="chartSeries"
         width="100%"
-        height="500"
+        height="450"
       />
     </div>
   </div>

@@ -10,16 +10,14 @@
 </head>
 
 <body class="fade">
-    <div class="body-light">
-        <div class="welcome wrapper">
-            <div class="section-left">
-                @yield('content')
-            </div>
-        </div>
+    <div class="welcome wrapper">
 
-
-
+        @yield('content')
+        <div class="footer">ssss</div>
     </div>
+
+
+
     @vite('resources/js/fadein.js')
 </body>
 
