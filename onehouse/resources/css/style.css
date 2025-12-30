@@ -133,6 +133,13 @@ button:active {
   font-size: 0.8rem;
 }
 
+th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
 
 /* チェックリスト追加ボタン------------------------------------ */
 .add_button button {
@@ -254,6 +261,7 @@ h4 {
 
 input {
   text-align: right;
+  font-family: "Noto Sans JP", Arial, "Roboto", sans-serif;
 }
 
 .checklist_input,
@@ -280,7 +288,6 @@ input {
   border: none;
   background: transparent;
   cursor: pointer;
-  margin-left: 5px;
 }
 
 .toggle-row {
@@ -317,6 +324,8 @@ input {
 .toggle-row td {
   color: #8C8C8C;
 }
+
+
 
 /* 登録ページ共通------------------------------------ */
 .auth-section {
@@ -1268,33 +1277,31 @@ tbody tr {
   padding: 10px;
 }
 
-.list th:nth-child(1),
-.list td:nth-child(1) {
+.checklist th:nth-child(1),
+.checklist td:nth-child(1) {
   width: 10%;
 }
 
-.list th:nth-child(2),
-.list td:nth-child(2) {
+.checklist th:nth-child(2),
+.checklist td:nth-child(2) {
   width: 10%;
   text-align: left;
-
 }
 
-.list th:nth-child(3),
-.list td:nth-child(3) {
+.checklist th:nth-child(3),
+.checklist td:nth-child(3) {
   width: 60%;
   text-align: left;
   align-items: center;
-
 }
 
-.list th:nth-child(4),
-.list td:nth-child(4) {
+.checklist th:nth-child(4),
+.checklist td:nth-child(4) {
   width: 10%;
 }
 
-.list th:nth-child(5),
-.list td:nth-child(5) {
+.checklist th:nth-child(5),
+.checklist td:nth-child(5) {
   width: 10%;
 }
 
@@ -1309,6 +1316,7 @@ tbody tr {
   padding: 5px 10px;
   font-size: 16px;
   font-family: 'Noto Sans JP ';
+  box-sizing: border-box;
 }
 
 .checklist_input:focus {
@@ -1926,7 +1934,8 @@ span {
   padding: 50px 30px;
 }
 
-.land-card-success {
+.land-card-success,
+.loan-card-success {
   width: 80%;
   margin: auto;
   background-color: rgba(231, 233, 254, 1.0);
@@ -2074,6 +2083,7 @@ textarea:focus {
 .land-table th:nth-child(2),
 .land-table td:nth-child(2) {
   width: 30%;
+  text-align: left;
 }
 
 .land-table th:nth-child(3),
@@ -2184,6 +2194,7 @@ textarea:focus {
   background-color: #EEF8FB;
   border: none;
   border-radius: 15px;
+  margin: auto;
 }
 
 .back button {
@@ -2241,6 +2252,10 @@ textarea:focus {
     width: 35%;
   }
 
+  body {
+    height: auto;
+  }
+
 }
 
 
@@ -2248,6 +2263,10 @@ textarea:focus {
 @media (max-width: 1100px) {
   .wrapper {
     width: 98%;
+  }
+
+  body {
+    height: auto;
   }
 
   span {
@@ -2467,11 +2486,22 @@ textarea:focus {
     width: 30px;
   }
 
+
+  /* checklist------------------------ */
+  .table-wrapper {
+    height: auto;
+  }
+
   /* phase3------------------------ */
   .chart-wrapper {
     width: 100%;
+    height: auto;
+    margin-top: 30px;
   }
 
+  #loan-chart {
+    margin-top: 40px;
+  }
 
   .apexcharts-inner {
     width: 100%;
@@ -2498,6 +2528,16 @@ textarea:focus {
     width: 70%;
     display: flex;
     flex-direction: row;
+  }
+
+  .loan-card {
+    margin-top: 30px;
+  }
+
+  .land-card,
+  .land-card-success {
+    width: 98%;
+    padding: 10px;
   }
 
   /*phase4---------------------------*/
@@ -2553,10 +2593,17 @@ textarea:focus {
     width: 100%;
   }
 
+  .land-table th:nth-child(1),
+  .land-table td:nth-child(1) {
+    display: none;
+  }
+
   .land-table th:nth-child(5),
   .land-table td:nth-child(5) {
     display: none;
   }
+
+
 
   .validate {
     font-size: small;
@@ -2673,6 +2720,10 @@ textarea:focus {
     margin-left: 20px
   }
 
+  .list-nav h3 {
+    font-size: 2.0rem;
+  }
+
   span {
     white-space: nowrap;
   }
@@ -2693,6 +2744,7 @@ textarea:focus {
   .pc-only {
     display: none;
   }
+
 
   /* welcom---------------- */
   .worry-content {
@@ -2891,7 +2943,7 @@ textarea:focus {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 12px;
+    gap: 3px;
     flex-wrap: wrap;
 
   }
@@ -2935,7 +2987,7 @@ textarea:focus {
     display: flex !important;
     flex-direction: row !important;
     align-items: center;
-    gap: 10px;
+    gap: 4px;
 
   }
 
@@ -2971,7 +3023,7 @@ textarea:focus {
   }
 
   .navigate li {
-    padding: 10px 10px;
+    padding: 5px;
     width: auto;
   }
 
@@ -3297,27 +3349,17 @@ textarea:focus {
     width: 30px;
   }
 
-
-
-  .land-table th:nth-child(1),
-  .land-table td:nth-child(1) {
-    width: 15%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
   .land-table th:nth-child(2),
   .land-table td:nth-child(2) {
-    width: 15%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    width: 40%;
+    white-space: normal;
+    word-break: break-word;
   }
+
 
   .land-table th:nth-child(3),
   .land-table td:nth-child(3) {
-    width: 15%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    width: 10%;
   }
 
   .land-table th:nth-child(4),
@@ -3329,13 +3371,14 @@ textarea:focus {
 
   .land-table th:nth-child(6),
   .land-table td:nth-child(6) {
-    width: 13%;
+    width: 10%;
   }
 
   .land-table th:nth-child(7),
   .land-table td:nth-child(7) {
-    width: 13%;
+    width: 10%;
   }
+
 
 
   /* phase3--------------------------- */
@@ -3365,8 +3408,7 @@ textarea:focus {
     padding: 15px 75px;
   }
 
-  .left-fix,
-  .loan-card {
+  .left-fix {
     width: 100%;
   }
 
@@ -3406,22 +3448,22 @@ textarea:focus {
     text-overflow: ellipsis;
     overflow: hidden;
   }
+
   .checklist tbody td {
-    padding:0 5px;
+    padding: 10px 5px;
 
   }
 
-.list th:nth-child(2),
-.list td:nth-child(2) {
-  display: none;
+  .checklist th:nth-child(2),
+  .checklist td:nth-child(2) {
+    display: none;
+  }
 
-}
-
-.toggle:hover,
-.toggle button svg:hover {
-  padding: 0;
-  box-shadow: none;
-}
+  .toggle:hover,
+  .toggle button svg:hover {
+    padding: 0;
+    box-shadow: none;
+  }
 
   .edit-list svg,
   .delete-list svg,
@@ -3439,4 +3481,13 @@ textarea:focus {
     height: 17px;
   }
 
+  .register-list svg {
+    width: 30px;
+    height: 30px;
+
+  }
+
+  .add_button button {
+    padding: 8px;
+  }
 }

@@ -37,6 +37,10 @@ if (!result.errors) {
 
     if (msgEl) {
         msgEl.textContent = "ローンシュミレーションが完了しました！";
+
+        const loanCard = document.querySelector(".loan-card");
+        loanCard.classList.add("loan-card-success");
+
         setTimeout(() => {
             validateEl.classList.add("hidden");
         }, 3000);
