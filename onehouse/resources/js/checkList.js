@@ -360,9 +360,7 @@ function setupEventListeners() {
                                 </div>
                                 </td>
                                 <td></td>
-                                <td>住宅が欲しい？</td>
-                                <td></td>
-                                <td></td>`;
+                                <td colspan="3">住宅が欲しい？</td>`;
 
                 const triggerTr = e.target.closest("tr");
                 triggerTr.parentNode.insertBefore(
@@ -397,9 +395,7 @@ function setupEventListeners() {
                                 </svg></span><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#8C8C8C"><path d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"/></svg>
                                 </div></td>
                                 <td></td>
-                                <td>住宅メーカーが決まった？</td>
-                                <td></td>
-                                <td></td>`;
+                                <td colspan="3">住宅メーカーが決まった？</td>`;
                 const triggerTr = e.target.closest("tr");
                 triggerTr.parentNode.insertBefore(
                     toggleTr,
@@ -433,9 +429,7 @@ function setupEventListeners() {
                                 </svg></span><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#8C8C8C"><path d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"/></svg>
                                 </div></td>
                                 <td></td>
-                                <td>資金・ローンのめどは立った？</td>
-                                <td></td>
-                                <td></td>`;
+                        <td colspan="3">資金・ローンのめどは立った？</td>`;
                 const triggerTr = e.target.closest("tr");
                 triggerTr.parentNode.insertBefore(
                     toggleTr,
@@ -469,9 +463,7 @@ function setupEventListeners() {
                                 </svg></span><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#8C8C8C"><path d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"/></svg>
                                 </div></td>
                                 <td></td>
-                                <td>土地探しは順調？</td>
-                                <td></td>
-                                <td></td>`;
+                            <td colspan="3">土地探しは順調？</td>`;
                 const triggerTr = e.target.closest("tr");
                 triggerTr.parentNode.insertBefore(
                     toggleTr,
@@ -505,9 +497,8 @@ function setupEventListeners() {
                                 </svg></span><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#8C8C8C"><path d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"/></svg>
                                 </div></td>
                                 <td></td>
-                                <td>理想の住まいにしよう！</td>
-                                <td></td>
-                                <td></td>`;
+                            <td colspan="3">理想の住まいにしよう！</td>
+`;
                 const triggerTr = e.target.closest("tr");
                 triggerTr.parentNode.insertBefore(
                     toggleTr,

@@ -49,7 +49,7 @@ export default defineComponent({
           },
         ],
         labels: [],
-        legend: { position: "left" },
+        legend: { position: "top" },
       };
     },
     chartSeries() {
