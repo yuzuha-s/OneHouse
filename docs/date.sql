@@ -11,7 +11,7 @@
 
 insert into users (name, email, password) values
 (Test User, test@example.com, password),
-(yuzuha, yuzuha@com.jp, pass123);
+(gest, gest@ex.jp, password);
 
 insert into profile (user_id) values
 (1),
@@ -76,7 +76,7 @@ insert into landProperties (profile_id, address, landarea,  far, bcr, floor, bui
 (1, 東京都板橋区3丁目1-55, 80, 200, 80, 2, 0, 87);
 (1, 東京都板橋区5丁目2-66, 90, 150, 60, 3, 0, 77);
 
-insert into phase (phase, list) values
+insert into template_lists  (phase, list) values
 (1, 家族希望条件を整理した),
 (1, 大体の予算を知った),
 (1, 家探しの流れが大体わかった),
@@ -102,7 +102,7 @@ insert into phase (phase, list) values
 (5, 家が完成した);
 
 
-insert into checklists (profile_id, phase_id, checked) values
+insert into checklist_templates (profile_id, template_list_id, checked) values
 (1, 1, true),
 (1, 2, true),
 (1, 3, true),
@@ -125,6 +125,8 @@ insert into checklists (profile_id, phase_id, checked) values
 (1, 20, false),
 (1, 21, false),
 (1, 22, false),
-(1, 23, false),
+(1, 23, false);
+
+
 
 
