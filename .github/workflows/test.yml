@@ -1,4 +1,4 @@
-name: Run Onehouse
+name: Run Test Onehouse
 
 on:
   push:
