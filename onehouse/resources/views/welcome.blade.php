@@ -16,6 +16,7 @@
 
     </div>
     <div class="subname">
+        <span>自動デプロイされました！</span>
         <span>一度きりだから、OneHouse.でしっかり管理。</span>
     </div>
 
