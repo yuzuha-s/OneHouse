@@ -1,4 +1,4 @@
-name: Deploy Laravel Backend to EC2
+name: Deploy Laravel to EC2
 
 on:
   push:
@@ -11,18 +11,29 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: action/checkout@3
+        uses: actions/checkout@v4
 
-      - name: Set up SSH agent
-        uses: appleboy/ssh-action@v1
-
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        # フロントエンド
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          php-version: "8.2"
+          node-version: 20
+      - run: npm ci
+      - run: npm run build
 
-      - name: Deploy to EC2
-        uses: deployphp/action@v1
+      - name: Upload frontend assets
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_NAME }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_PRIVATE_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
+          source: "public/build"
+          target: "${{ secrets.SERVER_PATH }}/public"
+
+        # バックエンド
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SERVER_NAME }}
           username: ${{ secrets.SERVER_USER }}
@@ -30,22 +41,17 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: |
             cd ${{ secrets.SERVER_PATH }}
-            composer install --optimize-autoloader --no-dev
-            php artisan migrate --force
-            php artisan config:cache
-            sudo systemctl reload nginx
+            git pull origin main
 
-        env:
-          GITHUB_WORKSPACE: ${{ github.workspace}}
-          SERVER_NAME: ${{ secrets.SERVER_NAME }}
-          SERVER_PORT: ${{ secrets.SERVER_PORT }}
-          SERVER_USER: ${{ secrets.SERVER_USER }}
-          SERVER_PRIVATE_KEY: ${{ secrets.SERVER_PRIVATE_KEY }}
-          SERVER_PATH: ${{ secrets.SERVER_PATH }}
-          ENV_FILE: ${{ secrets.ENV_FILE }}
-          DB_CONNECTION: ${{ secrets.DB_CONNECTION }}
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_PORT: ${{ secrets.DB_PORT }}
-          DB_DATABASE: ${{ secrets.DB_DATABASE }}
-          DB_USERNAME: ${{ secrets.DB_USERNAME }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+            composer install --optimize-autoloader --no-dev
+            php artisan optimize:clear
+            php artisan migrate --force
+            sudo systemctl reload httpd
+
+
+# main に push
+# npm build CSS / JS 本番反映
+# 本番用 composer install
+# キャッシュ全削除
+# マイグレーション実行
+# Apache 再読み込み

@@ -34,6 +34,9 @@
 | バージョン管理 | Git/GitHub              |            |                               |
 | エラー監視     | Sentry(（Laravel SDK）) | v4.20.0    | sentry/sentry-laravel         |
 
+GitHub Actionsを使って、mainブランチにマージされると
+EC2にSSH接続して自動でデプロイされる仕組みを作っています。
+
 ## アプリ画面
 
 - チェックリスト画面
