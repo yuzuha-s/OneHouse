@@ -34,7 +34,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_PRIVATE_KEY }}
           port: ${{ secrets.SERVER_PORT }}
-          source: "public/build"
+          source: "onehouse/public/build"
           target: "${{ secrets.SERVER_PATH }}/public"
 
         # バックエンド
