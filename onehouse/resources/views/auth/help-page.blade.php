@@ -23,6 +23,24 @@
         <span>一度きりだから、OneHouse.でしっかり管理。</span>
     </div>
 
+    <div class="wrapper">
+        <table class="update-table wrapper">
+            <thead >
+                <tr>
+                    <th>更新日時</th>
+                    <th>更新箇所</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2025/01/03</td>
+                    <td>アップデート記録追加</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
 
     <div class="worry-content wrapper">
         <nav>

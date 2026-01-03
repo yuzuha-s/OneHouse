@@ -44,6 +44,10 @@ a {
   text-decoration: none;
 }
 
+.favicon {
+  width: 40px;
+  height: 40px;
+}
 
 button {
   transition: transform 0.1s ease, box-shadow 0.1s ease;
@@ -874,6 +878,28 @@ button.logout-button:hover {
   box-shadow: 0 2px 0 #aaa;
 }
 
+.update-table {
+  width: 40%;
+  border-collapse: separate;
+  margin: 30px auto;
+}
+
+.update-table,
+.update-table.wrapper,
+.update-table td,
+.update-table th,
+.update-table tbody tr {
+  background-color: transparent;
+  box-shadow: none;
+  font-weight: normal;
+  font-size: 0.8rem;
+
+}
+
+.update-table th {
+  border-bottom: #8C8C8C 1px solid;
+
+}
 
 /* 各フェーズの目次 ------------------------------------ */
 

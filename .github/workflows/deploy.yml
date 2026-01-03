@@ -53,10 +53,3 @@ jobs:
             php artisan optimize:clear
             php artisan migrate --force
             sudo systemctl reload httpd
-
-# main に push
-# npm build CSS / JS 本番反映
-# 本番用 composer install
-# キャッシュ全削除
-# マイグレーション実行
-# Apache 再読み込み
