@@ -118,7 +118,7 @@
 
                         <div class="makerform-contant">
                             <label>標準仕様・オプション・特典など</label>
-                            <textarea name="option">{{ old('option') }}</textarea>
+                            <textarea name="option" class="maker-input">{{ old('option') }}</textarea>
                         </div>
 
                     </div>

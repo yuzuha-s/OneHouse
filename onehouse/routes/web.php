@@ -42,6 +42,10 @@ Route::middleware('auth')->group(function () {
         return view('auth/help-page');
     })->name('help-page');
 
+    Route::get('/checklistcategory', function () {
+        return view('checklistcategory');
+    })->name('checklistcategory');
+
 
     // 住宅メーカー一覧表示
     Route::get('/phase2', [MakerController::class, 'index']);
@@ -87,4 +91,3 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::get('/debug-sentry', function () {
     throw new Exception('Sentry test error from local!');
 });
-
