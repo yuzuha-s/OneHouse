@@ -79,14 +79,14 @@
 
                         <div class="makerform-contant">
                             <label>メーカー名</label><input type="text" name="name"
-                                value="{{ old('name', $maker->name) }}">
+                                value="{{ old('name', $maker->name) }}" class="maker-input" >
                         </div>
                         @error('name')
                             <div class="error">{{ $message }}</div>
                         @enderror
                         <div class="makerform-contant">
                             <label>担当者名</label>
-                            <input type="text" name="sales" value="{{ old('sales', $maker->sales) }}">
+                            <input type="text" name="sales" value="{{ old('sales', $maker->sales) }}" class="maker-input">
                         </div>
 
                         <div class="makerform-contant">

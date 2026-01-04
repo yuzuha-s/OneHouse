@@ -52,13 +52,13 @@ function setupEventListeners() {
         const tr = document.createElement("tr");
         tr.innerHTML = `<td></td>
                         <td></td>
-                        <td><input type="text" placeholder="タスクを追加していこう" class="checklist_input" name="list" value=""></td>
+                        <td><textarea placeholder="タスクを追加していこう" class="checklist_input" name="list"></textarea></td>
                         <td><button type="button" class="register-list">
                             <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ffff"><path d="M380.67-331.33 158.33-553.67l47.67-47L380.67-426l374-374 47 47.67-421 421ZM200-160v-66.67h560V-160H200Z"/></svg></button></td>
 
                         <td>
                             <button type="button" class="delete-list"><svg xmlns="http://www.w3.org/2000/svg"
-                                        height="40px" viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
+                                        height="40px" viewBox="0 -960 960 960" width="40px" fill="#fff">
                                         <path
                                             d="M282.98-140q-25.71 0-44.14-18.43t-18.43-44.14v-532.05H180v-50.25h174.05v-30.51h251.9v30.51H780v50.25h-40.41v532.05q0 25.79-18.39 44.18T677.02-140H282.98Zm406.35-594.62H270.67v532.05q0 5.39 3.59 8.85t8.72 3.46h394.04q4.62 0 8.47-3.84 3.84-3.85 3.84-8.47v-532.05ZM379.54-273.23h50.25v-379.08h-50.25v379.08Zm150.67 0h50.25v-379.08h-50.25v379.08ZM270.67-734.62v544.36V-734.62Z" />
                                     </svg></button>
@@ -88,7 +88,7 @@ function setupEventListeners() {
                 registerBtn.classList.remove("register-list");
                 registerBtn.classList.add("edit-list");
                 registerBtn.innerHTML = ` <svg xmlns="http://www.w3.org/2000/svg" height="40px"
-                                    viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
+                                    viewBox="0 -960 960 960" width="40px" fill="#fff">
                                     <path
                                         d="M284-286h68l250-249.33-68-69.34-250 250V-286Zm339.33-270.67 40-40.66q6.67-6.67 7-15 .34-8.34-7-15.67l-38-37.33q-7.33-7.34-15.33-7-8 .33-14.67 7l-40 39.33 68 69.33ZM186.67-120q-27.5 0-47.09-19.58Q120-159.17 120-186.67v-586.66q0-27.5 19.58-47.09Q159.17-840 186.67-840h192.66q7.67-35.33 35.84-57.67Q443.33-920 480-920t64.83 22.33Q573-875.33 580.67-840h192.66q27.5 0 47.09 19.58Q840-800.83 840-773.33v586.66q0 27.5-19.58 47.09Q800.83-120 773.33-120H186.67Zm0-66.67h586.66v-586.66H186.67v586.66Zm293.33-608q13.67 0 23.5-9.83t9.83-23.5q0-13.67-9.83-23.5t-23.5-9.83q-13.67 0-23.5 9.83t-9.83 23.5q0 13.67 9.83 23.5t23.5 9.83Zm-293.33 608v-586.66 586.66Z" />
                                 </svg>`;
