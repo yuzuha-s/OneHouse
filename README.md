@@ -46,28 +46,28 @@
 
 ### チェックリスト画面
 
-![alt text](/docs/images/checklistpage.png)
+<img width="500px" src="docs/images/checklistpage.png">
 
 - ユーザー登録と同時に、初期データが作成
 - タスクを登録・編集・削除・完了
 
 ### メーカー訪問記録画面
 
-![alt text](/docs/images/makerpage.png)
+<img width="500px" src="docs/images/makerpage.png">
 
 - 住宅展示場や工務店訪問の見積もり・メモのログ記録
 - 訪問記録を変更・削除
 
 ### 住宅ローンシュミレーション画面
 
-![alt text](/docs/images/loansimulationpage.png)
+<img width="500px" src="docs/images/loansimulationpage.png">
 
 - 住宅ローン・諸費用の目安・バランスをチャート化
 - 住宅ローン完済年齢・月々の返済額が表示
 
 ### 建築可能面積シュミレーション画面
 
-![alt text](/docs/images/landsimulationpage.png)
+<img width="500px" src="docs/images/landsimulationpage.png">
 
 - 建築可能面積の計算バー  
   （建ぺい率と容積率・階数、坪単価を入れると建物面積と金額を教えてくれる）
@@ -85,7 +85,7 @@
 
 ## インフラ構成図
 
-<img src="docs/images/infra.svg">
+<img width="550px" src="docs/images/infra.svg">
 
 ## 業務フロー図
 
