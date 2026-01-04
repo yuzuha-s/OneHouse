@@ -47,6 +47,9 @@ a {
 .favicon {
   width: 40px;
   height: 40px;
+  background-color: #576bf5;
+  border-radius: 50%;
+  border: none;
 }
 
 button {
@@ -2882,6 +2885,11 @@ textarea:focus {
     font-size: 2.2rem;
   }
 
+  .help-back {
+    margin: 0 !important;
+    padding: 5px;
+  }
+
   .appname .icon svg {
     width: 60px;
     height: 60px;
@@ -3057,9 +3065,9 @@ textarea:focus {
   }
 
 
-  .loginuser-nav .icon2 svg {
+  /* .loginuser-nav .icon2 svg {
     fill: #8C8C8C;
-  }
+  } */
 
   span .title {
     font-size: 30px;

@@ -3,7 +3,6 @@
 @section('ttitle', 'help | page')
 
 @section('content')
-
     <div class="appname wrapper">
         <div class="help-back"><a href="{{ route('phase1') }}"><svg xmlns="http://www.w3.org/2000/svg" height="40px"
                     viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
