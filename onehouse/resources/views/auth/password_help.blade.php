@@ -54,9 +54,12 @@
                 </div>
 
                 <div class="setup-form wrapper">
-                    <div class="register">
-                        <button type="submit">変更する</button>
+                    <div class="resetform-contant">
+                        <div class="register">
+                            <button type="submit">変更する</button>
+                        </div>
                     </div>
+
                 </div>
 
 

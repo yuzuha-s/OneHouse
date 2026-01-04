@@ -63,9 +63,12 @@
                     </div>
                 </div>
                 <div class="setup-form wrapper">
-                    <div class="register">
-                        <button type="submit">ログイン</button>
+                    <div class="resetform-contant">
+                        <div class="register">
+                            <button type="submit">ログイン</button>
+                        </div>
                     </div>
+
                 </div>
 
 
