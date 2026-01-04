@@ -23,11 +23,8 @@
             <div class="loginuser-nav">
                 <ul>
                     <li>
-                        <div class="icon2"><svg xmlns="http://www.w3.org/2000/svg" height="40px"
-                                viewBox="0 -960 960 960" width="40px" fill="#fff">
-                                <path
-                                    d="M131-90.67v-524.11l349-262.55 349.67 262.22v524.44H567.33v-316H392.67v316H131Z" />
-                            </svg></div>
+                        <div class="icon2"><img src="/favicon.png" class="favicon">
+                        </div>
                     </li>
                     <li><span class="title">{{ Auth::user()->name }}</span></li>
                     <li><a href="{{ route('help-page') }}">

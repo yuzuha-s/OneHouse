@@ -44,6 +44,10 @@ a {
   text-decoration: none;
 }
 
+.favicon {
+  width: 40px;
+  height: 40px;
+}
 
 button {
   transition: transform 0.1s ease, box-shadow 0.1s ease;
@@ -874,6 +878,28 @@ button.logout-button:hover {
   box-shadow: 0 2px 0 #aaa;
 }
 
+.update-table {
+  width: 40%;
+  border-collapse: separate;
+  margin: 30px auto;
+}
+
+.update-table,
+.update-table.wrapper,
+.update-table td,
+.update-table th,
+.update-table tbody tr {
+  background-color: transparent;
+  box-shadow: none;
+  font-weight: normal;
+  font-size: 0.8rem;
+
+}
+
+.update-table th {
+  border-bottom: #8C8C8C 1px solid;
+
+}
 
 /* 各フェーズの目次 ------------------------------------ */
 
@@ -970,8 +996,6 @@ tbody tr {
 .welcome {
   margin-top: 50px;
   width: 90%;
-  /* display: flex; */
-  /* flex-direction: row; */
 }
 
 .welcome .icon svg {
@@ -1085,8 +1109,8 @@ tbody tr {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 60px;
-  padding: 0;
-  margin: 60px auto;
+  padding: 60px 0 0 0;
+  margin: 0 auto;
 }
 
 .footer {
@@ -2621,8 +2645,8 @@ textarea:focus {
     grid-template-columns: 1fr;
     width: 80%;
     gap: 60px;
-    padding: 0;
-    margin: 60px auto;
+    padding: 60px 0 0 0;
+    margin: 0 auto;
   }
 
   .article-title {
@@ -2666,6 +2690,7 @@ textarea:focus {
 
   .welcome-setup .register button {
     width: 100%;
+    margin: 0 auto;
   }
 
   .is-img4 {
@@ -2678,7 +2703,6 @@ textarea:focus {
   .is-point1 {
     left: 100px;
   }
-
 
 }
 
@@ -2749,7 +2773,7 @@ textarea:focus {
 
   /* welcom---------------- */
   .worry-content {
-    width: 80%;
+    width: 90%;
   }
 
   .worry-bubble {
@@ -2777,7 +2801,7 @@ textarea:focus {
   .lead-text p {
     white-space: nowrap;
     width: 100%;
-    font-size: clamp(16px, 5vw, 20px);
+    font-size: 1.1rem;
   }
 
   .app-intro {

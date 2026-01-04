@@ -16,7 +16,6 @@
 
     </div>
     <div class="subname">
-        <span>自動デプロイされました！</span>
         <span>一度きりだから、OneHouse.でしっかり管理。</span>
     </div>
 
@@ -55,151 +54,153 @@
         <p>迷わず進めるサポートアプリ</p>
     </div>
 
-    <div class="article-group">
-        <article>
-            <div class="article-point">
-                <div class="article-title">
-                    <span class="point-badge">POINT</span>
-                    <strong>1</strong>
-                </div>
+    <div class="contant">
+        <div class="article-group">
+            <article>
+                <div class="article-point">
+                    <div class="article-title">
+                        <span class="point-badge">POINT</span>
+                        <strong>1</strong>
+                    </div>
 
-            </div>
-            <div class="app-intro">
-                <div class="intro-box">
-                    <h3>チェックリストで家探しの情報を管理</h3>
-                    <p>家探しの最初～完成までのチェックリストを確認でき、進捗に合わせて完了までしっかりチェックできます。</p>
                 </div>
-                <div class="intro-content">
-                    <div class="phone">
-                        <div class="screen">
-                            <img src="{{ asset('images/point1.png') }}" alt="">
+                <div class="app-intro">
+                    <div class="intro-box">
+                        <h3>チェックリストで家探しの情報を管理</h3>
+                        <p>家探しの最初～完成までのチェックリストを確認でき、進捗に合わせて完了までしっかりチェックできます。</p>
+                    </div>
+                    <div class="intro-content">
+                        <div class="phone">
+                            <div class="screen">
+                                <img src="{{ asset('images/point1.png') }}" alt="">
+                            </div>
+
                         </div>
 
-                    </div>
+                        <div class="caption point-cap1">
 
-                    <div class="caption point-cap1">
+                            <div class="is-glow">
+                                <img src="{{ asset('images/point1-1.png') }}" alt="">
+                                <p class="is-point1">追加ボタンでリストに
+                                    追加できます！</p>
+                            </div>
 
-                        <div class="is-glow">
-                            <img src="{{ asset('images/point1-1.png') }}" alt="">
-                            <p class="is-point1">追加ボタンでリストに
-                                追加できます！</p>
                         </div>
 
+
                     </div>
 
+                </div>
+            </article>
+
+            <article>
+                <div class="article-point">
+                    <div class="article-title">
+                        <span class="point-badge">POINT</span>
+                        <strong>2</strong>
+                    </div>
 
                 </div>
-
-            </div>
-        </article>
-
-        <article>
-            <div class="article-point">
-                <div class="article-title">
-                    <span class="point-badge">POINT</span>
-                    <strong>2</strong>
-                </div>
-
-            </div>
-            <div class="app-intro">
-                <div class="intro-box">
-                    <h3>訪問した住宅メーカーの比較ができる</h3>
-                    <p>気になった住宅メーカーの特徴を
-                        残しながら、自分たちに合う
-                        住まい選びができます。</p>
-                    <p class="is-point2">耐震性やブランドイメージ、標準仕様などの確認も漏らすことなく記録できます</p>
-                </div>
-                <div class="intro-content">
-                    <div class="phone">
-                        <div class="screen">
-                            <img src="{{ asset('images/point2.png') }}" alt="">
+                <div class="app-intro">
+                    <div class="intro-box">
+                        <h3>訪問した住宅メーカーの比較ができる</h3>
+                        <p>気になった住宅メーカーの特徴を
+                            残しながら、自分たちに合う
+                            住まい選びができます。</p>
+                        <p class="is-point2">耐震性やブランドイメージ、標準仕様などの確認も漏らすことなく記録できます</p>
+                    </div>
+                    <div class="intro-content">
+                        <div class="phone">
+                            <div class="screen">
+                                <img src="{{ asset('images/point2.png') }}" alt="">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="caption point-cap2">
+                        <div class="caption point-cap2">
 
-                    </div>
-
-                </div>
-            </div>
-        </article>
-
-        <article>
-            <div class="article-point">
-                <div class="article-title">
-                    <span class="point-badge">POINT</span>
-                    <strong>3</strong>
-                </div>
-
-            </div>
-            <div class="app-intro">
-                <div class="intro-box">
-                    <h3>将来の資金やローンをグラフで見える化</h3>
-                    <p>将来の資金やローンをチャートで直感的に
-                        見える化でき、 金利や支出が変わっても
-                        すぐにシミュレーションできます。</p>
-                </div>
-                <div class="intro-content">
-                    <div class="phone">
-                        <div class="screen">
-                            <img src="{{ asset('images/point3.png') }}" alt="">
                         </div>
 
                     </div>
                 </div>
+            </article>
 
-            </div>
-        </article>
+            <article>
+                <div class="article-point">
+                    <div class="article-title">
+                        <span class="point-badge">POINT</span>
+                        <strong>3</strong>
+                    </div>
 
-        <article>
-            <div class="article-point">
-                <div class="article-title">
-                    <span class="point-badge">POINT</span>
-                    <strong>4</strong>
                 </div>
+                <div class="app-intro">
+                    <div class="intro-box">
+                        <h3>将来の資金やローンをグラフで見える化</h3>
+                        <p>将来の資金やローンをチャートで直感的に
+                            見える化でき、 金利や支出が変わっても
+                            すぐにシミュレーションできます。</p>
+                    </div>
+                    <div class="intro-content">
+                        <div class="phone">
+                            <div class="screen">
+                                <img src="{{ asset('images/point3.png') }}" alt="">
+                            </div>
 
-            </div>
-            <div class="app-intro">
-                <div class="intro-box">
-                    <h3>安心して建てられる土地を探す</h3>
-                    <p>土地面積(㎡)、容積率・建ぺい率(%)、
-                        坪単価を入力して簡単に
-                        建築可能面積がわかり、保存して後から閲覧・変更できます。</p>
-
-                    <div>
-                        <div class="is-glow is-img4"> <img src="{{ asset('images/point4-2.png') }}" alt="">
-                            <p></p>
                         </div>
                     </div>
 
                 </div>
-                <div class="intro-content">
-                    <div class="phone">
-                        <div class="screen">
-                            <img src="{{ asset('images/point4.png') }}" alt="">
-                        </div>
+            </article>
+
+            <article>
+                <div class="article-point">
+                    <div class="article-title">
+                        <span class="point-badge">POINT</span>
+                        <strong>4</strong>
                     </div>
-                    <div class="caption point-cap4">
-                        <div class="is-glow"> <img src="{{ asset('images/point4-1.png') }}" alt="">
-                            <p class="is-point4">バーを動かして
-                                面積と費用を調整が可能</p>
+
+                </div>
+                <div class="app-intro">
+                    <div class="intro-box">
+                        <h3>安心して建てられる土地を探す</h3>
+                        <p>土地面積(㎡)、容積率・建ぺい率(%)、
+                            坪単価を入力して簡単に
+                            建築可能面積がわかり、保存して後から閲覧・変更できます。</p>
+
+                        <div>
+                            <div class="is-glow is-img4"> <img src="{{ asset('images/point4-2.png') }}" alt="">
+                                <p></p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="intro-content">
+                        <div class="phone">
+                            <div class="screen">
+                                <img src="{{ asset('images/point4.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="caption point-cap4">
+                            <div class="is-glow"> <img src="{{ asset('images/point4-1.png') }}" alt="">
+                                <p class="is-point4">バーを動かして
+                                    面積と費用を調整が可能</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-    </div>
-    </article>
 
-
-
-
-    <div class="welcome-setup  wrapper">
-        <div class="register wrapper">
-            <a href="{{ route('setup') }}"> <button>はじめる</button></a>
+            </article>
         </div>
+
+
+
+
+        <div class="welcome-setup  wrapper">
+            <div class="register wrapper">
+                <a href="{{ route('setup') }}"> <button>はじめる</button></a>
+            </div>
+        </div>
+
     </div>
-
-
 
 
 @endsection
