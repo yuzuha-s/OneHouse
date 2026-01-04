@@ -117,5 +117,5 @@ npx eslint resources/js
 ### テスト
 .env.testingのDB_DATABASE=onehouse_testで作成
 
-テストダータベースの作成
+テストデータベースの作成
 php artisan migrate --env=testing

@@ -1,6 +1,7 @@
 ## テーブル定義書 / ER 図
 
-[データ](/docs/date.sql)はこちら
+[シーディング](/docs/date.sql)はこちら
+
 ![alt text](/docs/images/ER.png)
 
 ### users
@@ -34,7 +35,7 @@
 | option     | VARCHAR(100) |      | NOT NULL |
 | star       | INT          |      |          |
 
-### makerOptionCategories
+### categories
 
 | カラム名 | データ型     | キー | NOT NULL |
 | -------- | ------------ | ---- | -------- |
@@ -63,7 +64,7 @@
 FOREIGN KEY (maker_id) REFERENCES makers(id),  
 FOREIGN KEY (feature_id) REFERENCES features(id)
 
-### landProperties
+### landLogs
 
 | カラム名       | データ型     | キー | NOT NULL |
 | -------------- | ------------ | ---- | -------- |
