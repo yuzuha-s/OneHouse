@@ -73,14 +73,17 @@
 
 
             <div class="setup-form wrapper">
-                <div class="register">
-                    <button type="submit">新規登録</button>
+                <div class="resetform-contant">
+                    <div class="register">
+                        <button type="submit">新規登録</button>
+                    </div>
                 </div>
+
             </div>
             <div class="setup-form wrapper">
                 <div class="button-form wrapper">
                     <a href="{{ route('login') }}" class="setup-button">ログイン</a>
-                    <a class="btn-hidden setup-button">ログイン</a>
+                    <a class="btn-hidden setup-button">ロ</a>
 
                 </div>
             </div>

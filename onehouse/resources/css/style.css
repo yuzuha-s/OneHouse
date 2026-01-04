@@ -1112,9 +1112,19 @@ tbody tr {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 60px;
-  padding: 60px 0 0 0;
-  margin: 0 auto;
+  padding: 30px;
+  margin: 30px auto;
 }
+
+.articcle-contant {
+  align-items: center;
+  /* width: 93%;
+  height: 93%; */
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  margin: auto;
+}
+
 
 .footer {
   margin-top: 60px;
@@ -2474,7 +2484,7 @@ textarea:focus {
     display: none !important;
   }
 
-  .contant {
+  .article-contant {
     margin-top: 40px;
   }
 
@@ -2822,6 +2832,12 @@ textarea:focus {
     width: 80%;
   }
 
+  .articcle-contant {
+    margin-top: 30px;
+    width: 95%;
+
+  }
+
   .app-intro {
     display: flex;
     justify-content: center;
@@ -2922,7 +2938,7 @@ textarea:focus {
   }
 
   .auth-form {
-    margin-top: 30px;
+    margin-top: 0;
   }
 
   .setup-form {
@@ -2932,6 +2948,7 @@ textarea:focus {
   .resetform-contant input {
     width: 90%;
     padding: 20px 10px;
+    font-size: 0.8rem;
   }
 
   .setup-form .register {
@@ -2941,6 +2958,7 @@ textarea:focus {
 
   .button-form {
     margin-bottom: 30px;
+    padding: 0 10px;
   }
 
   .register button {

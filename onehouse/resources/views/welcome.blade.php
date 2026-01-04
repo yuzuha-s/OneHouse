@@ -54,7 +54,7 @@
         <p>迷わず進めるサポートアプリ</p>
     </div>
 
-    <div class="contant">
+    <div class="articcle-contant">
         <div class="article-group">
             <article>
                 <div class="article-point">
