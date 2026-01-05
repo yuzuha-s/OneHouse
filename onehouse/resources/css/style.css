@@ -965,8 +965,10 @@ tbody tr {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   margin-bottom: 5px;
-  background-color: rgba(230, 246, 250, 0.7);
+  background-color: #fff;
 }
+
+/* rgba(230, 246, 250, 0.7) */
 
 .checklist tbody td:nth-child(1) {
   border-top-left-radius: 10px;
@@ -1436,7 +1438,7 @@ tr.checked svg {
   padding: 13px 15px;
   background-color: #8C8C8C;
   border-radius: 50%;
-  opacity: 0.2;
+  opacity: 0.18;
 }
 
 .phase1-nav {
@@ -2264,7 +2266,7 @@ textarea:focus {
 .update-list {
   background-color: #61C6DF;
   border: none;
-  border-radius: 20px;
+  border-radius: 100%;
 }
 
 .edit-row:hover,
@@ -2480,7 +2482,7 @@ textarea:focus {
   }
 
   .main-nav .icon {
-    padding: 5px;
+    padding: 12px;
 
   }
 
@@ -2641,17 +2643,6 @@ textarea:focus {
     width: 100%;
   }
 
-  .land-table th:nth-child(1),
-  .land-table td:nth-child(1) {
-    display: none;
-  }
-
-  .land-table th:nth-child(5),
-  .land-table td:nth-child(5) {
-    display: none;
-  }
-
-
 
   .validate {
     font-size: small;
@@ -2771,11 +2762,6 @@ textarea:focus {
   .list-nav h3 {
     font-size: 1.5rem;
     margin-left: 5px;
-  }
-
-  input[type="text"] {
-    font-size: 16px;
-    font-family: 'Noto Sans JP ';
   }
 
   span {
@@ -2994,7 +2980,6 @@ textarea:focus {
   }
 
   .validate {
-    padding: 3px 10px;
     gap: 5px;
   }
 
@@ -3060,7 +3045,7 @@ textarea:focus {
   .main-nav {
     order: 3;
     width: 30% !important;
-    flex-basis: 85%;
+    flex-basis: 95%;
     margin: 0 auto !important;
   }
 
@@ -3416,6 +3401,10 @@ textarea:focus {
     margin: auto;
   }
 
+  h5 {
+    font-size: 1.2rem;
+  }
+
   .form-valiable {
     padding: 12px 50px;
   }
@@ -3439,59 +3428,103 @@ textarea:focus {
   thead th,
   td,
   .checklist_input {
-    font-size: small;
+    font-size: 14px;
     white-space: normal;
     border: none;
     background-color: transparent;
+    font-family: 'Noto Sans JP ';
   }
-
 
   .checklist_input::placeholder {
     font-size: 14px;
     font-family: 'Noto Sans JP ';
   }
 
+
+
   .edit-row svg,
   .land-delete-btn svg {
     width: 30px;
   }
 
-  .land-table th:nth-child(2),
-  .land-table td:nth-child(2) {
-    width: 40%;
-    white-space: normal;
-    word-break: break-word;
+  .edit-row,
+  .land-delete-btn {
+    padding: 8px 15px;
   }
 
 
-  .land-table th:nth-child(3),
-  .land-table td:nth-child(3) {
-    width: 10%;
+  .land-table,
+  .land-table thead,
+  .land-table tbody,
+  .land-table tr,
+  .land-table td,
+  .land-table th {
+    display: block;
   }
 
-  .land-table th:nth-child(4),
-  .land-table td:nth-child(4),
-  .land-table th:nth-child(5),
-  .land-table td:nth-child(5) {
+  .land-table thead {
     display: none;
   }
 
-  .land-table th:nth-child(6),
-  .land-table td:nth-child(6) {
-    width: 10%;
+  .land-table tr {
+    padding: 12px;
+    margin: 12px 0;
+    background: #fff;
   }
 
+  .land-table td {
+    display: flex;
+    justify-content: center;
+    padding: 6px 0;
+  }
+
+  .land-table th:nth-child(1),
+  .land-table td:nth-child(1),
+  .land-table th:nth-child(2),
+  .land-table td:nth-child(2),
+  .land-table th:nth-child(3),
+  .land-table td:nth-child(3),
+  .land-table th:nth-child(4),
+  .land-table td:nth-child(4),
+  .land-table th:nth-child(5),
+  .land-table td:nth-child(5),
+  .land-table th:nth-child(6),
+  .land-table td:nth-child(6),
   .land-table th:nth-child(7),
   .land-table td:nth-child(7) {
-    width: 10%;
+    width: 100%;
+    min-width: 0;
   }
-.land-card,
-.land-card-success,
-.loan-card-success {
-  width: 95%;
-  margin: auto;
-  padding: 30px 10px;
-}
+
+  .land-table th:nth-child(6),
+  .land-table td:nth-child(6),
+  .land-table th:nth-child(7),
+  .land-table td:nth-child(7) {
+    display: inline-flex;
+    width: 50%;
+    justify-content: space-between;
+    padding: 6px 0;
+  }
+
+  .land-table tr.select-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .land-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #555;
+  }
+
+
+
+  .land-card,
+  .land-card-success {
+    width: 95%;
+    margin: auto;
+    padding: 30px 10px;
+  }
 
   /* phase3--------------------------- */
   .loanform-contant label {
@@ -3500,7 +3533,7 @@ textarea:focus {
   }
 
   .play {
-    width: 100%;
+    width: 93%;
     margin: 10px auto 0;
     display: flex;
     gap: 3px;
@@ -3561,27 +3594,62 @@ textarea:focus {
 
 
   /* ckecklistページ--------------- */
-  .slider {
-    width: 80%;
-  }
 
   .list-nav .icon {
     padding: 8px 10px;
   }
 
-  .checklist tbody td {
-    padding: 15px 5px;
+  .checklist,
+  .checklist thead,
+  .checklist tbody,
+  .checklist tr,
+  .checklist td,
+  .checklist th {
+    display: block;
   }
 
-  .checklist thead tr svg {
-    width: 30px;
-
-  }
-
-  .checklist th:nth-child(2),
-  .checklist td:nth-child(2) {
+  .checklist thead {
     display: none;
   }
+
+  .checklist tr {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .checklist td {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+  }
+
+
+  .checklist th:nth-child(1),
+  .checklist td:nth-child(1),
+  .checklist th:nth-child(2),
+  .checklist td:nth-child(2),
+  .checklist th:nth-child(3),
+  .checklist td:nth-child(3),
+  .checklist th:nth-child(4),
+  .checklist td:nth-child(4),
+  .checklist th:nth-child(5),
+  .checklist td:nth-child(5) {
+    width: auto;
+    min-width: 0;
+  }
+
+  .checklist td:nth-child(4),
+  .checklist td:nth-child(5) {
+    display: inline-flex;
+    width: 48%;
+    justify-content: space-between;
+  }
+
+  .checklist_input {
+    width: 100%;
+  }
+
+
 
   .toggle:hover,
   .toggle button svg:hover {
@@ -3589,12 +3657,23 @@ textarea:focus {
     box-shadow: none;
   }
 
+
   .edit-list svg,
   .delete-list svg,
   .update-list svg {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
+    fill: #fff;
   }
+
+  .edit-list,
+  .delete-list,
+  .update-list,
+  .register-list {
+    padding: 8px 15px;
+    margin: auto;
+  }
+
 
 
   .switch {
