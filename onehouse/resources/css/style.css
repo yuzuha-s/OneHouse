@@ -279,7 +279,11 @@ h4 {
 
 input {
   text-align: right;
-  font-family: "Noto Sans JP", Arial, "Roboto", sans-serif;
+  font-family: inherit;
+}
+
+textarea {
+  font-family: inherit;
 }
 
 .checklist_input,
@@ -434,6 +438,12 @@ input {
   display: block;
   line-height: 60px;
   text-align: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .auth-nav .icon {
@@ -986,6 +996,7 @@ tbody tr {
 
 .landsimulation {
   border-collapse: separate;
+  font-family: inherit;
 }
 
 .landsimulation tr td:first-child {
@@ -2750,6 +2761,11 @@ textarea:focus {
     height: auto;
   }
 
+  .fade {
+    opacity: 1;
+    transition: none;
+  }
+
   .contant {
     height: auto;
   }
@@ -3463,9 +3479,7 @@ textarea:focus {
   .land-delete-btn {
     background-color: #8C8C8C;
     opacity: 0.18;
-
   }
-
 
   .land-table,
   .land-table thead,
@@ -3542,6 +3556,10 @@ textarea:focus {
     padding: 30px 10px;
   }
 
+  .backEdit {
+    padding: 5px 10px;
+  }
+
   /* phase3--------------------------- */
   .loanform-contant label {
     font-size: 1.0rem;
@@ -3549,7 +3567,7 @@ textarea:focus {
   }
 
   .play {
-    width: 93%;
+    width: 70%;
     margin: 10px auto 0;
     display: flex;
     gap: 3px;
@@ -3692,6 +3710,49 @@ textarea:focus {
   .toggle button svg:hover {
     padding: 0;
     box-shadow: none;
+  }
+
+  .mobile-only-row {
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-only-row td {
+    display: flex;
+    align-items: center;
+    white-space: normal;
+  }
+
+  .mobile-only-row td:first-child {
+    flex: 0 0 auto;
+  }
+
+  .mobile-only-row td:nth-child(2) {
+    display: none;
+  }
+
+  .mobile-only-row td[colspan] {
+    flex: 1;
+    margin-left: 8px;
+  }
+
+  .toggleTr1,
+  .toggleTr2,
+  .toggleTr3,
+  .toggleTr4,
+  .toggleTr5 {
+    display: flex;
+  }
+
+  .toggleTr1 td,
+  .toggleTr2 td,
+  .toggleTr3 td,
+  .toggleTr4 td,
+  .toggleTr5 td {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
 
