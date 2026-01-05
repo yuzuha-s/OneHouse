@@ -35,9 +35,7 @@
                     </div>
                 </div>
 
-                <div class="list-nav">
-
-                </div>
+                <div class="list-nav"></div>
             </div>
 
             <form method="GET" action="{{ route('phase3.showLoanChart') }}">
