@@ -235,7 +235,8 @@
                                         <td data-label="更新日："> {{ $landLog->updated_formatted }} </td>
                                         <td data-label="住所：">{{ $landLog->address }}</td>
                                         <td data-label="土地面積：">{{ $landLog->landarea }}㎡</td>
-                                        <td data-label="建築可能面積：">{{ $landLog->builable_area }}㎡/{{ $landLog->tsubo }}坪</td>
+                                        <td data-label="建築可能面積：">{{ $landLog->builable_area }}㎡/{{ $landLog->tsubo }}坪
+                                        </td>
 
                                         <td data-label="容積率/建ぺい率：">{{ $landLog->far }}%/{{ $landLog->bcr }}%</td>
                                         <td><button type="button" class="edit-row"><svg
@@ -245,11 +246,12 @@
                                                         d="M284-286h68l250-249.33-68-69.34-250 250V-286Zm339.33-270.67 40-40.66q6.67-6.67 7-15 .34-8.34-7-15.67l-38-37.33q-7.33-7.34-15.33-7-8 .33-14.67 7l-40 39.33 68 69.33ZM186.67-120q-27.5 0-47.09-19.58Q120-159.17 120-186.67v-586.66q0-27.5 19.58-47.09Q159.17-840 186.67-840h192.66q7.67-35.33 35.84-57.67Q443.33-920 480-920t64.83 22.33Q573-875.33 580.67-840h192.66q27.5 0 47.09 19.58Q840-800.83 840-773.33v586.66q0 27.5-19.58 47.09Q800.83-120 773.33-120H186.67Zm0-66.67h586.66v-586.66H186.67v586.66Zm293.33-608q13.67 0 23.5-9.83t9.83-23.5q0-13.67-9.83-23.5t-23.5-9.83q-13.67 0-23.5 9.83t-9.83 23.5q0 13.67 9.83 23.5t23.5 9.83Zm-293.33 608v-586.66 586.66Z" />
                                                 </svg></button></td>
 
-                                        <form action="{{ route('phase4.destroy', ['id' => $landLog->id]) }}"
-                                            method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <td>
+
+                                        <td>
+                                            <form action="{{ route('phase4.destroy', ['id' => $landLog->id]) }}"
+                                                method="POST">
+                                                @csrf
+                                                @method('DELETE')
                                                 <button type="submit" class="land-delete-btn"
                                                     onclick="return confirm('本当に削除しますか？')"><svg
                                                         xmlns="http://www.w3.org/2000/svg" height="40px"
@@ -257,7 +259,7 @@
                                                         <path
                                                             d="M282.98-140q-25.71 0-44.14-18.43t-18.43-44.14v-532.05H180v-50.25h174.05v-30.51h251.9v30.51H780v50.25h-40.41v532.05q0 25.79-18.39 44.18T677.02-140H282.98Zm406.35-594.62H270.67v532.05q0 5.39 3.59 8.85t8.72 3.46h394.04q4.62 0 8.47-3.84 3.84-3.85 3.84-8.47v-532.05ZM379.54-273.23h50.25v-379.08h-50.25v379.08Zm150.67 0h50.25v-379.08h-50.25v379.08ZM270.67-734.62v544.36V-734.62Z" />
                                                     </svg></button>
-                                            </td>
+                                        </td>
                                         </form>
                                     </tr>
                                 @endforeach
