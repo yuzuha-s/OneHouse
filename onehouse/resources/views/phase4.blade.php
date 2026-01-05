@@ -40,10 +40,23 @@
                 </div>
             </div>
 
+            <div class="wrapper">
+                <div class="play">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
+                        fill="#8C8C8C">
+                        <path
+                            d="M403.33-320 630-480.67 403.33-640v320ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-42.33 8.33-82.5 8.34-40.17 25.34-78.5l50.66 50.67q-8 27.33-12.83 54.82-4.83 27.48-4.83 55.51 0 139.58 96.87 236.46 96.88 96.87 236.46 96.87t236.46-96.87q96.87-96.88 96.87-236.46T716.4-716.46q-96.93-96.87-236.59-96.87-28.14 0-55.66 4.67-27.51 4.68-54.48 12.99l-51-51Q357.33-862 396.33-871q39-9 81-9 83.24 0 156.46 31.5Q707-817 761.63-763q54.63 54 86.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80ZM215.25-692.67q-22.25 0-37.75-15.58-15.5-15.57-15.5-37.83 0-22.25 15.58-37.75t37.83-15.5q22.26 0 37.76 15.58 15.5 15.57 15.5 37.83 0 22.25-15.58 37.75t-37.84 15.5ZM480-480Z" />
+                    </svg>
+                    <p>土地情報を入力して建築面積をシュミレーションしてみよう！</p>
+                </div>
+            </div>
+
             <form action="{{ route('phase4.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="id" id="landLog_id" value="">
                 <div class="land-form wrapper">
+
+
 
                     <div class="land-left">
                         <div class="land-left-fix">
@@ -219,12 +232,12 @@
                                         data-builable-area="{{ $landLog->builable_area }}"
                                         data-tsubo="{{ $landLog->tsubo }}">
 
-                                        <td> {{ $landLog->updated_formatted }} </td>
-                                        <td>{{ $landLog->address }}</td>
-                                        <td>{{ $landLog->landarea }}㎡</td>
-                                        <td>{{ $landLog->builable_area }}㎡/{{ $landLog->tsubo }}坪</td>
+                                        <td data-label="更新日："> {{ $landLog->updated_formatted }} </td>
+                                        <td data-label="住所：">{{ $landLog->address }}</td>
+                                        <td data-label="土地面積：">{{ $landLog->landarea }}㎡</td>
+                                        <td data-label="建築可能面積：">{{ $landLog->builable_area }}㎡/{{ $landLog->tsubo }}坪</td>
 
-                                        <td>{{ $landLog->far }}%/{{ $landLog->bcr }}%</td>
+                                        <td data-label="容積率/建ぺい率：">{{ $landLog->far }}%/{{ $landLog->bcr }}%</td>
                                         <td><button type="button" class="edit-row"><svg
                                                     xmlns="http://www.w3.org/2000/svg" height="40px"
                                                     viewBox="0 -960 960 960" width="40px" fill="#8C8C8C">
