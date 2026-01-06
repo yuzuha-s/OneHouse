@@ -279,11 +279,11 @@ h4 {
 
 input {
   text-align: right;
-  font-family: inherit;
+  font-family: "Noto Sans JP", Arial, "Roboto", sans-serif;
 }
 
 textarea {
-  font-family: inherit;
+  font-family: "Noto Sans JP", Arial, "Roboto", sans-serif;
 }
 
 .checklist_input,
@@ -317,6 +317,14 @@ textarea {
 
 }
 
+.btn-off {
+  background-color: #E7E9FE;
+  border-radius: 10px;
+  padding: 3px 10px;
+  box-shadow: none;
+
+}
+
 
 .toggle:hover,
 .toggle button svg:hover {
@@ -347,7 +355,48 @@ textarea {
   color: #8C8C8C;
 }
 
+section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 10px 0;
 
+}
+
+.category-card {
+  width: 80%;
+  background-color: rgba(231, 233, 254, 0.3);
+  border-radius: 20px;
+  padding: 30px 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.category-card ul {
+  list-style-type: disc;
+  padding-left: 1.2em;
+  margin: 0;
+  text-align: left;
+}
+
+.category-card h4 {
+  text-align: left;
+  font-weight: bold;
+}
+
+.category-card li {
+  text-align: left;
+}
+
+.h4 {
+  background-color: #AAB9E6;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+.h4 ul {
+  list-style-type: decimal;
+  font-size: 18px;
+}
 
 /* 登録ページ共通------------------------------------ */
 .auth-section {
@@ -373,14 +422,14 @@ textarea {
 .auth-contant {
   width: 55%;
   align-items: center;
-  height: 85%;
+  height: auto;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 20px;
   margin: auto;
 }
 
 .auth-form {
-  margin-top: 60px;
+  margin: 60px 0 30px 0;
 }
 
 .appname {
@@ -504,10 +553,10 @@ textarea {
 .contant {
   align-items: center;
   width: 93%;
-  height: 93%;
+  height: auto;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 20px;
-  margin: auto;
+  margin: 30px auto;
 }
 
 .section {
@@ -948,6 +997,10 @@ button.logout-button:hover {
   align-items: center;
 }
 
+.list-nav .register {
+  width: auto;
+}
+
 /* チェックリストのテーブル-------------------------------------------------- */
 .table-wrapper {
   width: 100%;
@@ -968,6 +1021,7 @@ button.logout-button:hover {
   border-spacing: 0 6px;
   max-height: 500px;
   margin: 0 auto;
+  font-family: "Noto Sans JP", Arial, "Roboto", sans-serif;
 }
 
 tbody {
@@ -996,7 +1050,7 @@ tbody tr {
 
 .landsimulation {
   border-collapse: separate;
-  font-family: inherit;
+  font-family: "Noto Sans JP", Arial, "Roboto", sans-serif;
 }
 
 .landsimulation tr td:first-child {
@@ -1139,7 +1193,7 @@ tbody tr {
   margin: 30px auto;
 }
 
-.articcle-contant {
+.article-contant {
   align-items: center;
   /* width: 93%;
   height: 93%; */
@@ -1148,6 +1202,16 @@ tbody tr {
   margin: auto;
 }
 
+.pl-svg {
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+.pl-svg img {
+  width: 98%;
+  margin: 0 auto;
+}
 
 .footer {
   margin-top: 60px;
@@ -1376,7 +1440,7 @@ tbody tr {
   width: 90%;
   padding: 5px 10px;
   font-size: 16px;
-  font-family: 'Noto Sans JP ';
+  font-family: "Noto Sans JP", Arial, "Roboto", sans-serif;
   box-sizing: border-box;
   border: none;
   background-color: transparent;
@@ -1653,7 +1717,7 @@ tr.checked svg {
 }
 
 .star-rating {
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 .star-rating svg:hover {
@@ -2138,7 +2202,7 @@ textarea:focus {
 .land-list td {
   text-align: center;
   padding: 10px;
-  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 .land-table th:nth-child(1),
@@ -2464,11 +2528,12 @@ textarea:focus {
   }
 
   .star-check {
-    width: 50px;
+    width: 60px;
+    height: 50px;
   }
 
   .star-check svg {
-    width: 80%;
+    width: 90%;
   }
 
   .register {
@@ -3008,6 +3073,30 @@ textarea:focus {
   }
 
   /*  ログイン済ページ---------------------------- */
+  section {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .pl-svg {
+    padding: 20px 0;
+  }
+
+    .pl-svg img{
+    width: 89%;
+  }
+
+
+
+
+
+
+
   .section {
     width: 95% !important;
     flex-direction: column;
@@ -3421,6 +3510,14 @@ textarea:focus {
     margin: auto;
   }
 
+  h4 {
+    font-size: 1.3rem;
+  }
+
+  .h4 ul {
+    font-size: 16px;
+  }
+
   h5 {
     font-size: 1.2rem;
   }
@@ -3452,12 +3549,12 @@ textarea:focus {
     white-space: normal;
     border: none;
     background-color: transparent;
-    font-family: 'Noto Sans JP ';
+    font-family: "Noto Sans JP", Arial, "Roboto", sans-serif;
   }
 
   .checklist_input::placeholder {
     font-size: 16px;
-    font-family: 'Noto Sans JP ';
+    font-family: "Noto Sans JP", Arial, "Roboto", sans-serif;
   }
 
 
@@ -3696,14 +3793,12 @@ textarea:focus {
     justify-content: space-between;
   }
 
-  .checklist_input {
-    width: 100%;
-  }
 
   textarea.checklist_input {
     min-height: 100px;
     font-size: 16px;
-    font-family: 'Noto Sans JP ';
+    font-family: "Noto Sans JP", Arial, "Roboto", sans-serif;
+    width: 100%;
   }
 
   .toggle:hover,

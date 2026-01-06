@@ -336,11 +336,14 @@ function setupEventListeners() {
     const handleToggleCheck = (e) => {
         if (e.target.closest("#toggle-phase1")) {
             const phase1Rows = document.querySelectorAll(".phase1-row");
+            const toggle = document.getElementById("toggle-phase1");
             phase1Rows.forEach((phase1Row) => {
                 if (phase1Row.style.display === "none") {
                     phase1Row.style.display = "";
+                    toggle.classList.remove("btn-off");
                 } else {
                     phase1Row.style.display = "none";
+                    toggle.classList.add("btn-off");
                 }
             });
 
@@ -363,11 +366,14 @@ function setupEventListeners() {
 
         if (e.target.closest("#toggle-phase2")) {
             const phase2Rows = document.querySelectorAll(".phase2-row");
+            const toggle = document.getElementById("toggle-phase2");
             phase2Rows.forEach((phase2Row) => {
                 if (phase2Row.style.display === "none") {
                     phase2Row.style.display = "";
+                    toggle.classList.remove("btn-off");
                 } else {
                     phase2Row.style.display = "none";
+                    toggle.classList.add("btn-off");
                 }
             });
             const existingToggleTr = document.querySelector(".toggleTr2");
@@ -388,11 +394,14 @@ function setupEventListeners() {
 
         if (e.target.closest("#toggle-phase3")) {
             const phase3Rows = document.querySelectorAll(".phase3-row");
+            const toggle = document.getElementById("toggle-phase3");
             phase3Rows.forEach((phase3Row) => {
                 if (phase3Row.style.display === "none") {
                     phase3Row.style.display = "";
+                    toggle.classList.remove("btn-off");
                 } else {
                     phase3Row.style.display = "none";
+                    toggle.classList.add("btn-off");
                 }
             });
             const existingToggleTr = document.querySelector(".toggleTr3");
@@ -413,11 +422,14 @@ function setupEventListeners() {
 
         if (e.target.closest("#toggle-phase4")) {
             const phase4Rows = document.querySelectorAll(".phase4-row");
+            const toggle = document.getElementById("toggle-phase4");
             phase4Rows.forEach((phase4Row) => {
                 if (phase4Row.style.display === "none") {
                     phase4Row.style.display = "";
+                    toggle.classList.remove("btn-off");
                 } else {
                     phase4Row.style.display = "none";
+                    toggle.classList.add("btn-off");
                 }
             });
             const existingToggleTr = document.querySelector(".toggleTr4");
@@ -438,11 +450,14 @@ function setupEventListeners() {
 
         if (e.target.closest("#toggle-phase5")) {
             const phase5Rows = document.querySelectorAll(".phase5-row");
+            const toggle = document.getElementById("toggle-phase5");
             phase5Rows.forEach((phase5Row) => {
                 if (phase5Row.style.display === "none") {
                     phase5Row.style.display = "";
+                    toggle.classList.remove("btn-off");
                 } else {
                     phase5Row.style.display = "none";
+                    toggle.classList.add("btn-off");
                 }
             });
             const existingToggleTr = document.querySelector(".toggleTr5");
