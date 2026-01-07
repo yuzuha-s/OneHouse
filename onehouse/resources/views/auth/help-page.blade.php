@@ -88,10 +88,17 @@
     </div>
 
     <div class="contant">
-        <div class="pl-svg"> <img src="{{ asset('images/point1.svg') }}" alt=""></div>
-        <div class="pl-svg"> <img src="{{ asset('images/point2.svg') }}" alt=""></div>
-        <div class="pl-svg"> <img src="{{ asset('images/point3.svg') }}" alt=""></div>
-        <div class="pl-svg"> <img src="{{ asset('images/point4.svg') }}" alt=""></div>
+        <div class="pl-svg pc-only"> <img src="{{ asset('images/point1.svg') }}" alt=""></div>
+        <div class="pl-svg pc-only"> <img src="{{ asset('images/point2.svg') }}" alt=""></div>
+        <div class="pl-svg pc-only"> <img src="{{ asset('images/point3.svg') }}" alt=""></div>
+        <div class="pl-svg pc-only"> <img src="{{ asset('images/point4.svg') }}" alt=""></div>
+
+        <div class="pl-svg mobile-only"> <img src="{{ asset('images/mv-point1.svg') }}" alt=""></div>
+        <div class="pl-svg mobile-only"> <img src="{{ asset('images/mv-point2.svg') }}" alt=""></div>
+        <div class="pl-svg mobile-only"> <img src="{{ asset('images/mv-point3.svg') }}" alt=""></div>
+        <div class="pl-svg mobile-only"> <img src="{{ asset('images/mv-point4.svg') }}" alt=""></div>
+
+
     </div>
 
     </div>
