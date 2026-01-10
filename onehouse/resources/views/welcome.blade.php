@@ -16,7 +16,10 @@
 
     </div>
     <div class="subname">
-        <span>一度きりだから、OneHouse.でしっかり管理。</span>
+        <span>一度きりだから、</span>
+        <br>
+        <br>
+        <span>OneHouse.でしっかり管理。</span>
     </div>
 
 

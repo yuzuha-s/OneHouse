@@ -359,6 +359,7 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin: 10px 0;
+  gap: 30px;
 
 }
 
@@ -385,6 +386,21 @@ section {
 
 .category-card li {
   text-align: left;
+}
+
+.category-header {
+  margin: 80px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.category-header a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .h4 {
@@ -478,7 +494,7 @@ section {
 
 .subname {
   font-weight: 300;
-  margin-top: 10px;
+  margin:30px auto 50px;
   font-size: 15px;
 }
 
@@ -517,7 +533,7 @@ section {
 .button-form {
   display: flex;
   width: 90%;
-  margin-top: 20px;
+  margin: 20px 0 60px;
   gap: 20px;
 }
 
@@ -878,7 +894,7 @@ button.logout-button:hover {
 
 .resetform-contant {
   display: flex;
-  width: 98%;
+  width: 80%;
   flex-direction: column;
   justify-content: center;
   gap: 8px;
@@ -2473,6 +2489,11 @@ textarea:focus {
     width: 80%;
   }
 
+  section {
+    grid-template-columns: 1fr 1fr;
+    margin: 10px 0;
+  }
+
   .marker-list {
     flex-direction: row;
     flex-wrap: wrap;
@@ -2984,9 +3005,11 @@ textarea:focus {
     margin: 20px auto;
   }
 
-  .app-title {
+  .app-title,
+  .welcome .app-title {
     font-size: 2.2rem;
   }
+
 
   .help-back {
     margin: 0 !important;
@@ -3079,7 +3102,7 @@ textarea:focus {
 
   .category-card {
     width: 80%;
-    margin: 20px auto;
+    margin: 0 auto;
     padding: 20px;
   }
 
@@ -3087,7 +3110,7 @@ textarea:focus {
     padding: 20px 0;
   }
 
-    .pl-svg img{
+  .pl-svg img {
     width: 89%;
   }
 
@@ -3104,6 +3127,15 @@ textarea:focus {
     justify-content: flex-start;
     height: auto;
     margin: 20px auto;
+  }
+
+  .category-header {
+    margin: 30px auto 0;
+
+  }
+
+  .category-header h2 {
+    font-size: 1rem;
   }
 
   .nav {
