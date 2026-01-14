@@ -1,6 +1,6 @@
 @extends('layout.index')
 
-@section('ttitle', 'password_help')
+@section('title', 'Onehouse | パスワードを変更する')
 
 @section('content')
 

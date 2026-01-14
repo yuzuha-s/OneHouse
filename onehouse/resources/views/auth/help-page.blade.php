@@ -1,6 +1,6 @@
 @extends('layout.base')
 
-@section('ttitle', 'help | page')
+@section('title', 'Onehouse | アプリ使用方法')
 
 @section('content')
     <div class="appname wrapper">
@@ -21,37 +21,6 @@
     <div class="subname">
         <span>一度きりだから、OneHouse.でしっかり管理。</span>
     </div>
-
-    <div class="wrapper">
-        <table class="update-table wrapper">
-            <thead>
-                <tr>
-                    <th>更新日時</th>
-                    <th>更新箇所</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2025/01/03</td>
-                    <td>アップデート記録追加</td>
-                </tr>
-                <tr>
-                    <td>2025/01/04</td>
-                    <td>ランディングページ背景色追加</td>
-                </tr>
-                <tr>
-                    <td>2025/01/05</td>
-                    <td>チェックリストをカードに変更</td>
-                </tr>
-                <tr>
-                    <td>2025/01/06</td>
-                    <td>ランディングページに画像を追加</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-
 
     <div class="worry-content wrapper">
         <nav>
@@ -78,8 +47,6 @@
                 </li>
             </ul>
         </nav>
-
-
     </div>
 
     <div class="lead-text wrapper">
@@ -97,8 +64,6 @@
         <div class="pl-svg mobile-only"> <img src="{{ asset('images/mv-point2.svg') }}" alt=""></div>
         <div class="pl-svg mobile-only"> <img src="{{ asset('images/mv-point3.svg') }}" alt=""></div>
         <div class="pl-svg mobile-only"> <img src="{{ asset('images/mv-point4.svg') }}" alt=""></div>
-
-
     </div>
 
     </div>

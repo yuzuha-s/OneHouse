@@ -1,6 +1,6 @@
 @extends('layout.nav')
 
-@section('title', 'phase1')
+@section('title', 'Onehouse | 家づくりのためのチェックリスト')
 
 @section('content')
 
