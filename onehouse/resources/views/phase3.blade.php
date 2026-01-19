@@ -1,6 +1,6 @@
 @extends('layout.nav')
 
-@section('title', 'phase3')
+@section('title', 'Onehouse | ローンシュミレーション')
 
 @section('content')
 
@@ -55,14 +55,14 @@
 
                         <div class="left-fix">
                             <div class="loanform-contant">
-                                <label for="">借入金額(万円)</label>
+                                <label>借入金額(万円)</label>
                                 <div class="form-row">
                                     <input id="loan" type="number" name="loan" value="{{ old('loan', $loan) }}">
                                 </div>
                             </div>
 
                             <div class="loanform-contant">
-                                <label for="">年利(固定金利%)</label>
+                                <label>年利(固定金利%)</label>
                                 <div class="form-row">
                                     <input type="number" id="rate" step="0.1" name="rate"
                                         value="{{ old('rate', $rate) }}">
@@ -70,7 +70,7 @@
                             </div>
 
                             <div class="loanform-contant">
-                                <label for="">返済期間(年)</label>
+                                <label>返済期間(年)</label>
                                 <div class="form-row">
                                     <input id="loan_term" type="number" min="10" max="40" name="loan_term"
                                         value="{{ old('loan_term', $loan_term) }}">
@@ -80,14 +80,14 @@
 
                         <div class="left-fix">
                             <div class="loanform-contant">
-                                <label for="">年齢(歳)</label>
+                                <label>年齢(歳)</label>
                                 <div class="form-row">
                                     <input id="age" type="number" name="age" value="{{ old('age', $age) }}">
                                 </div>
                             </div>
 
                             <div class="loanform-contant">
-                                <label for="">毎月の支出(万円)</label>
+                                <label>毎月の支出(万円)</label>
                                 <div class="form-row">
                                     <input id="expense" type="number" name="expense"
                                         value="{{ old('expense', $expense) }}">
@@ -95,7 +95,7 @@
                             </div>
 
                             <div class="loanform-contant">
-                                <label for="">現在の収入(万円/年間)</label>
+                                <label>世帯収入(万円)</label>
                                 <div class="form-row">
                                     <input id="income" type="number" name="income"
                                         value="{{ old('income', $income) }}">

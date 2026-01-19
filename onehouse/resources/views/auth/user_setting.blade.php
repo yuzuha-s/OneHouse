@@ -1,6 +1,6 @@
 @extends('layout.back')
 
-@section('ttitle', 'user_setting')
+@section('title', 'Onehouse | ユーザー情報を変更する')
 
 @section('content')
 

@@ -1,6 +1,6 @@
 @extends('layout.base')
 
-@section('ttitle', 'welcome')
+@section('title', 'OneHouse. さぁ、はじめよう')
 
 @section('content')
 
@@ -84,7 +84,7 @@
 
                             <div class="is-glow">
                                 <img src="{{ asset('images/point1-1.png') }}" alt="">
-                                <p class="is-point1">追加ボタンでリストに
+                                <p class="is-point1 is-point-common">追加ボタンでリストに
                                     追加できます！</p>
                             </div>
 
@@ -110,7 +110,7 @@
                         <p>気になった住宅メーカーの特徴を
                             残しながら、自分たちに合う
                             住まい選びができます。</p>
-                        <p class="is-point2">耐震性やブランドイメージ、標準仕様などの確認も漏らすことなく記録できます</p>
+                        <p class="is-point2 is-point-common">耐震性やブランドイメージ、標準仕様などの確認も漏らすことなく記録できます</p>
                     </div>
                     <div class="intro-content">
                         <div class="phone">
@@ -184,7 +184,7 @@
                         </div>
                         <div class="caption point-cap4">
                             <div class="is-glow"> <img src="{{ asset('images/point4-1.png') }}" alt="">
-                                <p class="is-point4">バーを動かして
+                                <p class="is-point4 is-point-common">バーを動かして
                                     面積と費用を調整が可能</p>
                             </div>
                         </div>

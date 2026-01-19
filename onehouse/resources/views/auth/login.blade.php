@@ -1,6 +1,6 @@
 @extends('layout.index')
 
-@section('ttitle', 'login')
+@section('title', 'Onehouse | ログイン')
 
 @section('content')
 

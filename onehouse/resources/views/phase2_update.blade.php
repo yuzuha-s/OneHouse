@@ -1,6 +1,6 @@
 @extends('layout.back')
 
-@section('title', 'phase2 | update')
+@section('title', 'Onehouse | 住宅メーカー情報を更新する')
 
 @section('content')
 

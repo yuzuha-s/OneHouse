@@ -1,6 +1,6 @@
 @extends('layout.nav')
 
-@section('title', 'phase2')
+@section('title', 'Onehouse | 住宅メーカー記録帳')
 
 @section('content')
 

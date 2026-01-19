@@ -1,6 +1,7 @@
 @extends('layout.back')
 
-@section('title', 'phase1 | category')
+@section('title', '家づくりのためのチェックリスト')
+
 @section('content')
     <div class="category-header">
         <h2> チェックリストの使用方法はこちら</h2>
