@@ -18,6 +18,8 @@
 [要件定義と設計について](https://qiita.com/yuzu14s/items/b9ec7051357b575b0a2d)  
 ※コア機能については現在作成中！
 
+![デモ動画](docs/images/welcome.gif)
+
 ```
 ※テストユーザでログインも可能
 
@@ -33,16 +35,15 @@
 
 ## 技術スタック
 
-| カテゴリ       | 　使用技術              | バージョン | 説明                          |
-| -------------- | ----------------------- | ---------- | ----------------------------- |
-| バックエンド   | Laravel                 | v12        | ※認証は Laravel Breeze を使用 |
-| フロントエンド | HTML/CSS・JavaScript    |            |                               |
-| フロントエンド | Vue.js                  | v3.5.22    | ApexCharts を使用             |
-| データベース   | MySQL                   | v8.0.44    |                               |
-| インフラ       | AWS（EC2）              |            | Amazon Linux                  |
-| インフラ       | Apache                  | v2.4.65    |                               |
-| バージョン管理 | Git/GitHub              |            | GitHub Actions(CI/CD)         |
-| エラー監視     | Sentry(（Laravel SDK）) | v4.20.0    | sentry/sentry-laravel         |
+| カテゴリ       | 　使用技術           | バージョン | 説明                          |
+| -------------- | -------------------- | ---------- | ----------------------------- |
+| バックエンド   | Laravel              | v12        | ※認証は Laravel Breeze を使用 |
+| フロントエンド | HTML/CSS・JavaScript |            |                               |
+| フロントエンド | Vue.js               | v3.5.22    | ApexCharts を使用             |
+| データベース   | MySQL                | v8.0.44    |                               |
+| インフラ       | AWS（EC2）           |            | Amazon Linux                  |
+| インフラ       | Apache               | v2.4.65    |                               |
+| バージョン管理 | Git/GitHub           |            | GitHub Actions(CI/CD)         |
 
 ## サービス機能一覧(アプリ画面)
 
@@ -53,12 +54,16 @@
 - ユーザー登録と同時に、初期データが作成
 - タスクを登録・編集・削除・完了
 
+<img src="docs/images/phase1.gif" alt="デモ動画" width="400">
+
 ### メーカー訪問記録画面
 
 <img width="500px" src="docs/images/makerpage.png">
 
 - 住宅展示場や工務店訪問の見積もり・メモのログ記録
 - 訪問記録を変更・削除
+
+<img src="docs/images/phase2.gif" alt="デモ動画" width="400">
 
 ### 住宅ローンシュミレーション画面
 
@@ -67,6 +72,8 @@
 - 住宅ローン・諸費用の目安・バランスをチャート化
 - 住宅ローン完済年齢・月々の返済額が表示
 
+<img src="docs/images/phase3.gif" alt="デモ動画" width="400">
+
 ### 建築可能面積シュミレーション画面
 
 <img width="500px" src="docs/images/landsimulationpage.png">
@@ -74,6 +81,8 @@
 - 建築可能面積の計算バー  
   （建ぺい率と容積率・階数、坪単価を入れると建物面積と金額を教えてくれる）
 - 保存先の編集・削除
+
+<img src="docs/images/phase4.gif" alt="デモ動画" width="400">
 
 ### 認証
 
