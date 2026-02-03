@@ -2142,6 +2142,7 @@ textarea:focus {
 
 .land-list {
   width: 95%;
+  max-height: 270px;
   overflow-y: auto;
   text-align: center;
   align-items: center;
@@ -3040,6 +3041,7 @@ textarea:focus {
   .pl-svg img {
     width: 89%;
   }
+
   .section {
     width: 95% !important;
     flex-direction: column;
@@ -3483,6 +3485,7 @@ textarea:focus {
 
   .land-list {
     width: 100%;
+    min-height: 0;
   }
 
   .land-table {
