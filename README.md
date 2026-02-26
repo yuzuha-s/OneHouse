@@ -16,7 +16,7 @@
 
 解説記事(Qiita)：  
 [要件定義と設計について](https://qiita.com/yuzu14s/items/b9ec7051357b575b0a2d)  
-※コア機能については現在作成中！
+[コア機能について](https://qiita.com/yuzu14s/items/889844bae77b19f9a02f)
 
 ![デモ動画](docs/images/welcome.gif)
 
